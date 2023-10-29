@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GeneradorData</title>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="generadordata, generar, cif, nie, nif, data, test, documento" />
+    <meta name="description" content="generadordata, Nuestro proposito es entregar datos aleatorios con formatos validos." />
+    <meta name="author" content="AdminKeys Develop" />
+    <meta name="copyright" content="AdminKeys Develop 2023" />
+
+    <link rel="apple-touch-icon" href="assets/img/logoGeneradorData140.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/functions.js" type="application/javascript"></script>
+    <!-- generadordata.com -->
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@generadordata.com">info@generadordata.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                </div>
+                <div>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                <img src="assets/img/logoGeneradorData.png">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Ejecutables</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="alertCopiItem" class="alert alert-success alert-dismissible fade show fixed-top" style="display: none; right: 10px;">
+        <strong>Copiado!</strong>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <!-- Start Featured Product -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <p>Nuestro propósito es entregar datos aleatorios con formatos válidos. </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <label href="shop-single.html" class="h2 text-decoration-none text-dark">Número NIF</label>
+                            <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" >
+                                <div class="h3 text-success text-center" id="divGenerateNif"> Generar <i class="fa fa-refresh"></i></div>
+                            </div>
+                            <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" >
+                                <h2 class="h3 mt-4 text-center" id="divCopiNif">&nbsp;</h2>
+                                <input type="hidden" id="hddCopiNif" >
+                            </div>
+                            <p class="text-muted">Historial</p>
+                            <ul class="list-unstyled pb-3" id="ulHistorialNif">
+                                <li ></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <label href="shop-single.html" class="h2 text-decoration-none text-dark">Número NIE</label>
+                            <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" >
+                                <div class="h3 text-success text-center" id="divGenerateNie"> Generar <i class="fa fa-refresh"></i></div>
+                            </div>
+                            <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" >
+                                <h2 class="h3 mt-4 text-center" id="divCopiNie">&nbsp;</h2>
+                                <input type="hidden" id="hddCopiNie" >
+                            </div>
+                            <p class="text-muted">Historial</p>
+                            <ul class="list-unstyled pb-3" id="ulHistorialNie">
+                                <li ></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <label href="shop-single.html" class="h2 text-decoration-none text-dark">Número CIF</label>
+                            <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" >
+                                <div class="h3 text-success text-center" id="divGenerateCif"> Generar <i class="fa fa-refresh"></i></div>
+                            </div>
+                            <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" >
+                                <h2 class="h3 mt-4 text-center" id="divCopiCif">&nbsp;</h2>
+                                <input type="hidden" id="hddCopiCif" >
+                            </div>
+                            <p class="text-muted">Historial</p>
+                            <ul class="list-unstyled pb-3" id="ulHistorialCif">
+                                <li ></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <p>Generación números de NIF, NIE, CIF para tus pruebas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Product -->
+
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@generadordata.com">info@generadordata.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+
+                </div>
+
+                <div class="col-md-4 pt-5">
+
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2023 GenerateDATA
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>
