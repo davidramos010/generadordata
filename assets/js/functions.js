@@ -1,6 +1,8 @@
 // Función para generar un NIF español aleatorio
 function generarNIF() {
     var numero = Math.floor(Math.random() * 1000000000);
+    numero = numero.toString();
+    numero = numero.substring(0, 8);
     var letra = 'TRWAGMYFPDXBNJZSQVHLCKE'[numero % 23]; // Cálculo del dígito de control
     return numero.toString() + letra;
 }
