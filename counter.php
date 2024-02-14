@@ -4,9 +4,9 @@
 function getVisitante($recordPage='index')
 {
     $db_host = "localhost";
-    $db_username = "generatedata";
-    $db_password = "1A98e#gd2";
-    $db_name = "admin_generatedata";
+    $db_username = "userBD";
+    $db_password = "passBD";
+    $db_name = "admin_BD";
     $db_table = "conter";
     $counter_page = $recordPage;
 
