@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8082:80"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USERNAME=userBD
+      - DB_PASSWORD=passBD
+      - DB_NAME=admin_BD
+    volumes:
+      - .:/var/www/html
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: admin_BD
+      MYSQL_USER: userBD
+      MYSQL_PASSWORD: passBD
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

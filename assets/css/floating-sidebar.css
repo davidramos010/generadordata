@@ -1,0 +1,122 @@
+/* Floating Sidebar - ULTRA SIMPLE */
+.floating-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.floating-sidebar-content {
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    height: 100%;
+}
+
+.floating-sidebar .sidebar-badge {
+    background: #FFD700;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.floating-sidebar .sidebar-product-container {
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.floating-sidebar .sidebar-product-container:hover {
+    transform: translateY(-2px);
+}
+
+
+.floating-sidebar .sidebar-product-container a:hover {
+}
+
+.floating-sidebar .sidebar-product-image {
+    width: 100%;
+    max-width: 200px;
+    max-height: 120px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.floating-sidebar .sidebar-product-price-section {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 6px 0;
+}
+
+.floating-sidebar .sidebar-product-original-price {
+    font-size: 11px;
+    color: #767676;
+    text-decoration: line-through;
+    display: block;
+}
+
+.floating-sidebar .sidebar-product-current-price {
+    font-size: 13px;
+    font-weight: bold;
+    color: #B12704;
+    display: block;
+}
+
+.floating-sidebar .sidebar-product-savings {
+    font-size: 9px;
+    color: #007600;
+    display: block;
+}
+
+/* Hide on mobile devices */
+@media (max-width: 768px) {
+    .floating-sidebar {
+        display: none !important;
+    }
+}
+
+/* Adjust for tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .floating-sidebar {
+        width: 220px;
+        right: 15px;
+    }
+}
+
+/* Scrollbar styling */
+.floating-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.floating-sidebar::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.floating-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+.floating-sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.5);
+}
