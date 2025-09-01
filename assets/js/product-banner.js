@@ -32,7 +32,7 @@ class ProductBanner {
     
     createBanner() {
         const bannerHTML = `
-            <div class="product-banner-container">
+            <div class="product-banner-container" style="display: none">
                 <div class="product-banner-content">
                     <div class="product-banner-image-section">
                         <img src="${this.config.productImage}" 
