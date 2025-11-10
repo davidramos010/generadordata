@@ -76,9 +76,9 @@
     <link rel="stylesheet" href="assets/css/product-banner.css">
     <link rel="stylesheet" href="assets/css/floating-sidebar.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -175,7 +175,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIF</h2>
-                                <p class="text-muted">Número de Identificación Fiscal para personas físicas</p>
+                                <p class="text-muted">Identificación Fiscal para personas físicas</p>
                                 <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIF">
                                     <div class="h3 text-success text-center" id="divGenerateNif">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
                                 </div>
@@ -227,6 +227,52 @@
                                 <ul class="list-unstyled pb-3" id="ulHistorialCif" aria-label="Historial de números CIF generados">
                                     <li></li>
                                 </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Validator Tools -->
+                <div class="row">
+                    <article class="col-12 col-md-4 mb-4 validator-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h2 text-decoration-none text-dark">Validador de NIF</h2>
+                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
+                                    <input type="text" class="form-control validator-input" id="nifValidatorInput" placeholder="Introduce un NIF">
+                                </div>
+                                <div id="validateNifButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar NIF">
+                                    <div class="h3 text-success text-center">Validar</div>
+                                </div>
+                                <p class="mt-2 validation-result" id="nifValidationResult"></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-12 col-md-4 mb-4 validator-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h2 text-decoration-none text-dark">Validador de NIE</h2>
+                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
+                                    <input type="text" class="form-control validator-input" id="nieValidatorInput" placeholder="Introduce un NIE">
+                                </div>
+                                <div id="validateNieButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar NIE">
+                                    <div class="h3 text-success text-center">Validar</div>
+                                </div>
+                                <p class="mt-2 validation-result" id="nieValidationResult"></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-12 col-md-4 mb-4 validator-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h2 text-decoration-none text-dark">Validador de CIF</h2>
+                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
+                                    <input type="text" class="form-control validator-input" id="cifValidatorInput" placeholder="Introduce un CIF">
+                                </div>
+                                <div id="validateCifButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar CIF">
+                                    <div class="h3 text-success text-center">Validar</div>
+                                </div>
+                                <p class="mt-2 validation-result" id="cifValidationResult"></p>
                             </div>
                         </div>
                     </article>
