@@ -32,31 +32,38 @@ class ProductBanner {
     
     createBanner() {
         const bannerHTML = `
-            <div class="product-banner-container" style="display: none">
+            <div class="product-banner-container" >
                 <div class="product-banner-content">
-                    <div class="product-banner-image-section">
-                        <img src="${this.config.productImage}" 
-                             alt="${this.config.productTitle}" 
-                             class="product-banner-image"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="product-banner-fallback" style="display: none;">
-                            <i class="${this.config.fallbackIcon}"></i>
-                            <span>${this.config.fallbackText}</span>
-                        </div>
-                    </div>
-                    <div class="product-banner-info-section">
-                        <h3 class="product-banner-title">${this.config.productTitle}</h3>
-                        <p class="product-banner-description">${this.config.productDescription}</p>
-                        <div class="product-banner-features">${this.config.productFeatures}</div>
-                        <div class="product-banner-price-section">
-                            ${this.config.originalPrice ? `<span class="product-banner-original-price">${this.config.originalPrice}</span>` : ''}
-                            <span class="product-banner-current-price">${this.config.currentPrice}</span>
-                            ${this.config.discountPercentage ? `<span class="product-banner-discount">${this.config.discountPercentage}</span>` : ''}
-                        </div>
-                        <a href="${this.config.affiliateLink}" target="_blank" class="product-banner-button">
-                            ${this.config.buyButtonText} ${this.config.storeName}
-                        </a>
-                    </div>
+                    <a href="${this.config.affiliateLink}" target="_blank" style="text-decoration: none; color: inherit;">
+                        <table class="product-banner-table">
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                <div class="product-banner-image-section">
+                                    <img src="${this.config.productImage}" 
+                                        alt="${this.config.productTitle}" 
+                                        class="product-banner-image"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="product-banner-fallback" style="display: none;">
+                                        <i class="${this.config.fallbackIcon}"></i>
+                                        <span>${this.config.fallbackText}</span>
+                                    </div>
+                                </div>
+                                </td>
+                                <td>
+                                <div class="product-banner-info-section">
+                                    <h3 class="product-banner-title">${this.config.productTitle}</h3>
+                                    <p class="product-banner-description">${this.config.productDescription}</p>
+                                    <div class="product-banner-features">${this.config.productFeatures}</div>
+                                    <div class="product-banner-price-section">
+                                        ${this.config.originalPrice ? `<span class="product-banner-original-price">${this.config.originalPrice}</span>` : ''}
+                                        <span class="product-banner-current-price">${this.config.currentPrice}</span>
+                                        ${this.config.discountPercentage ? `<span class="product-banner-discount">${this.config.discountPercentage}</span>` : ''}
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </a>
                 </div>
             </div>
         `;

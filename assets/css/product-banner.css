@@ -8,7 +8,7 @@
 .product-banner-container {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px;
-    padding: 20px;
+    padding: 16px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -18,6 +18,8 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    /* Ensuring the layout is row-based (image left, text right) */
+    flex-direction: row;
 }
 
 .product-banner-container:hover {
@@ -28,8 +30,8 @@
 /* Product image container */
 .product-banner-image {
     flex-shrink: 0;
-    width: 120px;
-    height: 120px;
+    width: 96px;
+    height: 96px;
     background: white;
     border-radius: 12px;
     display: flex;
@@ -39,8 +41,8 @@
 }
 
 .product-banner-image img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 80px;
+    max-height: 80px;
     object-fit: contain;
 }
 
@@ -68,20 +70,20 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
-    line-height: 1.3;
+    line-height: 1.0;
 }
 
 .product-banner-description {
     font-size: 14px;
     opacity: 0.9;
-    margin-bottom: 12px;
-    line-height: 1.4;
+    margin-bottom: 5px;
+    line-height: 0.8;
 }
 
 .product-banner-features {
     font-size: 12px;
     opacity: 0.8;
-    margin-bottom: 15px;
+    margin-bottom: 2px;
 }
 
 /* Price section */
@@ -339,4 +341,63 @@
     color: white !important;
     padding: 20px !important;
     border-radius: 8px !important;
+}
+
+.product-banner-content {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start; /* or center, but let's do flex-start if user wants text aligned top.*/
+    gap: 20px;
+}
+
+.product-banner-image-section {
+    flex: 0 0 auto;
+    float: none !important;
+}
+
+.product-banner-info-section {
+    flex: 1 1 auto;
+    float: none !important;
+}
+
+/* Asegurar que el enlace no altere el estilo en .product-banner-container */
+.product-banner-container a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.product-banner-container a:hover,
+.product-banner-container a:focus,
+.product-banner-container a:active {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+}
+
+.product-banner-link {
+    display: inline-block;   /* Para envolver la tabla correctamente */
+    text-decoration: none;   /* Quita subrayado */
+    color: inherit;          /* Mantiene el color original de la tabla */
+}
+
+.product-banner-link:visited,
+.product-banner-link:hover,
+.product-banner-link:active,
+.product-banner-link:focus {
+    text-decoration: none;   /* Sin cambios al interactuar */
+    color: inherit;          /* Sin cambio de color */
+}
+
+.product-banner-table {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-right: 10px;
 }
