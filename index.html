@@ -15,7 +15,7 @@
     <title>Generador de NIF, NIE y CIF Gratis | Validadores Online | GeneradorData</title>
     <meta name="title" content="Generador de NIF, NIE y CIF Gratis | Validadores Online | GeneradorData">
     <meta name="description" content="Genera números de NIF, NIE y CIF válidos para pruebas y desarrollo. Herramienta gratuita online para validar y generar documentos de identificación españoles. Sin registro, uso inmediato.">
-    <meta name="keywords" content="generador nif, generador nie, generador cif, validar nif, validar nie, validar cif, nif aleatorio, nie aleatorio, cif aleatorio, documento identidad españa, numero identificacion, herramientas desarrollo, pruebas software, validadores online, generadores gratis">
+    <meta name="keywords" content="generador nif, generador nie, generador cif, generador dni, validar nif, validar nie, validar cif, validar dni, nif aleatorio, nie aleatorio, cif aleatorio, dni aleatorio, documento identidad españa, numero identificacion, herramientas desarrollo, pruebas software, validadores online, generadores gratis">
     <meta name="author" content="AdminKeys Develop">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -106,6 +106,7 @@
             "Generador de NIF",
             "Generador de NIE", 
             "Generador de CIF",
+            "Generador de DNI",
             "Validación de documentos",
             "Historial de generaciones",
             "Uso gratuito"
@@ -163,7 +164,27 @@
                 
                 <!-- Generator Tools -->
                 <div class="row">
-                    <article class="col-12 col-md-4 mb-4">
+                    <article class="col-12 col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h2 text-decoration-none text-dark">Generador de DNI</h2>
+                                <p class="text-muted">Documento de Identidad Nacional</p>
+                                <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número DNI">
+                                    <div class="h3 text-success text-center" id="divGenerateDni">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                </div>
+                                <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número DNI generado">
+                                    <h3 class="h3 mt-4 text-center" id="divCopiDni">&nbsp;</h3>
+                                    <input type="hidden" id="hddCopiDni">
+                                </div>
+                                <h3 class="text-muted">Historial</h3>
+                                <ul class="list-unstyled pb-3" id="ulHistorialDni" aria-label="Historial de números DNI generados">
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-12 col-md-3 mb-4">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIF</h2>
@@ -183,7 +204,7 @@
                         </div>
                     </article>
                     
-                    <article class="col-12 col-md-4 mb-4">
+                    <article class="col-12 col-md-3 mb-4">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIE</h2>
@@ -203,7 +224,7 @@
                         </div>
                     </article>
                     
-                    <article class="col-12 col-md-4 mb-4">
+                    <article class="col-12 col-md-3 mb-4">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de CIF</h2>
@@ -226,7 +247,21 @@
 
                 <!-- Validator Tools -->
                 <div class="row">
-                    <article class="col-12 col-md-4 mb-4 validator-card">
+                    <article class="col-12 col-md-3 mb-4 validator-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h2 text-decoration-none text-dark">Validador de DNI</h2>
+                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
+                                    <input type="text" class="form-control validator-input" id="dniValidatorInput" placeholder="Introduce un DNI">
+                                </div>
+                                <div id="validateDniButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar DNI">
+                                    <div class="h3 text-success text-center">Validar</div>
+                                </div>
+                                <p class="mt-2 validation-result" id="dniValidationResult"></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-12 col-md-3 mb-4 validator-card">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de NIF</h2>
@@ -240,7 +275,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="col-12 col-md-4 mb-4 validator-card">
+                    <article class="col-12 col-md-3 mb-4 validator-card">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de NIE</h2>
@@ -254,7 +289,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="col-12 col-md-4 mb-4 validator-card">
+                    <article class="col-12 col-md-3 mb-4 validator-card">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de CIF</h2>
@@ -272,7 +307,14 @@
                 
                 <!-- Information Section -->
                 <section aria-labelledby="info-title">
-                    <h2 id="info-title" class="text-center py-3">Información sobre NIF, NIE y CIF</h2>
+                    <h2 id="info-title" class="text-center py-3">Información sobre DNI, NIF, NIE y CIF</h2>
+                    
+                    <div class="row">
+                        <div class="col-12" style="text-align: justify">
+                            <h3>DNI (Documento de Identidad Nacional)</h3>
+                            <p>El <strong>DNI</strong> es el documento de identidad oficial en España para ciudadanos españoles. Se compone de 8 dígitos numéricos seguidos de una letra de control. El DNI es emitido por la Dirección General de la Policía Nacional y es un documento esencial para identificarse legalmente, realizar transacciones bancarias, firmar contratos y múltiples gestiones administrativas.</p>
+                        </div>
+                    </div>
                     
                     <div class="row">
                         <div class="col-12" style="text-align: justify">

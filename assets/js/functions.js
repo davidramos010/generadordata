@@ -1,3 +1,13 @@
+// Función para generar un DNI español aleatorio
+function generarDNI() {
+    var numero = Math.floor(Math.random() * 100000000).toString();
+    while (numero.length < 8) {
+        numero = '0' + numero;
+    }
+    var letra = 'TRWAGMYFPDXBNJZSQVHLCKE'[parseInt(numero) % 23]; // Cálculo del dígito de control
+    return numero + letra;
+}
+
 // Función para generar un NIF español aleatorio
 function generarNIF() {
     var numero = Math.floor(Math.random() * 1000000000);
@@ -76,6 +86,16 @@ function generarCIF() {
 
 function copiNif(){
     var input = $('#hddCopiNif')[0];
+    input.select();
+    document.execCommand("copy");
+    $("#alertCopiItem").fadeIn().delay(2000).fadeOut();
+    setTimeout(function() {
+        $("#alertCopiItem").hide(300,'');
+    }, 3000);
+}
+
+function copiDni(){
+    var input = $('#hddCopiDni')[0];
     input.select();
     document.execCommand("copy");
     $("#alertCopiItem").fadeIn().delay(2000).fadeOut();
@@ -187,6 +207,19 @@ $(document).ready(function() {
     });
 
     //-------------------------------
+    $('#divGenerateDni').click(function() {
+        let dni = generarDNI();
+        $('#divCopiDni').text(" " + dni);
+        $('#hddCopiDni').val(dni);
+        let nuevoElemento = $('<li> - '+dni+'</li>');
+        $('#ulHistorialDni').prepend(nuevoElemento);
+    });
+
+    $('#divCopiDni').click(function() {
+        let dni = copiDni();
+    });
+
+    //-------------------------------
     $('#divGenerateNie').click(function() {
         let nie = generarNIE();
         $('#divCopiNie').text(" " + nie);
@@ -215,6 +248,16 @@ $(document).ready(function() {
     //-------------------------------
     // Validators
     //-------------------------------
+    $('#validateDniButton').click(function() {
+        let dni = $('#dniValidatorInput').val();
+        let result = validateSpanishID(dni);
+        if (result.valid && result.type === 'NIF') {
+            $('#dniValidationResult').text('DNI válido.').removeClass('text-danger').addClass('text-success');
+        } else {
+            $('#dniValidationResult').text('DNI no válido.').removeClass('text-success').addClass('text-danger');
+        }
+    });
+
     $('#validateNifButton').click(function() {
         let nif = $('#nifValidatorInput').val();
         let result = validateSpanishID(nif);
