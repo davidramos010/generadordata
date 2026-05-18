@@ -1,0 +1,26 @@
+{
+    "name": "GeneradorData - Generador de NIF, NIE y CIF",
+    "short_name": "GeneradorData",
+    "description": "Herramienta gratuita para generar números de NIF, NIE y CIF válidos",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#28a745",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "assets/img/logoGeneradorData140.png",
+            "sizes": "140x140",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/img/favicon.ico",
+            "sizes": "32x32",
+            "type": "image/x-icon"
+        }
+    ],
+    "categories": ["utilities", "developer"],
+    "lang": "es",
+    "dir": "ltr"
+}

@@ -1,0 +1,8 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+*.md
+.bash_profile
+.bashrc
