@@ -80,8 +80,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "GeneradorData - Generador de NIF, NIE y CIF",
-        "description": "Herramienta gratuita online para generar y validar números de NIF, NIE y CIF españoles para pruebas y desarrollo",
+        "name": "GeneradorData - Generador de NIF, NIE, CIF y DNI",
+        "description": "Herramienta gratuita online para generar y validar números de NIF, NIE, CIF y DNI españoles para pruebas y desarrollo",
         "url": "https://generadordata.com",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Web Browser",
@@ -157,7 +157,7 @@
             <div class="container py-5">
                 <div class="row text-center py-3">
                     <div class="col-lg-6 m-auto">
-                        <h1 id="hero-title">Generador de NIF, NIE y CIF</h1>
+                        <h1 id="hero-title">Generador de NIF, NIE, CIF y DNI</h1>
                         <p class="lead">Herramienta gratuita para generar números de identificación españoles válidos</p>
                     </div>
                 </div>
@@ -169,10 +169,10 @@
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de DNI</h2>
                                 <p class="text-muted">Documento de Identidad Nacional</p>
-                                <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número DNI">
-                                    <div class="h3 text-success text-center" id="divGenerateDni">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                <div class="py-1 services-icon-wap shadow" id="divGenerateDni" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número DNI">
+                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
                                 </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número DNI generado">
+                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiDni" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número DNI generado">
                                     <h3 class="h3 mt-4 text-center" id="divCopiDni">&nbsp;</h3>
                                     <input type="hidden" id="hddCopiDni">
                                 </div>
@@ -189,10 +189,10 @@
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIF</h2>
                                 <p class="text-muted">Identificación Fiscal para personas físicas</p>
-                                <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIF">
-                                    <div class="h3 text-success text-center" id="divGenerateNif">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                <div class="py-1 services-icon-wap shadow" id="divGenerateNif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIF">
+                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
                                 </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número NIF generado">
+                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiNif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número NIF generado">
                                     <h3 class="h3 mt-4 text-center" id="divCopiNif">&nbsp;</h3>
                                     <input type="hidden" id="hddCopiNif">
                                 </div>
@@ -209,10 +209,10 @@
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIE</h2>
                                 <p class="text-muted">Número de Identificación de Extranjero</p>
-                                <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIE">
-                                    <div class="h3 text-success text-center" id="divGenerateNie">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                <div class="py-1 services-icon-wap shadow" id="divGenerateNie" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIE">
+                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
                                 </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número NIE generado">
+                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiNie" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número NIE generado">
                                     <h3 class="h3 mt-4 text-center" id="divCopiNie">&nbsp;</h3>
                                     <input type="hidden" id="hddCopiNie">
                                 </div>
@@ -229,10 +229,10 @@
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de CIF</h2>
                                 <p class="text-muted">Código de Identificación Fiscal para empresas</p>
-                                <div class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número CIF">
-                                    <div class="h3 text-success text-center" id="divGenerateCif">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                <div class="py-1 services-icon-wap shadow" id="divGenerateCif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número CIF">
+                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
                                 </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número CIF generado">
+                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiCif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número CIF generado">
                                     <h3 class="h3 mt-4 text-center" id="divCopiCif">&nbsp;</h3>
                                     <input type="hidden" id="hddCopiCif">
                                 </div>

@@ -202,7 +202,7 @@ $(document).ready(function() {
         $('#ulHistorialNif').prepend(nuevoElemento);
     });
 
-    $('#divCopiNif').click(function() {
+    $('#btnCopiNif').click(function() {
         let nif = copiNif();
     });
 
@@ -215,7 +215,7 @@ $(document).ready(function() {
         $('#ulHistorialDni').prepend(nuevoElemento);
     });
 
-    $('#divCopiDni').click(function() {
+    $('#btnCopiDni').click(function() {
         let dni = copiDni();
     });
 
@@ -228,7 +228,7 @@ $(document).ready(function() {
         $('#ulHistorialNie').prepend(nuevoElemento);
     });
 
-    $('#divCopiNie').click(function() {
+    $('#btnCopiNie').click(function() {
         let nif = copiNie();
     });
 
@@ -241,8 +241,8 @@ $(document).ready(function() {
         $('#ulHistorialCif').prepend(nuevoElemento);
     });
 
-    $('#divCopiCif').click(function() {
-        let nif = copiNie();
+    $('#btnCopiCif').click(function() {
+        let nif = copiCif();
     });
 
     //-------------------------------
