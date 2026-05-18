@@ -2,6 +2,8 @@
 <html lang="es" itemscope itemtype="https://schema.org/WebApplication">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Google Analytics / Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
     <script>
@@ -17,6 +19,10 @@
     <meta name="description" content="Genera números de NIF, NIE y CIF válidos para pruebas y desarrollo. Herramienta gratuita online para validar y generar documentos de identificación españoles. Sin registro, uso inmediato.">
     <meta name="keywords" content="generador nif, generador nie, generador cif, generador dni, validar nif, validar nie, validar cif, validar dni, nif aleatorio, nie aleatorio, cif aleatorio, dni aleatorio, documento identidad españa, numero identificacion, herramientas desarrollo, pruebas software, validadores online, generadores gratis">
     <meta name="author" content="AdminKeys Develop">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="ES">
+    <meta name="geo.placename" content="España">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
@@ -29,9 +35,11 @@
     <meta property="og:url" content="https://generadordata.com/">
     <meta property="og:title" content="Generador de NIF, NIE y CIF Gratis | Validadores Online">
     <meta property="og:description" content="Genera números de NIF, NIE y CIF válidos para pruebas y desarrollo. Herramienta gratuita online para validar documentos de identificación españoles.">
-    <meta property="og:image" content="https://generadordata.com/assets/img/logoGeneradorData.png">
+    <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
+    <meta property="og:image:secure_url" content="https://generadordata.com/assets/img/Banner1200.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="GeneradorData: generador y validador gratuito de NIF, NIE, CIF y DNI">
     <meta property="og:site_name" content="GeneradorData">
     <meta property="og:locale" content="es_ES">
     
@@ -40,12 +48,11 @@
     <meta property="twitter:url" content="https://generadordata.com/">
     <meta property="twitter:title" content="Generador de NIF, NIE y CIF Gratis | Validadores Online">
     <meta property="twitter:description" content="Genera números de NIF, NIE y CIF válidos para pruebas y desarrollo. Herramienta gratuita online para validar documentos de identificación españoles.">
-    <meta property="twitter:image" content="https://generadordata.com/assets/img/logoGeneradorData.png">
+    <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
+    <meta property="twitter:image:alt" content="GeneradorData: generador y validador gratuito de NIF, NIE, CIF y DNI">
     
     <!-- Technical Meta Tags -->
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#28a745">
     <meta name="msapplication-TileColor" content="#28a745">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -80,10 +87,15 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
+        "@id": "https://generadordata.com/#webapp",
         "name": "GeneradorData - Generador de NIF, NIE, CIF y DNI",
+        "alternateName": "GeneradorData",
         "description": "Herramienta gratuita online para generar y validar números de NIF, NIE, CIF y DNI españoles para pruebas y desarrollo",
-        "url": "https://generadordata.com",
+        "url": "https://generadordata.com/",
+        "inLanguage": "es-ES",
+        "isAccessibleForFree": true,
         "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Generador de datos de prueba",
         "operatingSystem": "Web Browser",
         "offers": {
             "@type": "Offer",
@@ -110,7 +122,32 @@
             "Validación de documentos",
             "Historial de generaciones",
             "Uso gratuito"
-        ]
+        ],
+        "potentialAction": {
+            "@type": "UseAction",
+            "target": "https://generadordata.com/"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://generadordata.com/#website",
+        "name": "GeneradorData",
+        "url": "https://generadordata.com/",
+        "inLanguage": "es-ES",
+        "publisher": {
+            "@type": "Organization",
+            "name": "GeneradorData",
+            "url": "https://generadordata.com/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://generadordata.com/assets/img/logoGeneradorData.png",
+                "width": 124,
+                "height": 124
+            }
+        }
     }
     </script>
 </head>
@@ -140,8 +177,8 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
       <div class="col-md-2">
-         <a class="navbar-brand text-success logo h1 align-self-center" >
-            <img src="assets/img/logoGeneradorData.png" alt="GeneradorData Logo">
+         <a class="navbar-brand text-success logo h1 align-self-center" href="/" aria-label="GeneradorData - Inicio">
+            <img src="assets/img/logoGeneradorData.png" alt="GeneradorData">
          </a>
       </div>
                 <div class="col-md-10 d-flex align-items-center" role="alert" style="cursor: pointer;">
@@ -163,8 +200,8 @@
                 </div>
                 
                 <!-- Generator Tools -->
-                <div class="row">
-                    <article class="col-12 col-md-3 mb-4">
+                <div class="row" id="generadores">
+                    <article class="col-12 col-md-3 mb-4" id="generador-dni">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de DNI</h2>
@@ -184,7 +221,7 @@
                         </div>
                     </article>
 
-                    <article class="col-12 col-md-3 mb-4">
+                    <article class="col-12 col-md-3 mb-4" id="generador-nif">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIF</h2>
@@ -204,7 +241,7 @@
                         </div>
                     </article>
                     
-                    <article class="col-12 col-md-3 mb-4">
+                    <article class="col-12 col-md-3 mb-4" id="generador-nie">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de NIE</h2>
@@ -224,7 +261,7 @@
                         </div>
                     </article>
                     
-                    <article class="col-12 col-md-3 mb-4">
+                    <article class="col-12 col-md-3 mb-4" id="generador-cif">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Generador de CIF</h2>
@@ -246,13 +283,13 @@
                 </div>
 
                 <!-- Validator Tools -->
-                <div class="row">
-                    <article class="col-12 col-md-3 mb-4 validator-card">
+                <div class="row" id="validadores">
+                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-dni">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de DNI</h2>
                                 <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="dniValidatorInput" placeholder="Introduce un DNI">
+                                    <input type="text" class="form-control validator-input" id="dniValidatorInput" placeholder="Introduce un DNI" inputmode="text" autocomplete="off" aria-label="Introduce un DNI para validar">
                                 </div>
                                 <div id="validateDniButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar DNI">
                                     <div class="h3 text-success text-center">Validar</div>
@@ -261,12 +298,12 @@
                             </div>
                         </div>
                     </article>
-                    <article class="col-12 col-md-3 mb-4 validator-card">
+                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-nif">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de NIF</h2>
                                 <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="nifValidatorInput" placeholder="Introduce un NIF">
+                                    <input type="text" class="form-control validator-input" id="nifValidatorInput" placeholder="Introduce un NIF" inputmode="text" autocomplete="off" aria-label="Introduce un NIF para validar">
                                 </div>
                                 <div id="validateNifButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar NIF">
                                     <div class="h3 text-success text-center">Validar</div>
@@ -275,12 +312,12 @@
                             </div>
                         </div>
                     </article>
-                    <article class="col-12 col-md-3 mb-4 validator-card">
+                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-nie">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de NIE</h2>
                                 <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="nieValidatorInput" placeholder="Introduce un NIE">
+                                    <input type="text" class="form-control validator-input" id="nieValidatorInput" placeholder="Introduce un NIE" inputmode="text" autocomplete="off" aria-label="Introduce un NIE para validar">
                                 </div>
                                 <div id="validateNieButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar NIE">
                                     <div class="h3 text-success text-center">Validar</div>
@@ -289,12 +326,12 @@
                             </div>
                         </div>
                     </article>
-                    <article class="col-12 col-md-3 mb-4 validator-card">
+                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-cif">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="h2 text-decoration-none text-dark">Validador de CIF</h2>
                                 <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="cifValidatorInput" placeholder="Introduce un CIF">
+                                    <input type="text" class="form-control validator-input" id="cifValidatorInput" placeholder="Introduce un CIF" inputmode="text" autocomplete="off" aria-label="Introduce un CIF para validar">
                                 </div>
                                 <div id="validateCifButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar CIF">
                                     <div class="h3 text-success text-center">Validar</div>
@@ -387,7 +424,7 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="/index.html">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="/">Inicio</a></li>
                         <li><a class="text-decoration-none" href="/about.html">Acerca de</a></li>
                         <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
                     </ul>
@@ -396,9 +433,10 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="/">Generador NIF</a></li>
-                        <li><a class="text-decoration-none" href="/">Generador NIE</a></li>
-                        <li><a class="text-decoration-none" href="/">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generador-dni">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generador-nif">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generador-nie">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generador-cif">Generador CIF</a></li>
                     </ul>
                 </div>
 
