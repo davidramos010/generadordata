@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" itemscope itemtype="https://schema.org/WebApplication">
+<html lang="es" data-theme="light" itemscope itemtype="https://schema.org/WebApplication">
 
 <head>
     <meta charset="utf-8">
@@ -153,264 +153,130 @@
 </head>
 
 <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only sr-only-focusable">Saltar al contenido principal</a>
-    
-    <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top" role="navigation" aria-label="Navegación superior">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2" aria-hidden="true"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@generadordata.com" aria-label="Enviar email a info@generadordata.com">info@generadordata.com</a>
-                    <i class="fa fa-phone mx-2" aria-hidden="true"></i>
-                </div>
-                <div>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
-                        <i class="fab fa-instagram fa-sm fa-fw me-2" aria-hidden="true"></i>
-                    </a>
+
+    <!-- ── Navbar ───────────────────────────────────────────── -->
+    <nav class="gd-navbar">
+        <div class="container gd-navbar-inner">
+            <a href="/" class="gd-logo">
+                <img src="assets/img/logoGeneradorData.png" alt="GeneradorData" height="40">
+            </a>
+            <button id="themeToggle" class="gd-theme-btn" aria-label="Cambiar tema">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="gd-hero">
+        <div class="container text-center">
+            <h1 class="gd-hero-title">Generador de DNI, NIF, NIE y CIF</h1>
+            <p class="gd-hero-sub">Herramienta gratuita para generar números de identificación españoles válidos</p>
+        </div>
+    </section>
+
+    <!-- ── Widget principal ─────────────────────────────────── -->
+    <main id="main-content">
+        <section class="gd-widget-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-6">
+
+                        <div class="gd-card" id="generadores">
+
+                            <!-- Cabecera gradiente -->
+                            <div class="gd-card-header">
+                                <h2>Generador DNI / NIE / CIF</h2>
+                                <p>Genera números válidos para pruebas y desarrollo</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <!-- Selector de tipo -->
+                                <p class="gd-label">Tipo de Documento:</p>
+                                <div class="gd-tabs" role="group" aria-label="Tipo de documento">
+                                    <button class="gd-tab active" id="tabDni" data-tipo="DNI">DNI</button>
+                                    <button class="gd-tab" id="tabNif" data-tipo="NIF">NIF</button>
+                                    <button class="gd-tab" id="tabNie" data-tipo="NIE">NIE</button>
+                                    <button class="gd-tab" id="tabCif" data-tipo="CIF">CIF</button>
+                                </div>
+
+                                <!-- Display resultado -->
+                                <div class="gd-display" id="resultadoGenerado" aria-live="polite">
+                                    <span id="valorGenerado">Haz clic en "Generar" para crear un DNI</span>
+                                    <input type="hidden" id="hddValorGenerado">
+                                </div>
+
+                                <!-- Botones acción -->
+                                <div class="gd-actions">
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerar">🎲 Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiar">📋 Copiar</button>
+                                </div>
+
+                                <hr class="gd-divider">
+
+                                <!-- Validador -->
+                                <p class="gd-label">Validar DNI / NIE / CIF:</p>
+                                <div class="gd-validator-row" id="validadores">
+                                    <input type="text" id="validatorInput" placeholder="Introduce un número para validar..." autocomplete="off" inputmode="text" aria-label="Documento a validar">
+                                    <button class="gd-btn gd-btn-validate" id="btnValidar">✓ Validar</button>
+                                </div>
+                                <div id="validationResult"></div>
+
+                                <hr class="gd-divider">
+
+                                <!-- Historial -->
+                                <div class="gd-historial-head">
+                                    <span class="gd-label" style="margin:0">Historial</span>
+                                    <button class="gd-btn-danger-link" id="btnLimpiarHistorial">🗑 Limpiar</button>
+                                </div>
+                                <ul class="gd-historial" id="ulHistorial" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacio">Sin generaciones aún</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-      <div class="col-md-2">
-         <a class="navbar-brand text-success logo h1 align-self-center" href="/" aria-label="GeneradorData - Inicio">
-            <img src="assets/img/logoGeneradorData.png" alt="GeneradorData">
-         </a>
-      </div>
-                <div class="col-md-10 d-flex align-items-center" role="alert" style="cursor: pointer;">
-                   
-                </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Main Content -->
-    <main id="main-content" style="z-index: 1000;">
-        <!-- Hero Section -->
-        <section class="bg-light" aria-labelledby="hero-title">
-            <div class="container py-5">
-                <div class="row text-center py-3">
-                    <div class="col-lg-6 m-auto">
-                        <h1 id="hero-title">Generador de NIF, NIE, CIF y DNI</h1>
-                        <p class="lead">Herramienta gratuita para generar números de identificación españoles válidos</p>
-                    </div>
-                </div>
-                
-                <!-- Generator Tools -->
-                <div class="row" id="generadores">
-                    <article class="col-12 col-md-3 mb-4" id="generador-dni">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Generador de DNI</h2>
-                                <p class="text-muted">Documento de Identidad Nacional Español</p>
-                                <div class="py-1 services-icon-wap shadow" id="divGenerateDni" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número DNI">
-                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
-                                </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiDni" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número DNI generado">
-                                    <h3 class="h3 mt-4 text-center" id="divCopiDni">&nbsp;</h3>
-                                    <input type="hidden" id="hddCopiDni">
-                                </div>
-                                <h3 class="text-muted">Historial</h3>
-                                <ul class="list-unstyled pb-3" id="ulHistorialDni" aria-label="Historial de números DNI generados">
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
+        <!-- ── Información ───────────────────────────────────── -->
+        <section class="gd-info-section">
+            <div class="container">
+                <h2 class="gd-info-title">Información sobre DNI, NIF, NIE y CIF</h2>
 
-                    <article class="col-12 col-md-3 mb-4" id="generador-nif">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Generador de NIF</h2>
-                                <p class="text-muted">Identificación Fiscal para personas físicas</p>
-                                <div class="py-1 services-icon-wap shadow" id="divGenerateNif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIF">
-                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
-                                </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiNif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número NIF generado">
-                                    <h3 class="h3 mt-4 text-center" id="divCopiNif">&nbsp;</h3>
-                                    <input type="hidden" id="hddCopiNif">
-                                </div>
-                                <h3 class="text-muted">Historial</h3>
-                                <ul class="list-unstyled pb-3" id="ulHistorialNif" aria-label="Historial de números NIF generados">
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="col-12 col-md-3 mb-4" id="generador-nie">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Generador de NIE</h2>
-                                <p class="text-muted">Número de Identificación de Extranjero</p>
-                                <div class="py-1 services-icon-wap shadow" id="divGenerateNie" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número NIE">
-                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
-                                </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiNie" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número NIE generado">
-                                    <h3 class="h3 mt-4 text-center" id="divCopiNie">&nbsp;</h3>
-                                    <input type="hidden" id="hddCopiNie">
-                                </div>
-                                <h3 class="text-muted">Historial</h3>
-                                <ul class="list-unstyled pb-3" id="ulHistorialNie" aria-label="Historial de números NIE generados">
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="col-12 col-md-3 mb-4" id="generador-cif">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Generador de CIF</h2>
-                                <p class="text-muted">Código de Identificación Fiscal para empresas</p>
-                                <div class="py-1 services-icon-wap shadow" id="divGenerateCif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Generar nuevo número CIF">
-                                    <div class="h3 text-success text-center">Generar <i class="fa fa-refresh" aria-hidden="true"></i></div>
-                                </div>
-                                <div class="py-sm-3 services-copi-icon-wap shadow" id="btnCopiCif" style="cursor: pointer;" role="button" tabindex="0" aria-label="Copiar número CIF generado">
-                                    <h3 class="h3 mt-4 text-center" id="divCopiCif">&nbsp;</h3>
-                                    <input type="hidden" id="hddCopiCif">
-                                </div>
-                                <h3 class="text-muted">Historial</h3>
-                                <ul class="list-unstyled pb-3" id="ulHistorialCif" aria-label="Historial de números CIF generados">
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>DNI — Documento de Identidad Nacional</h3>
+                        <p>El <strong>DNI</strong> es el documento de identidad oficial en España para ciudadanos españoles. Se compone de 8 dígitos numéricos seguidos de una letra de control. Es emitido por la Dirección General de la Policía Nacional y es esencial para identificarse legalmente, realizar transacciones bancarias y múltiples gestiones administrativas.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>NIF — Número de Identificación Fiscal</h3>
+                        <p>Para los extranjeros que residen en España, el <strong>NIF</strong> es conocido como NIE o Número de Identificación de Extranjero. Se compone de 1 letra inicial seguida de 7 números y finaliza con un código de verificación (letra).</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>NIE — Número de Identificación de Extranjero</h3>
+                        <p>Otorgado por la Dirección General de Policía a los ciudadanos no nacionales con permiso de residencia en España. El <strong>NIE</strong> se compone de 1 letra seguida de 7 números y 1 código de verificación. Es necesario para residir y trabajar en España.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>CIF — Código de Identificación Fiscal</h3>
+                        <p>En el caso de personas jurídicas, el NIF solía conocerse como <strong>CIF</strong>. Con el Real Decreto 1065/2007 se unificó bajo la denominación NIF. Consta de 1 letra seguida de 7 números y finaliza con una letra de control.</p>
+                    </div>
                 </div>
-
-                <!-- Validator Tools -->
-                <div class="row" id="validadores">
-                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-dni">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Validador de DNI</h2>
-                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="dniValidatorInput" placeholder="Introduce un DNI" inputmode="text" autocomplete="off" aria-label="Introduce un DNI para validar">
-                                </div>
-                                <div id="validateDniButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar DNI">
-                                    <div class="h3 text-success text-center">Validar</div>
-                                </div>
-                                <p class="mt-2 validation-result" id="dniValidationResult"></p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-nif">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Validador de NIF</h2>
-                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="nifValidatorInput" placeholder="Introduce un NIF" inputmode="text" autocomplete="off" aria-label="Introduce un NIF para validar">
-                                </div>
-                                <div id="validateNifButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar NIF">
-                                    <div class="h3 text-success text-center">Validar</div>
-                                </div>
-                                <p class="mt-2 validation-result" id="nifValidationResult"></p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-nie">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Validador de NIE</h2>
-                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="nieValidatorInput" placeholder="Introduce un NIE" inputmode="text" autocomplete="off" aria-label="Introduce un NIE para validar">
-                                </div>
-                                <div id="validateNieButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar NIE">
-                                    <div class="h3 text-success text-center">Validar</div>
-                                </div>
-                                <p class="mt-2 validation-result" id="nieValidationResult"></p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-3 mb-4 validator-card" id="validador-cif">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h2 class="h2 text-decoration-none text-dark">Validador de CIF</h2>
-                                <div class="py-sm-3 services-copi-icon-wap shadow mb-3">
-                                    <input type="text" class="form-control validator-input" id="cifValidatorInput" placeholder="Introduce un CIF" inputmode="text" autocomplete="off" aria-label="Introduce un CIF para validar">
-                                </div>
-                                <div id="validateCifButton" class="py-1 services-icon-wap shadow" style="cursor: pointer;" role="button" tabindex="0" aria-label="Validar CIF">
-                                    <div class="h3 text-success text-center">Validar</div>
-                                </div>
-                                <p class="mt-2 validation-result" id="cifValidationResult"></p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                
-                <!-- Information Section -->
-                <section aria-labelledby="info-title">
-                    <h2 id="info-title" class="text-center py-3">Información sobre DNI, NIF, NIE y CIF</h2>
-                    
-                    <div class="row">
-                        <div class="col-12" style="text-align: justify">
-                            <h3>DNI (Documento de Identidad Nacional)</h3>
-                            <p>El <strong>DNI</strong> es el documento de identidad oficial en España para ciudadanos españoles. Se compone de 8 dígitos numéricos seguidos de una letra de control. El DNI es emitido por la Dirección General de la Policía Nacional y es un documento esencial para identificarse legalmente, realizar transacciones bancarias, firmar contratos y múltiples gestiones administrativas.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-12" style="text-align: justify">
-                            <h3>NIF (Número de Identificación Fiscal)</h3>
-                            <p>Para los extranjeros que residen en España, el <strong>NIF</strong> es conocido como NIE o Número de Identificación de Extranjero. Este se compone de 1 letra inicial seguida de 7 números y finaliza con un código de verificación (letra).</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-12" style="text-align: justify">
-                            <h3>NIE (Número de Identificación de Extranjero)</h3>
-                            <p>Este identificador es otorgado por la Dirección General de Policía a los ciudadanos no nacionales que cuentan con permiso de residencia en España. El NIE se compone de 1 letra seguida de 7 números, finalizando con 1 código de verificación. Además de ser un requisito para la residencia en el país, el NIE también es necesario para poder trabajar en España, proporcionando una garantía para ambas situaciones.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-12" style="text-align: justify">
-                            <h3>CIF (Código de Identificación Fiscal)</h3>
-                            <p>En el caso de las personas jurídicas, el NIF solía ser conocido como <strong>CIF</strong>. Sin embargo, con la implementación del Real Decreto 1065/2007, se dejó de utilizar oficialmente la denominación CIF, pasando a ser llamado exclusivamente NIF. El NIF de una empresa consta de 1 letra seguida de 7 números, y finaliza con una letra de control.</p>
-                        </div>
-                    </div>
-                </section>
             </div>
         </section>
     </main>
-    <!-- End Main Content -->
 
-    <!-- Floating Sidebar Products -->
-    
-
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar búsqueda"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <label for="inputModalSearch" class="sr-only">Buscar</label>
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Buscar..." aria-label="Término de búsqueda">
-                    <button type="submit" class="input-group-text bg-success text-light" aria-label="Ejecutar búsqueda">
-                        <i class="fa fa-fw fa-search text-white" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Alert for copied items -->
-    <div id="alertCopiItem" class="alert alert-success alert-dismissible fade show fixed-top" style="display: none; right: 10px;" role="alert" aria-live="polite">
-        <strong>¡Copiado!</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar notificación">&times;</button>
+    <!-- ── Alerta copiado ────────────────────────────────────── -->
+    <div id="alertCopiItem" style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
+        ✓ ¡Copiado al portapapeles!
     </div>
 
-    <!-- Footer -->
+    <!-- ── Footer ───────────────────────────────────────────── -->
     <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
                     <ul class="list-unstyled text-light footer-link-list">
@@ -420,7 +286,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
                     <ul class="list-unstyled text-light footer-link-list">
@@ -429,23 +294,18 @@
                         <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
                     </ul>
                 </div>
-
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="/#generador-dni">Generador DNI</a></li>
-                        <li><a class="text-decoration-none" href="/#generador-nif">Generador NIF</a></li>
-                        <li><a class="text-decoration-none" href="/#generador-nie">Generador NIE</a></li>
-                        <li><a class="text-decoration-none" href="/#generador-cif">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
                     </ul>
                 </div>
-
             </div>
-
             <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
+                <div class="col-12 mb-3"><div class="w-100 my-3 border-top border-light"></div></div>
                 <div class="col-auto me-auto">
                     <ul class="list-inline text-left footer-icons">
                         <li class="list-inline-item border border-light rounded-circle text-center">
@@ -455,28 +315,15 @@
                 </div>
             </div>
         </div>
-
         <div class="w-100 bg-black py-3">
             <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                            Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.
-                        </p>
-                    </div>
-                </div>
+                <p class="text-left text-light mb-0">Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.</p>
             </div>
         </div>
-
     </footer>
-    
-    <!-- Scripts -->
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script>
 
+    <!-- ── Scripts ──────────────────────────────────────────── -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

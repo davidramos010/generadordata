@@ -190,102 +190,86 @@ function validateSpanishID(id) {
 
 $(document).ready(function() {
 
-    $("#alerta .close").click(function() {
-        $("#alerta").hide();
+    // ── Tema light / dark ─────────────────────────────────────
+    if (localStorage.getItem('gd-theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('themeIcon').textContent = '☀️';
+    }
+
+    $('#themeToggle').click(function() {
+        var isDark = document.body.classList.toggle('dark-mode');
+        document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('gd-theme', isDark ? 'dark' : 'light');
     });
 
-    $('#divGenerateNif').click(function() {
-        let nif = generarNIF();
-        $('#divCopiNif').text(" " + nif);
-        $('#hddCopiNif').val(nif);
-        let nuevoElemento = $('<li> - '+nif+'</li>');
-        $('#ulHistorialNif').prepend(nuevoElemento);
+    // ── Generador ─────────────────────────────────────────────
+    var tipoActivo = 'DNI';
+
+    function resetDisplay(tipo) {
+        $('#valorGenerado').text('Haz clic en "Generar" para crear un ' + tipo);
+        $('#resultadoGenerado').removeClass('has-value');
+        $('#hddValorGenerado').val('');
+    }
+
+    // Tabs
+    $('.gd-tab').click(function() {
+        tipoActivo = $(this).data('tipo');
+        $('.gd-tab').removeClass('active');
+        $(this).addClass('active');
+        resetDisplay(tipoActivo);
     });
 
-    $('#btnCopiNif').click(function() {
-        let nif = copiNif();
+    // Generar
+    $('#btnGenerar').click(function() {
+        var valor;
+        if (tipoActivo === 'DNI')      valor = generarDNI();
+        else if (tipoActivo === 'NIF') valor = generarNIF();
+        else if (tipoActivo === 'NIE') valor = generarNIE();
+        else                           valor = generarCIF();
+
+        $('#valorGenerado').text(valor);
+        $('#hddValorGenerado').val(valor);
+        $('#resultadoGenerado').addClass('has-value');
+
+        $('#historialVacio').hide();
+        var item = $('<li></li>');
+        item.append('<span class="gd-badge">' + tipoActivo + '</span>');
+        item.append('<span class="gd-value">' + valor + '</span>');
+        $('#ulHistorial').prepend(item);
+        $('#ulHistorial li:gt(49)').remove();
     });
 
-    //-------------------------------
-    $('#divGenerateDni').click(function() {
-        let dni = generarDNI();
-        $('#divCopiDni').text(" " + dni);
-        $('#hddCopiDni').val(dni);
-        let nuevoElemento = $('<li> - '+dni+'</li>');
-        $('#ulHistorialDni').prepend(nuevoElemento);
+    // Copiar
+    $('#btnCopiar').click(function() {
+        var val = $('#hddValorGenerado').val();
+        if (!val) return;
+        navigator.clipboard ? navigator.clipboard.writeText(val) : (function(){
+            var t = $('<textarea>').val(val).appendTo('body');
+            t[0].select(); document.execCommand('copy'); t.remove();
+        })();
+        var a = $('#alertCopiItem');
+        a.fadeIn(200).delay(1800).fadeOut(400);
     });
 
-    $('#btnCopiDni').click(function() {
-        let dni = copiDni();
+    // Limpiar historial
+    $('#btnLimpiarHistorial').click(function() {
+        $('#ulHistorial').html('<li class="gd-empty" id="historialVacio">Sin generaciones aún</li>');
     });
 
-    //-------------------------------
-    $('#divGenerateNie').click(function() {
-        let nie = generarNIE();
-        $('#divCopiNie').text(" " + nie);
-        $('#hddCopiNie').val(nie);
-        let nuevoElemento = $('<li> - '+nie+'</li>');
-        $('#ulHistorialNie').prepend(nuevoElemento);
-    });
-
-    $('#btnCopiNie').click(function() {
-        let nif = copiNie();
-    });
-
-    //-------------------------------
-    $('#divGenerateCif').click(function() {
-        let cif = generarCIF();
-        $('#divCopiCif').text(" " + cif);
-        $('#hddCopiCif').val(cif);
-        let nuevoElemento = $('<li> - '+cif+'</li>');
-        $('#ulHistorialCif').prepend(nuevoElemento);
-    });
-
-    $('#btnCopiCif').click(function() {
-        let nif = copiCif();
-    });
-
-    //-------------------------------
-    // Validators
-    //-------------------------------
-    $('#validateDniButton').click(function() {
-        let dni = $('#dniValidatorInput').val();
-        let result = validateSpanishID(dni);
-        if (result.valid && result.type === 'NIF') {
-            $('#dniValidationResult').text('DNI válido.').removeClass('text-danger').addClass('text-success');
+    // ── Validador ─────────────────────────────────────────────
+    $('#btnValidar').click(function() {
+        var id = $('#validatorInput').val().trim();
+        var result = validateSpanishID(id);
+        var el = $('#validationResult');
+        if (result.valid) {
+            el.text('✓ ' + result.type + ' válido').attr('class', 'valid');
         } else {
-            $('#dniValidationResult').text('DNI no válido.').removeClass('text-success').addClass('text-danger');
+            el.text('✗ Documento no válido').attr('class', 'invalid');
         }
     });
 
-    $('#validateNifButton').click(function() {
-        let nif = $('#nifValidatorInput').val();
-        let result = validateSpanishID(nif);
-        if (result.valid && result.type === 'NIF') {
-            $('#nifValidationResult').text('NIF válido.').removeClass('text-danger').addClass('text-success');
-        } else {
-            $('#nifValidationResult').text('NIF no válido.').removeClass('text-success').addClass('text-danger');
-        }
-    });
-
-    $('#validateNieButton').click(function() {
-        let nie = $('#nieValidatorInput').val();
-        let result = validateSpanishID(nie);
-        if (result.valid && result.type === 'NIE') {
-            $('#nieValidationResult').text('NIE válido.').removeClass('text-danger').addClass('text-success');
-        } else {
-            $('#nieValidationResult').text('NIE no válido.').removeClass('text-success').addClass('text-danger');
-        }
-    });
-
-    $('#validateCifButton').click(function() {
-        let cif = $('#cifValidatorInput').val();
-        let result = validateSpanishID(cif);
-        if (result.valid && result.type === 'CIF') {
-            $('#cifValidationResult').text('CIF válido.').removeClass('text-danger').addClass('text-success');
-        } else {
-            $('#cifValidationResult').text('CIF no válido.').removeClass('text-success').addClass('text-danger');
-        }
+    $('#validatorInput').keydown(function(e) {
+        if (e.key === 'Enter') $('#btnValidar').click();
     });
 
 });
