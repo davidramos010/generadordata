@@ -191,7 +191,8 @@ function validateSpanishID(id) {
 $(document).ready(function() {
 
     // ── Tema light / dark ─────────────────────────────────────
-    if (localStorage.getItem('gd-theme') === 'dark') {
+    var savedTheme = localStorage.getItem('gd-theme');
+    if (savedTheme !== 'light') {
         document.body.classList.add('dark-mode');
         document.getElementById('themeIcon').textContent = '☀️';
     }
