@@ -93,7 +93,7 @@ body.dark-mode {
 
 /* ── Card header gradiente ───────────────────────────────── */
 .gd-card-header {
-    background: linear-gradient(135deg, #0d9488 0%, #065f46 100%);
+    background: linear-gradient(135deg, #db2777 0%, #fd7e14 100%);
     padding: 22px 24px;
 }
 .gd-card-header h2 {

@@ -185,7 +185,7 @@
 
                             <!-- Cabecera gradiente -->
                             <div class="gd-card-header">
-                                <h2>Generador DNI / NIE / CIF</h2>
+                                <h2>Generador DNI / NIF / NIE / CIF</h2>
                                 <p>Genera números válidos para pruebas y desarrollo</p>
                             </div>
 
@@ -202,20 +202,20 @@
 
                                 <!-- Display resultado -->
                                 <div class="gd-display" id="resultadoGenerado" aria-live="polite">
-                                    <span id="valorGenerado">Haz clic en "Generar" para crear un DNI</span>
+                                    <span id="valorGenerado">Generar documento aleatorio</span>
                                     <input type="hidden" id="hddValorGenerado">
                                 </div>
 
                                 <!-- Botones acción -->
                                 <div class="gd-actions">
-                                    <button class="gd-btn gd-btn-primary" id="btnGenerar">🎲 Generar</button>
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerar">✨ Generar</button>
                                     <button class="gd-btn gd-btn-secondary" id="btnCopiar">📋 Copiar</button>
                                 </div>
 
                                 <hr class="gd-divider">
 
                                 <!-- Validador -->
-                                <p class="gd-label">Validar DNI / NIE / CIF:</p>
+                                <p class="gd-label">Validar DNI / NIF / NIE / CIF:</p>
                                 <div class="gd-validator-row" id="validadores">
                                     <input type="text" id="validatorInput" placeholder="Introduce un número para validar..." autocomplete="off" inputmode="text" aria-label="Documento a validar">
                                     <button class="gd-btn gd-btn-validate" id="btnValidar">✓ Validar</button>
@@ -250,16 +250,13 @@
                     <div class="gd-info-card">
                         <h3>DNI — Documento de Identidad Nacional</h3>
                         <p>El <strong>DNI</strong> es el documento de identidad oficial en España para ciudadanos españoles. Se compone de 8 dígitos numéricos seguidos de una letra de control. Es emitido por la Dirección General de la Policía Nacional y es esencial para identificarse legalmente, realizar transacciones bancarias y múltiples gestiones administrativas.</p>
-                    </div>
-                    <div class="gd-info-card">
+                           <br/>
                         <h3>NIF — Número de Identificación Fiscal</h3>
                         <p>Para los extranjeros que residen en España, el <strong>NIF</strong> es conocido como NIE o Número de Identificación de Extranjero. Se compone de 1 letra inicial seguida de 7 números y finaliza con un código de verificación (letra).</p>
-                    </div>
-                    <div class="gd-info-card">
+                            <br/>
                         <h3>NIE — Número de Identificación de Extranjero</h3>
                         <p>Otorgado por la Dirección General de Policía a los ciudadanos no nacionales con permiso de residencia en España. El <strong>NIE</strong> se compone de 1 letra seguida de 7 números y 1 código de verificación. Es necesario para residir y trabajar en España.</p>
-                    </div>
-                    <div class="gd-info-card">
+                            <br/>
                         <h3>CIF — Código de Identificación Fiscal</h3>
                         <p>En el caso de personas jurídicas, el NIF solía conocerse como <strong>CIF</strong>. Con el Real Decreto 1065/2007 se unificó bajo la denominación NIF. Consta de 1 letra seguida de 7 números y finaliza con una letra de control.</p>
                     </div>
