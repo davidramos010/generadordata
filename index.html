@@ -226,8 +226,11 @@
 
                                 <!-- Historial -->
                                 <div class="gd-historial-head">
-                                    <span class="gd-label" style="margin:0">Historial</span>
-                                    <button class="gd-btn-danger-link" id="btnLimpiarHistorial">🗑 Limpiar</button>
+                                    <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
+                                    <div style="display:flex;gap:10px;align-items:center;">
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorial">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorial">🗑 Limpiar</button>
+                                    </div>
                                 </div>
                                 <ul class="gd-historial" id="ulHistorial" aria-label="Historial">
                                     <li class="gd-empty" id="historialVacio">Sin generaciones aún</li>

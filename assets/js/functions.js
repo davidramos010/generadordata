@@ -236,7 +236,7 @@ $(document).ready(function() {
         item.append('<span class="gd-badge">' + tipoActivo + '</span>');
         item.append('<span class="gd-value">' + valor + '</span>');
         $('#ulHistorial').prepend(item);
-        $('#ulHistorial li:gt(49)').remove();
+        $('#ulHistorial li:gt(1000)').remove();
     });
 
     // Copiar
@@ -249,6 +249,25 @@ $(document).ready(function() {
         })();
         var a = $('#alertCopiItem');
         a.fadeIn(200).delay(1800).fadeOut(400);
+    });
+
+    // Exportar historial
+    $('#btnExportarHistorial').click(function() {
+        var items = $('#ulHistorial li:not(.gd-empty)');
+        if (!items.length) return;
+        var rows = ['Tipo,Valor'];
+        items.each(function() {
+            var tipo = $(this).find('.gd-badge').text().trim();
+            var valor = $(this).find('.gd-value').text().trim();
+            rows.push(tipo + ',' + valor);
+        });
+        var blob = new Blob([rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'historial_generadordata.csv';
+        a.click();
+        URL.revokeObjectURL(url);
     });
 
     // Limpiar historial
