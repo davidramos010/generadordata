@@ -404,3 +404,96 @@ body.dark-mode {
     text-align: justify;
 }
 .gd-info-card strong { color: var(--page-text); }
+
+/* ── API page — Select row ──────────────────────────────── */
+.gd-select-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.gd-select-row .gd-label {
+    margin: 0;
+    white-space: nowrap;
+}
+.gd-select {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 5px;
+    padding: 8px 12px;
+    color: #e6e3d3;
+    font-size: .85rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    outline: none;
+    transition: border-color .15s;
+    min-width: 70px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7280'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 28px;
+}
+.gd-select:focus { border-color: #d63384; }
+.gd-select option {
+    background: #141414;
+    color: #e6e3d3;
+}
+
+/* ── API page — CIF type row ────────────────────────────── */
+.gd-cif-type-row {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.gd-cif-type-row.visible { display: flex; }
+.gd-cif-type-row .gd-label { margin: 0; white-space: nowrap; }
+.gd-cif-type-row .gd-select { min-width: 160px; flex: 1; }
+
+/* ── API page — Curl display ────────────────────────────── */
+.gd-curl-display {
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #d63384;
+    border-radius: 6px;
+    padding: 16px 16px 16px 20px;
+    margin-bottom: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: .78rem;
+    line-height: 1.7;
+    color: #9ca3af;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    overflow-x: auto;
+    max-height: 220px;
+}
+.gd-curl-display .curl-kw   { color: #4ade80; }
+.gd-curl-display .curl-flag { color: #d63384; }
+.gd-curl-display .curl-url  { color: #60a5fa; }
+.gd-curl-display .curl-val  { color: #e6e3d3; }
+
+/* ── API page — Info card code samples ──────────────────── */
+.gd-info-card code {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: .82rem;
+    color: #4ade80;
+    font-family: 'Courier New', Courier, monospace;
+}
+.gd-info-card pre {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: .78rem;
+    color: #60a5fa;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+    margin-top: 8px;
+    line-height: 1.5;
+}
