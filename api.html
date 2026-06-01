@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Google Analytics / Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -13,11 +12,10 @@
         gtag('config', 'G-YPGC69YD28');
     </script>
 
-    <!-- Primary Meta Tags -->
-    <title>Generador de NIF, NIE, CIF y DNI Gratis | Validadores Online | GeneradorData</title>
-    <meta name="title" content="Generador de NIF, NIE, CIF y DNI Gratis | Validadores Online | GeneradorData">
-    <meta name="description" content="Genera números de NIF, NIE y CIF válidos para pruebas y desarrollo. Herramienta gratuita online para validar y generar documentos de identificación españoles. Sin registro, uso inmediato.">
-    <meta name="keywords" content="generador nif, generador nie, generador cif, generador dni, validar nif, validar nie, validar cif, validar dni, nif aleatorio, nie aleatorio, cif aleatorio, dni aleatorio, documento identidad españa, numero identificacion, herramientas desarrollo, pruebas software, validadores online, generadores gratis">
+    <title>API para Generar NIF, NIE, CIF y DNI | GeneradorData</title>
+    <meta name="title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
+    <meta name="description" content="Genera números de NIF, NIE, CIF y DNI válidos mediante API REST. Accede a los servicios de generación de documentos españoles vía endpoints autenticados.">
+    <meta name="keywords" content="api generar nif, api generar nie, api generar cif, api generar dni, api rest documentos españa, curl nif nie cif dni">
     <meta name="author" content="AdminKeys Develop">
     <meta name="language" content="Spanish">
     <meta name="geo.region" content="ES">
@@ -26,130 +24,43 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://generadordata.com/">
-    
-    <!-- Open Graph / Facebook -->
+    <link rel="canonical" href="https://generadordata.com/api.html">
+
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://generadordata.com/">
-    <meta property="og:title" content="Generador de NIF, NIE, CIF y DNI Gratis | Validadores Online">
-    <meta property="og:description" content="Genera números de NIF, NIE, CIF y DNI válidos para pruebas y desarrollo. Herramienta gratuita online para validar documentos de identificación españoles.">
+    <meta property="og:url" content="https://generadordata.com/api.html">
+    <meta property="og:title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
+    <meta property="og:description" content="Genera documentos españoles válidos mediante API REST autenticada.">
     <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
-    <meta property="og:image:secure_url" content="https://generadordata.com/assets/img/Banner1200.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
-    <meta property="og:image:alt" content="GeneradorData: generador y validador gratuito de NIF, NIE, CIF y DNI">
     <meta property="og:site_name" content="GeneradorData">
     <meta property="og:locale" content="es_ES">
-    
-    <!-- Twitter -->
+
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://generadordata.com/">
-    <meta property="twitter:title" content="Generador de NIF, NIE, CIF y DNI Gratis | Validadores Online">
-    <meta property="twitter:description" content="Genera números de NIF, NIE, CIF y DNI válidos para pruebas y desarrollo. Herramienta gratuita online para validar documentos de identificación españoles.">
+    <meta property="twitter:url" content="https://generadordata.com/api.html">
+    <meta property="twitter:title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
+    <meta property="twitter:description" content="Genera documentos españoles válidos mediante API REST autenticada.">
     <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
-    <meta property="twitter:image:alt" content="GeneradorData: generador y validador gratuito de NIF, NIE, CIF y DNI">
-    
-    <!-- Technical Meta Tags -->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#28a745">
-    <meta name="msapplication-TileColor" content="#28a745">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="GeneradorData">
-    
-    <!-- Favicon and Icons -->
+
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logoGeneradorData140.png">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="manifest" href="/manifest.json">
-    
-    <!-- Preconnect for Performance -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//code.jquery.com">
-    
-    <!-- JavaScript Files -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/functions.js" type="application/javascript"></script>
+    <script src="assets/js/functions_api.js" type="application/javascript"></script>
 
-
-    <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "@id": "https://generadordata.com/#webapp",
-        "name": "GeneradorData - Generador de NIF, NIE, CIF y DNI",
-        "alternateName": "GeneradorData",
-        "description": "Herramienta gratuita online para generar y validar números de NIF, NIE, CIF y DNI españoles para pruebas y desarrollo",
-        "url": "https://generadordata.com/",
-        "inLanguage": "es-ES",
-        "isAccessibleForFree": true,
-        "applicationCategory": "DeveloperApplication",
-        "applicationSubCategory": "Generador de datos de prueba",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "AdminKeys Develop"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "GeneradorData",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://generadordata.com/assets/img/logoGeneradorData.png"
-            }
-        },
-        "featureList": [
-            "Generador de NIF",
-            "Generador de NIE", 
-            "Generador de CIF",
-            "Generador de DNI",
-            "Validación de documentos",
-            "Historial de generaciones",
-            "Uso gratuito"
-        ],
-        "potentialAction": {
-            "@type": "UseAction",
-            "target": "https://generadordata.com/"
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://generadordata.com/#website",
-        "name": "GeneradorData",
-        "url": "https://generadordata.com/",
-        "inLanguage": "es-ES",
-        "publisher": {
-            "@type": "Organization",
-            "name": "GeneradorData",
-            "url": "https://generadordata.com/",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://generadordata.com/assets/img/logoGeneradorData.png",
-                "width": 124,
-                "height": 124
-            }
-        }
-    }
-    </script>
 </head>
 
 <body>
@@ -169,8 +80,8 @@
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="gd-hero">
         <div class="container text-center">
-            <h1 class="gd-hero-title">Generador de DNI, NIF, NIE y CIF</h1>
-            <p class="gd-hero-sub">Herramienta gratuita para generar números de identificación españoles válidos</p>
+            <h1 class="gd-hero-title">Api para generar de DNI, NIF, NIE y CIF</h1>
+            <p class="gd-hero-sub">Accede a los servicios de generación de documentos de identificación españoles mediante nuestra API REST</p>
         </div>
     </section>
 
@@ -185,11 +96,22 @@
 
                             <!-- Cabecera gradiente -->
                             <div class="gd-card-header">
-                                <h2>Generador DNI / NIF / NIE / CIF</h2>
-                                <p>Genera números válidos para pruebas y desarrollo</p>
+                                <h2>Generador API DNI / NIF / NIE / CIF</h2>
+                                <p>Genera números válidos vía API REST</p>
                             </div>
 
                             <div class="gd-card-body">
+
+                                <!-- Selector de cantidad de resultados -->
+                                <div class="gd-select-row">
+                                    <p class="gd-label">Cantidad de resultados:</p>
+                                    <select class="gd-select" id="selectCantidad" aria-label="Cantidad de resultados">
+                                        <option value="1" selected>1</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
 
                                 <!-- Selector de tipo -->
                                 <p class="gd-label">Tipo de Documento:</p>
@@ -200,27 +122,51 @@
                                     <button class="gd-tab" id="tabCif" data-tipo="CIF">CIF</button>
                                 </div>
 
-                                <!-- Display resultado -->
-                                <div class="gd-display" id="resultadoGenerado" aria-live="polite">
-                                    <span id="valorGenerado">Generar documento aleatorio</span>
-                                    <input type="hidden" id="hddValorGenerado">
+                                <!-- Selector de tipo CIF (solo visible cuando CIF está activo) -->
+                                <div class="gd-cif-type-row" id="cifTypeRow">
+                                    <p class="gd-label">Tipo CIF:</p>
+                                    <select class="gd-select" id="selectTipoCif" aria-label="Tipo de CIF">
+                                        <optgroup label="Sociedades Mercantiles y de Capital">
+                                            <option value="A">A — Sociedades Anónimas (S.A.)</option>
+                                            <option value="B" selected>B — Soc. Resp. Limitada (S.L.)</option>
+                                            <option value="C">C — Sociedades Colectivas</option>
+                                            <option value="D">D — Sociedades Comanditarias</option>
+                                        </optgroup>
+                                        <optgroup label="Entidades Sociales y Civiles">
+                                            <option value="E">E — Comunidades de bienes</option>
+                                            <option value="F">F — Sociedades Cooperativas</option>
+                                            <option value="G">G — Asociaciones y Fundaciones</option>
+                                            <option value="H">H — Comunidades de propietarios</option>
+                                            <option value="J">J — Sociedades Civiles</option>
+                                            <option value="U">U — Uniones Temporales (UTE)</option>
+                                            <option value="V">V — Otros tipos de entidades</option>
+                                        </optgroup>
+                                        <optgroup label="Administración y Entidades Públicas">
+                                            <option value="P">P — Corporaciones Locales</option>
+                                            <option value="Q">Q — Organismos públicos</option>
+                                            <option value="S">S — Órganos de la Administración</option>
+                                        </optgroup>
+                                        <optgroup label="Entidades Religiosas y Extranjeras">
+                                            <option value="R">R — Instituciones religiosas</option>
+                                            <option value="N">N — Entidades extranjeras</option>
+                                            <option value="W">W — Establecimientos no residentes</option>
+                                        </optgroup>
+                                        <optgroup label="Personas Físicas Especiales">
+                                            <option value="K">K — Menores de 14 años sin DNI</option>
+                                            <option value="L">L — Españoles no residentes sin DNI</option>
+                                            <option value="M">M — Extranjeros sin NIE</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
+
+                                <!-- Display curl -->
+                                <div class="gd-curl-display" id="curlDisplay" aria-live="polite"></div>
 
                                 <!-- Botones acción -->
                                 <div class="gd-actions">
                                     <button class="gd-btn gd-btn-primary" id="btnGenerar">✨ Generar</button>
-                                    <button class="gd-btn gd-btn-secondary" id="btnCopiar">📋 Copiar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurl">📋 Copiar Curl</button>
                                 </div>
-
-                                <hr class="gd-divider">
-
-                                <!-- Validador -->
-                                <p class="gd-label">Validar DNI / NIF / NIE / CIF:</p>
-                                <div class="gd-validator-row" id="validadores">
-                                    <input type="text" id="validatorInput" placeholder="Introduce un número para validar..." autocomplete="off" inputmode="text" aria-label="Documento a validar">
-                                    <button class="gd-btn gd-btn-validate" id="btnValidar">✓ Validar</button>
-                                </div>
-                                <div id="validationResult"></div>
 
                                 <hr class="gd-divider">
 
@@ -247,21 +193,34 @@
         <!-- ── Información ───────────────────────────────────── -->
         <section class="gd-info-section">
             <div class="container">
-                <h2 class="gd-info-title">Información sobre DNI, NIF, NIE y CIF</h2>
+                <h2 class="gd-info-title">Generación de Documentos vía API REST</h2>
 
                 <div class="gd-info-grid">
                     <div class="gd-info-card">
-                        <h3>DNI — Documento de Identidad Nacional</h3>
-                        <p>El <strong>DNI</strong> es el documento de identidad oficial en España para ciudadanos españoles. Se compone de 8 dígitos numéricos seguidos de una letra de control. Es emitido por la Dirección General de la Policía Nacional y es esencial para identificarse legalmente, realizar transacciones bancarias y múltiples gestiones administrativas.</p>
-                           <br/>
-                        <h3>NIF — Número de Identificación Fiscal</h3>
-                        <p>Para los extranjeros que residen en España, el <strong>NIF</strong> es conocido como NIE o Número de Identificación de Extranjero. Se compone de 1 letra inicial seguida de 7 números y finaliza con un código de verificación (letra).</p>
-                            <br/>
-                        <h3>NIE — Número de Identificación de Extranjero</h3>
-                        <p>Otorgado por la Dirección General de Policía a los ciudadanos no nacionales con permiso de residencia en España. El <strong>NIE</strong> se compone de 1 letra seguida de 7 números y 1 código de verificación. Es necesario para residir y trabajar en España.</p>
-                            <br/>
-                        <h3>CIF — Código de Identificación Fiscal</h3>
-                        <p>En el caso de personas jurídicas, el NIF solía conocerse como <strong>CIF</strong>. Con el Real Decreto 1065/2007 se unificó bajo la denominación NIF. Consta de 1 letra seguida de 7 números y finaliza con una letra de control.</p>
+                        <h3>🔑 Autenticación</h3>
+                        <p>Todos los endpoints requieren <strong>Bearer Token</strong>. Obtén tu token realizando login en la API.</p>
+                        <pre>POST /api/login
+→ { "token": "eyJhbGciOi..." }</pre>
+                        <br/>
+                        <h3>📄 DNI — Documento Nacional de Identidad</h3>
+                        <p>Genera <strong>DNI</strong> aleatorios válidos. Parámetro <code>result</code> define cuántos generar (máx. 20).</p>
+                        <pre>GET /api/generate-dni?result=2
+→ ["12345678A", "87654321B"]</pre>
+                        <br/>
+                        <h3>📄 NIF — Número de Identificación Fiscal</h3>
+                        <p>Genera <strong>NIF</strong> aleatorios válidos (8 dígitos + letra de control).</p>
+                        <pre>GET /api/generate-nif?result=2
+→ ["12345678A", "87654321B"]</pre>
+                        <br/>
+                        <h3>📄 NIE — Número de Identificación de Extranjero</h3>
+                        <p>Genera <strong>NIE</strong> aleatorios válidos (X/Y/Z + 7 dígitos + letra de control).</p>
+                        <pre>GET /api/generate-nie?result=2
+→ ["X1234567A", "Y7654321B"]</pre>
+                        <br/>
+                        <h3>🏢 CIF — Código de Identificación Fiscal</h3>
+                        <p>Genera <strong>CIF</strong> válidos filtrados por tipo de entidad con <code>type</code> (A–W).</p>
+                        <pre>GET /api/generate-cif-by-type?result=3&amp;type=B
+→ ["B12345678", "B87654321", "B11223344"]</pre>
                     </div>
                 </div>
             </div>
@@ -323,7 +282,6 @@
         </div>
     </footer>
 
-    <!-- ── Scripts ──────────────────────────────────────────── -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
