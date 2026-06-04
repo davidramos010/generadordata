@@ -175,6 +175,56 @@ body.dark-mode {
     border-bottom: 2px solid #d63384;
 }
 
+.gd-main-tabs {
+    margin-bottom: 22px;
+}
+
+.gd-card.cups-mode .gd-card-header {
+    border-image: linear-gradient(90deg, #06b6d4, #2563eb, #06b6d4) 1;
+}
+.gd-card.cups-mode .gd-card-header::before { color: #06b6d4; }
+.gd-card.cups-mode .gd-tab.active {
+    background: #061927;
+    color: #38bdf8;
+    border-bottom-color: #38bdf8;
+}
+.gd-card.cups-mode .gd-select:focus,
+.gd-card.cups-mode .gd-input:focus {
+    border-color: #38bdf8;
+}
+.gd-card.cups-mode .gd-curl-display {
+    border-left-color: #38bdf8;
+}
+.gd-card.cups-mode .gd-curl-display .curl-flag { color: #38bdf8; }
+.gd-card.cups-mode .gd-badge {
+    background: #061927;
+    color: #38bdf8;
+    border-color: #164e63;
+}
+
+.gd-card.bancos-mode .gd-card-header {
+    border-image: linear-gradient(90deg, #22c55e, #f59e0b, #22c55e) 1;
+}
+.gd-card.bancos-mode .gd-card-header::before { color: #22c55e; }
+.gd-card.bancos-mode .gd-tab.active {
+    background: #071f13;
+    color: #4ade80;
+    border-bottom-color: #4ade80;
+}
+.gd-card.bancos-mode .gd-select:focus,
+.gd-card.bancos-mode .gd-input:focus {
+    border-color: #4ade80;
+}
+.gd-card.bancos-mode .gd-curl-display {
+    border-left-color: #4ade80;
+}
+.gd-card.bancos-mode .gd-curl-display .curl-flag { color: #4ade80; }
+.gd-card.bancos-mode .gd-badge {
+    background: #071f13;
+    color: #4ade80;
+    border-color: #166534;
+}
+
 /* ── Display resultado ───────────────────────────────────── */
 .gd-display {
     background: #0d0d0d;
@@ -441,6 +491,53 @@ body.dark-mode {
     color: #e6e3d3;
 }
 
+.gd-api-panel,
+.gd-bank-mode {
+    display: none;
+}
+.gd-api-panel.active,
+.gd-bank-mode.active {
+    display: block;
+}
+
+.gd-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+.gd-field .gd-label {
+    margin-bottom: 6px;
+}
+.gd-field .gd-select,
+.gd-field .gd-input {
+    width: 100%;
+}
+.gd-input {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 5px;
+    padding: 8px 12px;
+    color: #e6e3d3;
+    font-size: .85rem;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+    transition: border-color .15s;
+}
+.gd-input::placeholder {
+    color: #374151;
+}
+.gd-bank-tabs {
+    margin-bottom: 16px;
+}
+.gd-tc-generate-field {
+    display: none;
+    margin-bottom: 16px;
+}
+.gd-tc-generate-field.visible {
+    display: block;
+}
+
 /* ── API page — CIF type row ────────────────────────────── */
 .gd-cif-type-row {
     display: none;
@@ -496,4 +593,40 @@ body.dark-mode {
     overflow-x: auto;
     margin-top: 8px;
     line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+    .gd-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .gd-card-header::before {
+        display: none;
+    }
+    .gd-card-header p {
+        margin-left: 0;
+    }
+    .gd-tabs {
+        flex-wrap: wrap;
+    }
+    .gd-tab {
+        flex: 1 1 50%;
+        min-width: 120px;
+    }
+    .gd-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .gd-select-row,
+    .gd-cif-type-row.visible {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .gd-actions {
+        flex-direction: column;
+    }
+    .gd-btn {
+        justify-content: center;
+        width: 100%;
+    }
 }

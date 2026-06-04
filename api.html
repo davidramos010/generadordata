@@ -80,8 +80,8 @@
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="gd-hero">
         <div class="container text-center">
-            <h1 class="gd-hero-title">Api para generar de DNI, NIF, NIE y CIF</h1>
-            <p class="gd-hero-sub">Accede a los servicios de generación de documentos de identificación españoles mediante nuestra API REST</p>
+            <h1 class="gd-hero-title">Api para generar documentos, CUPS y datos bancarios</h1>
+            <p class="gd-hero-sub">Accede a los servicios de generación y validación mediante nuestra API REST</p>
         </div>
     </section>
 
@@ -90,7 +90,7 @@
         <section class="gd-widget-section">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-md-9 col-lg-6">
+                    <div class="col-12 col-md-10 col-lg-8">
 
                         <div class="gd-card" id="generadores">
 
@@ -102,61 +102,146 @@
 
                             <div class="gd-card-body">
 
-                                <!-- Selector de cantidad de resultados -->
-                                <div class="gd-select-row">
-                                    <p class="gd-label">Cantidad de resultados:</p>
-                                    <select class="gd-select" id="selectCantidad" aria-label="Cantidad de resultados">
-                                        <option value="1" selected>1</option>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                    </select>
+                                <div class="gd-tabs gd-main-tabs" role="group" aria-label="Categoria de API">
+                                    <button class="gd-tab active" data-section="documentos">Documentos</button>
+                                    <button class="gd-tab" data-section="cups">Cups</button>
+                                    <button class="gd-tab" data-section="bancos">Bancos</button>
                                 </div>
 
-                                <!-- Selector de tipo -->
-                                <p class="gd-label">Tipo de Documento:</p>
-                                <div class="gd-tabs" role="group" aria-label="Tipo de documento">
-                                    <button class="gd-tab active" id="tabDni" data-tipo="DNI">DNI</button>
-                                    <button class="gd-tab" id="tabNif" data-tipo="NIF">NIF</button>
-                                    <button class="gd-tab" id="tabNie" data-tipo="NIE">NIE</button>
-                                    <button class="gd-tab" id="tabCif" data-tipo="CIF">CIF</button>
+                                <div class="gd-api-panel active" id="documentosPanel">
+                                    <!-- Selector de cantidad de resultados -->
+                                    <div class="gd-select-row">
+                                        <p class="gd-label">Cantidad de resultados:</p>
+                                        <select class="gd-select" id="selectCantidad" aria-label="Cantidad de resultados">
+                                            <option value="1" selected>1</option>
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Selector de tipo -->
+                                    <p class="gd-label">Tipo de Documento:</p>
+                                    <div class="gd-tabs" role="group" aria-label="Tipo de documento">
+                                        <button class="gd-tab active" id="tabDni" data-documento="DNI">DNI</button>
+                                        <button class="gd-tab" id="tabNif" data-documento="NIF">NIF</button>
+                                        <button class="gd-tab" id="tabNie" data-documento="NIE">NIE</button>
+                                        <button class="gd-tab" id="tabCif" data-documento="CIF">CIF</button>
+                                    </div>
+
+                                    <!-- Selector de tipo CIF (solo visible cuando CIF está activo) -->
+                                    <div class="gd-cif-type-row" id="cifTypeRow">
+                                        <p class="gd-label">Tipo CIF:</p>
+                                        <select class="gd-select" id="selectTipoCif" aria-label="Tipo de CIF">
+                                            <optgroup label="Sociedades Mercantiles y de Capital">
+                                                <option value="A">A — Sociedades Anónimas (S.A.)</option>
+                                                <option value="B" selected>B — Soc. Resp. Limitada (S.L.)</option>
+                                                <option value="C">C — Sociedades Colectivas</option>
+                                                <option value="D">D — Sociedades Comanditarias</option>
+                                            </optgroup>
+                                            <optgroup label="Entidades Sociales y Civiles">
+                                                <option value="E">E — Comunidades de bienes</option>
+                                                <option value="F">F — Sociedades Cooperativas</option>
+                                                <option value="G">G — Asociaciones y Fundaciones</option>
+                                                <option value="H">H — Comunidades de propietarios</option>
+                                                <option value="J">J — Sociedades Civiles</option>
+                                                <option value="U">U — Uniones Temporales (UTE)</option>
+                                                <option value="V">V — Otros tipos de entidades</option>
+                                            </optgroup>
+                                            <optgroup label="Administración y Entidades Públicas">
+                                                <option value="P">P — Corporaciones Locales</option>
+                                                <option value="Q">Q — Organismos públicos</option>
+                                                <option value="S">S — Órganos de la Administración</option>
+                                            </optgroup>
+                                            <optgroup label="Entidades Religiosas y Extranjeras">
+                                                <option value="R">R — Instituciones religiosas</option>
+                                                <option value="N">N — Entidades extranjeras</option>
+                                                <option value="W">W — Establecimientos no residentes</option>
+                                            </optgroup>
+                                            <optgroup label="Personas Físicas Especiales">
+                                                <option value="K">K — Menores de 14 años sin DNI</option>
+                                                <option value="L">L — Españoles no residentes sin DNI</option>
+                                                <option value="M">M — Extranjeros sin NIE</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <!-- Selector de tipo CIF (solo visible cuando CIF está activo) -->
-                                <div class="gd-cif-type-row" id="cifTypeRow">
-                                    <p class="gd-label">Tipo CIF:</p>
-                                    <select class="gd-select" id="selectTipoCif" aria-label="Tipo de CIF">
-                                        <optgroup label="Sociedades Mercantiles y de Capital">
-                                            <option value="A">A — Sociedades Anónimas (S.A.)</option>
-                                            <option value="B" selected>B — Soc. Resp. Limitada (S.L.)</option>
-                                            <option value="C">C — Sociedades Colectivas</option>
-                                            <option value="D">D — Sociedades Comanditarias</option>
-                                        </optgroup>
-                                        <optgroup label="Entidades Sociales y Civiles">
-                                            <option value="E">E — Comunidades de bienes</option>
-                                            <option value="F">F — Sociedades Cooperativas</option>
-                                            <option value="G">G — Asociaciones y Fundaciones</option>
-                                            <option value="H">H — Comunidades de propietarios</option>
-                                            <option value="J">J — Sociedades Civiles</option>
-                                            <option value="U">U — Uniones Temporales (UTE)</option>
-                                            <option value="V">V — Otros tipos de entidades</option>
-                                        </optgroup>
-                                        <optgroup label="Administración y Entidades Públicas">
-                                            <option value="P">P — Corporaciones Locales</option>
-                                            <option value="Q">Q — Organismos públicos</option>
-                                            <option value="S">S — Órganos de la Administración</option>
-                                        </optgroup>
-                                        <optgroup label="Entidades Religiosas y Extranjeras">
-                                            <option value="R">R — Instituciones religiosas</option>
-                                            <option value="N">N — Entidades extranjeras</option>
-                                            <option value="W">W — Establecimientos no residentes</option>
-                                        </optgroup>
-                                        <optgroup label="Personas Físicas Especiales">
-                                            <option value="K">K — Menores de 14 años sin DNI</option>
-                                            <option value="L">L — Españoles no residentes sin DNI</option>
-                                            <option value="M">M — Extranjeros sin NIE</option>
-                                        </optgroup>
-                                    </select>
+                                <div class="gd-api-panel" id="cupsPanel">
+                                    <div class="gd-form-grid">
+                                        <div class="gd-field">
+                                            <p class="gd-label">Tipo:</p>
+                                            <select class="gd-select" id="selectCupsTipo" aria-label="Tipo de CUPS">
+                                                <option value="electricidad" selected>Electricidad</option>
+                                                <option value="gas">Gas</option>
+                                            </select>
+                                        </div>
+                                        <div class="gd-field">
+                                            <p class="gd-label">Distribuidora:</p>
+                                            <input class="gd-input" id="inputCupsDistribuidora" type="text" value="0021" aria-label="Distribuidora CUPS">
+                                        </div>
+                                        <div class="gd-field">
+                                            <p class="gd-label">Cantidad:</p>
+                                            <select class="gd-select" id="selectCupsCantidad" aria-label="Cantidad CUPS">
+                                                <option value="1" selected>1</option>
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                            </select>
+                                        </div>
+                                        <div class="gd-field">
+                                            <p class="gd-label">Sufijo:</p>
+                                            <select class="gd-select" id="selectCupsSufijo" aria-label="Incluir sufijo CUPS">
+                                                <option value="false" selected>No</option>
+                                                <option value="true">Si</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="gd-api-panel" id="bancosPanel">
+                                    <p class="gd-label">Tipo de Operacion:</p>
+                                    <div class="gd-tabs gd-bank-tabs" role="group" aria-label="Tipo de operacion bancaria">
+                                        <button class="gd-tab active" data-banco="IBAN">Iban</button>
+                                        <button class="gd-tab" data-banco="VALIDAR_IBAN">Validar Iban</button>
+                                        <button class="gd-tab" data-banco="TC">Tc</button>
+                                        <button class="gd-tab" data-banco="VALIDAR_TC">Validar Tc</button>
+                                    </div>
+
+                                    <div class="gd-bank-mode active" id="bankGeneratePanel">
+                                        <div class="gd-field gd-tc-generate-field" id="tcGenerateTypeRow">
+                                            <p class="gd-label">Tipo TC:</p>
+                                            <select class="gd-select" id="selectTcTipoGenerar" aria-label="Tipo de tarjeta a generar">
+                                                <option value="VISA" selected>VISA</option>
+                                                <option value="MASTERCARD">MASTERCARD</option>
+                                                <option value="AMEX">AMEX</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="gd-bank-mode" id="bankValidateIbanPanel">
+                                        <div class="gd-field">
+                                            <p class="gd-label">IBAN:</p>
+                                            <input class="gd-input" id="inputIbanValidar" type="text" placeholder="ES9121000418450200051332" aria-label="IBAN a validar">
+                                        </div>
+                                    </div>
+
+                                    <div class="gd-bank-mode" id="bankValidateTcPanel">
+                                        <div class="gd-form-grid">
+                                            <div class="gd-field">
+                                                <p class="gd-label">Tipo TC:</p>
+                                                <select class="gd-select" id="selectTcTipo" aria-label="Tipo de tarjeta">
+                                                    <option value="VISA" selected>VISA</option>
+                                                    <option value="MASTERCARD">MASTERCARD</option>
+                                                    <option value="AMEX">AMEX</option>
+                                                </select>
+                                            </div>
+                                            <div class="gd-field">
+                                                <p class="gd-label">Numero TC:</p>
+                                                <input class="gd-input" id="inputTcValidar" type="text" placeholder="4111111111111111" aria-label="Tarjeta a validar">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Display curl -->
@@ -193,7 +278,7 @@
         <!-- ── Información ───────────────────────────────────── -->
         <section class="gd-info-section">
             <div class="container">
-                <h2 class="gd-info-title">Generación de Documentos vía API REST</h2>
+                <h2 class="gd-info-title">Generación de datos vía API REST</h2>
 
                 <div class="gd-info-grid">
                     <div class="gd-info-card">
