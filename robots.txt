@@ -3,6 +3,8 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.log$
+Disallow: /shop.html
+Disallow: /shop-single.html
 
 # Sitemap
 Sitemap: https://generadordata.com/sitemap.xml

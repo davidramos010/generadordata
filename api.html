@@ -7,15 +7,17 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-YPGC69YD28');
     </script>
 
     <title>API para Generar NIF, NIE, CIF y DNI | GeneradorData</title>
     <meta name="title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
-    <meta name="description" content="Genera números de NIF, NIE, CIF y DNI válidos mediante API REST. Accede a los servicios de generación de documentos españoles vía endpoints autenticados.">
-    <meta name="keywords" content="api generar nif, api generar nie, api generar cif, api generar dni, api rest documentos españa, curl nif nie cif dni">
+    <meta name="description"
+        content="Genera números de NIF, NIE, CIF y DNI válidos mediante API REST. Accede a los servicios de generación de documentos españoles vía endpoints autenticados.">
+    <meta name="keywords"
+        content="api generar nif, api generar nie, api generar cif, api generar dni, api rest documentos españa, curl nif nie cif dni">
     <meta name="author" content="AdminKeys Develop">
     <meta name="language" content="Spanish">
     <meta name="geo.region" content="ES">
@@ -54,8 +56,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//code.jquery.com">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/functions_api.js" type="application/javascript"></script>
+    <meta name="robots" content="noindex, follow">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="assets/js/functions_api.js" defer></script>
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
@@ -81,7 +84,8 @@
     <section class="gd-hero">
         <div class="container text-center">
             <h1 class="gd-hero-title">Api para generar de DNI, NIF, NIE y CIF</h1>
-            <p class="gd-hero-sub">Accede a los servicios de generación de documentos de identificación españoles mediante nuestra API REST</p>
+            <p class="gd-hero-sub">Accede a los servicios de generación de documentos de identificación españoles
+                mediante nuestra API REST</p>
         </div>
     </section>
 
@@ -198,27 +202,30 @@
                 <div class="gd-info-grid">
                     <div class="gd-info-card">
                         <h3>🔑 Autenticación</h3>
-                        <p>Todos los endpoints requieren <strong>Bearer Token</strong>. Obtén tu token realizando login en la API.</p>
+                        <p>Todos los endpoints requieren <strong>Bearer Token</strong>. Obtén tu token realizando login
+                            en la API.</p>
                         <pre>POST /api/login
 → { "token": "eyJhbGciOi..." }</pre>
-                        <br/>
+                        <br />
                         <h3>📄 DNI — Documento Nacional de Identidad</h3>
-                        <p>Genera <strong>DNI</strong> aleatorios válidos. Parámetro <code>result</code> define cuántos generar (máx. 20).</p>
+                        <p>Genera <strong>DNI</strong> aleatorios válidos. Parámetro <code>result</code> define cuántos
+                            generar (máx. 20).</p>
                         <pre>GET /api/generate-dni?result=2
 → ["12345678A", "87654321B"]</pre>
-                        <br/>
+                        <br />
                         <h3>📄 NIF — Número de Identificación Fiscal</h3>
                         <p>Genera <strong>NIF</strong> aleatorios válidos (8 dígitos + letra de control).</p>
                         <pre>GET /api/generate-nif?result=2
 → ["12345678A", "87654321B"]</pre>
-                        <br/>
+                        <br />
                         <h3>📄 NIE — Número de Identificación de Extranjero</h3>
                         <p>Genera <strong>NIE</strong> aleatorios válidos (X/Y/Z + 7 dígitos + letra de control).</p>
                         <pre>GET /api/generate-nie?result=2
 → ["X1234567A", "Y7654321B"]</pre>
-                        <br/>
+                        <br />
                         <h3>🏢 CIF — Código de Identificación Fiscal</h3>
-                        <p>Genera <strong>CIF</strong> válidos filtrados por tipo de entidad con <code>type</code> (A–W).</p>
+                        <p>Genera <strong>CIF</strong> válidos filtrados por tipo de entidad con <code>type</code>
+                            (A–W).</p>
                         <pre>GET /api/generate-cif-by-type?result=3&amp;type=B
 → ["B12345678", "B87654321", "B11223344"]</pre>
                     </div>
@@ -228,7 +235,8 @@
     </main>
 
     <!-- ── Alerta copiado ────────────────────────────────────── -->
-    <div id="alertCopiItem" style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
+    <div id="alertCopiItem"
+        style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
         ✓ ¡Copiado al portapapeles!
     </div>
 
@@ -241,7 +249,8 @@
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
-                            <a class="text-decoration-none" href="mailto:info@generadordata.com">info@generadordata.com</a>
+                            <a class="text-decoration-none"
+                                href="mailto:info@generadordata.com">info@generadordata.com</a>
                         </li>
                     </ul>
                 </div>
@@ -260,16 +269,19 @@
                         <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
                         <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
                         <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
-                        <li><a class="text-decoration-none" href="/api.html">Generador via API</a></li>
+
                     </ul>
                 </div>
             </div>
             <div class="row text-light mb-4">
-                <div class="col-12 mb-3"><div class="w-100 my-3 border-top border-light"></div></div>
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
                 <div class="col-auto me-auto">
                     <ul class="list-inline text-left footer-icons">
                         <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -277,7 +289,8 @@
         </div>
         <div class="w-100 bg-black py-3">
             <div class="container">
-                <p class="text-left text-light mb-0">Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.</p>
+                <p class="text-left text-light mb-0">Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.
+                </p>
             </div>
         </div>
     </footer>
@@ -285,4 +298,5 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
