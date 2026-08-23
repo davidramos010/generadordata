@@ -6,9 +6,10 @@
  */
 
 // === Configuración parametrizada ===
-$API_BASE_URL = 'http://paginaweb/';
-$LOGIN_EMAIL = 'email@test.com';
-$LOGIN_PASS = 'psw';
+require_once __DIR__ . '/assets/config.php';
+$API_BASE_URL = API_BASE_URL;
+$LOGIN_EMAIL = LOGIN_EMAIL;
+$LOGIN_PASS = LOGIN_PASS;
 
 // === Headers de respuesta ===
 header('Content-Type: application/json; charset=utf-8');

@@ -201,6 +201,20 @@
 
                 <div class="gd-info-grid">
                     <div class="gd-info-card">
+                        <h3>🧪 Credenciales de prueba</h3>
+                        <p>Puedes usar el usuario <strong>api@generadordata.com</strong> y la contraseña
+                            <strong>generadordata</strong> para generar tu token vía curl.</p>
+                        <pre>curl -X POST {baseUrl}/api/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"api@generadordata.com","password":"generadordata"}'</pre>
+                        <br />
+                        <h3>📝 Registro de nuevo usuario</h3>
+                        <p>Crea un nuevo usuario mediante el endpoint <code>POST /api/register</code>.</p>
+                        <pre>curl -X POST {baseUrl}/api/register \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{"name":"John Doe","email":"user@example.com","password":"Abc123456","password_confirmation":"Abc123456"}'</pre>
+                        <br />
                         <h3>🔑 Autenticación</h3>
                         <p>Todos los endpoints requieren <strong>Bearer Token</strong>. Obtén tu token realizando login
                             en la API.</p>
@@ -289,7 +303,7 @@
         </div>
         <div class="w-100 bg-black py-3">
             <div class="container">
-                <p class="text-left text-light mb-0">Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.
+                <p class="text-left text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
                 </p>
             </div>
         </div>
