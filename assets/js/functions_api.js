@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // ── Configuración API base URL (usada solo para mostrar en curl) ────
-    var API_BASE_URL = 'http://localhost:8001/api';
+    var API_BASE_URL = 'http://web/';
 
     // ── Tema light / dark ─────────────────────────────────────
     var savedTheme = localStorage.getItem('gd-theme');
