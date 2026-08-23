@@ -47,6 +47,13 @@ La base de datos se inicializa automáticamente con:
 - **Contraseña**: passBD
 - **Tabla**: conter (para el contador de visitas)
 
+## Configuración de credenciales (API + BD)
+
+Todas las credenciales (API Laravel y MySQL) están centralizadas en `assets/config.php` y se
+pueden sobreescribir con las variables de entorno `API_BASE_URL`, `LOGIN_EMAIL`, `LOGIN_PASS`,
+`DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_NAME` definidas en `docker-compose.yml` (servicio
+`web`). Detalle completo en [`assets/md/CONFIGURATION.md`](assets/md/CONFIGURATION.md).
+
 ## Características
 
 - ✅ Servidor web Apache con PHP 8.1

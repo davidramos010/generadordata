@@ -1,11 +1,13 @@
 <?php
 
+require_once __DIR__ . '/assets/config.php';
+
 function getVisitante($recordPage = 'index')
 {
-    $db_host = "localhost";
-    $db_username = "userBD";
-    $db_password = "passBD";
-    $db_name = "admin_BD";
+    $db_host = DB_HOST;
+    $db_username = DB_USERNAME;
+    $db_password = DB_PASSWORD;
+    $db_name = DB_NAME;
     $db_table = "conter";
     $counter_page = $recordPage;
 

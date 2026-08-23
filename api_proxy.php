@@ -6,9 +6,10 @@
  */
 
 // === Configuración parametrizada ===
-$API_BASE_URL = 'http://172.20.0.1:8001/api';
-$LOGIN_EMAIL = 'test@example.com';
-$LOGIN_PASS = 'password';
+require_once __DIR__ . '/assets/config.php';
+$API_BASE_URL = API_BASE_URL;
+$LOGIN_EMAIL = LOGIN_EMAIL;
+$LOGIN_PASS = LOGIN_PASS;
 
 // === Headers de respuesta ===
 header('Content-Type: application/json; charset=utf-8');
