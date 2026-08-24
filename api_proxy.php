@@ -2,63 +2,75 @@
 /**
  * api_proxy.php
  * Proxy PHP para intermediar entre el frontend y la API Laravel.
- * Ejecuta login + generación de documentos y devuelve los resultados.
+ * Ejecuta login + reenvía la acción solicitada (whitelist) y devuelve el resultado.
  */
 
-// === Configuración parametrizada ===
 require_once __DIR__ . '/assets/config.php';
 $API_BASE_URL = API_BASE_URL;
 $LOGIN_EMAIL = LOGIN_EMAIL;
 $LOGIN_PASS = LOGIN_PASS;
 
-// === Headers de respuesta ===
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// Solo aceptar POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Método no permitido. Use POST.']);
     exit;
 }
 
-// === Leer parámetros del body JSON ===
+// === Whitelist de acciones permitidas ===
+// method: GET|POST, path: ruta relativa a la API, params: parámetros aceptados
+$ACTIONS = [
+    'generate-dni'          => ['method' => 'GET', 'path' => 'generate-dni', 'params' => ['result']],
+    'generate-nif'          => ['method' => 'GET', 'path' => 'generate-nif', 'params' => ['result']],
+    'generate-nie'          => ['method' => 'GET', 'path' => 'generate-nie', 'params' => ['result']],
+    'generate-ssn'          => ['method' => 'GET', 'path' => 'generate-ssn', 'params' => ['result']],
+    'generate-cif'          => ['method' => 'GET', 'path' => 'generate-cif', 'params' => ['result']],
+    'generate-cif-by-type'  => ['method' => 'GET', 'path' => 'generate-cif-by-type', 'params' => ['result', 'type']],
+    'validate-document'     => ['method' => 'GET', 'path' => 'validate-document', 'params' => ['document', 'type']],
+
+    'generate-iban'         => ['method' => 'GET', 'path' => 'generate-iban', 'params' => []],
+    'validate-iban'         => ['method' => 'GET', 'path' => 'validate-iban', 'params' => ['iban']],
+    'generate-cuenta'       => ['method' => 'GET', 'path' => 'generate-cuenta', 'params' => []],
+    'generate-tarjeta'      => ['method' => 'GET', 'path' => 'generate-tarjeta', 'params' => ['type']],
+
+    'cups-generate'         => ['method' => 'POST', 'path' => 'cups/generate', 'params' => ['tipo', 'distribuidora', 'cantidad', 'incluirSufijo']],
+    'cups-validate'         => ['method' => 'POST', 'path' => 'cups/validate', 'params' => ['cups']],
+];
+
+// === Leer body JSON ===
 $input = json_decode(file_get_contents('php://input'), true);
 
-if (!$input || !isset($input['tipo'])) {
+if (!$input || !isset($input['action'])) {
     http_response_code(400);
-    echo json_encode(['error' => 'Parámetro "tipo" es requerido.']);
+    echo json_encode(['error' => 'Parámetro "action" es requerido.']);
     exit;
 }
 
-$tipo = strtoupper(trim($input['tipo']));
-$cantidad = isset($input['cantidad']) ? intval($input['cantidad']) : 1;
-$tipoCif = isset($input['tipoCif']) ? strtoupper(trim($input['tipoCif'])) : 'B';
+$action = $input['action'];
+$rawParams = isset($input['params']) && is_array($input['params']) ? $input['params'] : [];
 
-// Validar tipo
-$tiposValidos = ['DNI', 'NIF', 'NIE', 'CIF'];
-if (!in_array($tipo, $tiposValidos)) {
+if (!isset($ACTIONS[$action])) {
     http_response_code(400);
-    echo json_encode(['error' => 'Tipo inválido. Valores válidos: DNI, NIF, NIE, CIF.']);
+    echo json_encode(['error' => 'Acción no soportada: ' . $action]);
     exit;
 }
 
-// Validar cantidad
-if ($cantidad < 1 || $cantidad > 20) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Cantidad debe estar entre 1 y 20.']);
-    exit;
+$actionConfig = $ACTIONS[$action];
+
+// Filtrar solo los parámetros permitidos para esta acción, descartando vacíos/null
+$params = [];
+foreach ($actionConfig['params'] as $key) {
+    if (isset($rawParams[$key]) && $rawParams[$key] !== '' && $rawParams[$key] !== null) {
+        $params[$key] = $rawParams[$key];
+    }
 }
 
 /**
  * Ejecuta el login en la API y devuelve el token.
- *
- * @param string $baseUrl URL base de la API
- * @param string $email   Email del usuario
- * @param string $password Contraseña del usuario
- * @return string|null Token de autenticación o null si falla
  */
 function apiLogin($baseUrl, $email, $password)
 {
@@ -99,33 +111,37 @@ function apiLogin($baseUrl, $email, $password)
 }
 
 /**
- * Ejecuta la petición de generación a la API.
- *
- * @param string $baseUrl  URL base de la API
- * @param string $token    Bearer token
- * @param string $endpoint Ruta del endpoint (e.g. 'generate-dni')
- * @param array  $params   Parámetros query string
- * @return array Respuesta decodificada
+ * Ejecuta la petición a la API (GET o POST) según la acción y devuelve la respuesta decodificada.
  */
-function apiGenerate($baseUrl, $token, $endpoint, $params = [])
+function apiCall($baseUrl, $token, $method, $endpoint, $params = [])
 {
     $url = $baseUrl . '/' . $endpoint;
-    if (!empty($params)) {
-        $url .= '?' . http_build_query($params);
+
+    $headers = [
+        'Authorization: Bearer ' . $token,
+        'Content-Type: application/json',
+        'Accept: application/json',
+    ];
+
+    $curlOpts = [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => $headers,
+        CURLOPT_TIMEOUT => 15,
+        CURLOPT_CONNECTTIMEOUT => 5,
+    ];
+
+    if ($method === 'POST') {
+        $curlOpts[CURLOPT_POST] = true;
+        $curlOpts[CURLOPT_POSTFIELDS] = json_encode($params);
+    } else {
+        if (!empty($params)) {
+            $url .= '?' . http_build_query($params);
+        }
+        $curlOpts[CURLOPT_HTTPGET] = true;
     }
 
     $ch = curl_init($url);
-    curl_setopt_array($ch, [
-        CURLOPT_HTTPGET => true,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => [
-            'Authorization: Bearer ' . $token,
-            'Content-Type: application/json',
-            'Accept: application/json',
-        ],
-        CURLOPT_TIMEOUT => 15,
-        CURLOPT_CONNECTTIMEOUT => 5,
-    ]);
+    curl_setopt_array($ch, $curlOpts);
 
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -137,6 +153,9 @@ function apiGenerate($baseUrl, $token, $endpoint, $params = [])
     }
 
     $data = json_decode($response, true);
+    if (!is_array($data)) {
+        $data = ['value' => $data];
+    }
     $data['httpCode'] = $httpCode;
 
     return $data;
@@ -155,35 +174,24 @@ if (isset($loginResult['error'])) {
 
 $token = $loginResult['token'];
 
-// 2. Construir endpoint y parámetros
-$endpointMap = [
-    'DNI' => 'generate-dni',
-    'NIF' => 'generate-nif',
-    'NIE' => 'generate-nie',
-    'CIF' => 'generate-cif-by-type',
-];
-
-$endpoint = $endpointMap[$tipo];
-$params = ['result' => $cantidad];
-
-if ($tipo === 'CIF') {
-    $params['type'] = $tipoCif;
-}
-
-// 3. Generar documentos
-$result = apiGenerate($API_BASE_URL, $token, $endpoint, $params);
+// 2. Ejecutar acción
+$result = apiCall($API_BASE_URL, $token, $actionConfig['method'], $actionConfig['path'], $params);
 
 $httpCode = isset($result['httpCode']) ? $result['httpCode'] : 0;
 unset($result['httpCode']);
 
-if ($httpCode !== 200) {
+if ($httpCode < 200 || $httpCode >= 300) {
     http_response_code($httpCode ?: 500);
     echo json_encode([
-        'error' => isset($result['message']) ? $result['message'] : 'Error al generar documentos.',
+        'error' => isset($result['message']) ? $result['message'] : 'Error al ejecutar la acción.',
         'details' => $result,
     ]);
     exit;
 }
 
-// 4. Devolver datos
+// 3. Devolver datos (desenvolver 'value' si la respuesta original no era un objeto)
+if (isset($result['value']) && count($result) === 1) {
+    $result = $result['value'];
+}
+
 echo json_encode(['data' => $result]);
