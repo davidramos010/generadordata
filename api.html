@@ -89,27 +89,37 @@
         </div>
     </section>
 
-    <!-- ── Widget principal ─────────────────────────────────── -->
+    <!-- ── Navegación rápida ────────────────────────────────── -->
+    <nav class="gd-quicknav" id="quickNav" aria-label="Navegación rápida de generadores">
+        <div class="container gd-quicknav-inner">
+            <a href="#generadores" class="gd-quicknav-pill active" data-target="generadores">📄 Documentos</a>
+            <a href="#financiero" class="gd-quicknav-pill" data-target="financiero">💳 Financiero</a>
+            <a href="#cups" class="gd-quicknav-pill" data-target="cups">⚡ CUPS</a>
+        </div>
+    </nav>
+
+    <!-- ── Widgets ──────────────────────────────────────────── -->
     <main id="main-content">
-        <section class="gd-widget-section">
+
+        <!-- ═══ Sección 1: Generación de Documentos ═══════════ -->
+        <section class="gd-widget-section" id="generadores">
             <div class="container">
+                <h2 class="gd-section-title">📄 Generación de Documentos</h2>
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-9 col-lg-6">
 
-                        <div class="gd-card" id="generadores">
+                        <div class="gd-card" id="cardDocs">
 
-                            <!-- Cabecera gradiente -->
                             <div class="gd-card-header">
-                                <h2>Generador API DNI / NIF / NIE / CIF</h2>
-                                <p>Genera números válidos vía API REST</p>
+                                <h2>Generador DNI / NIF / NIE / CIF / SSN</h2>
+                                <p>Genera y valida documentos vía API REST</p>
                             </div>
 
                             <div class="gd-card-body">
 
-                                <!-- Selector de cantidad de resultados -->
                                 <div class="gd-select-row">
                                     <p class="gd-label">Cantidad de resultados:</p>
-                                    <select class="gd-select" id="selectCantidad" aria-label="Cantidad de resultados">
+                                    <select class="gd-select" id="selectCantidadDocs" aria-label="Cantidad de resultados">
                                         <option value="1" selected>1</option>
                                         <option value="5">5</option>
                                         <option value="10">10</option>
@@ -117,19 +127,20 @@
                                     </select>
                                 </div>
 
-                                <!-- Selector de tipo -->
                                 <p class="gd-label">Tipo de Documento:</p>
                                 <div class="gd-tabs" role="group" aria-label="Tipo de documento">
                                     <button class="gd-tab active" id="tabDni" data-tipo="DNI">DNI</button>
                                     <button class="gd-tab" id="tabNif" data-tipo="NIF">NIF</button>
                                     <button class="gd-tab" id="tabNie" data-tipo="NIE">NIE</button>
                                     <button class="gd-tab" id="tabCif" data-tipo="CIF">CIF</button>
+                                    <button class="gd-tab" id="tabSsn" data-tipo="SSN">SSN</button>
                                 </div>
 
                                 <!-- Selector de tipo CIF (solo visible cuando CIF está activo) -->
                                 <div class="gd-cif-type-row" id="cifTypeRow">
                                     <p class="gd-label">Tipo CIF:</p>
                                     <select class="gd-select" id="selectTipoCif" aria-label="Tipo de CIF">
+                                        <option value="">Aleatorio (cualquier tipo)</option>
                                         <optgroup label="Sociedades Mercantiles y de Capital">
                                             <option value="A">A — Sociedades Anónimas (S.A.)</option>
                                             <option value="B" selected>B — Soc. Resp. Limitada (S.L.)</option>
@@ -163,27 +174,202 @@
                                     </select>
                                 </div>
 
-                                <!-- Display curl -->
-                                <div class="gd-curl-display" id="curlDisplay" aria-live="polite"></div>
+                                <div class="gd-curl-display" id="curlDisplayDocs" aria-live="polite"></div>
 
-                                <!-- Botones acción -->
                                 <div class="gd-actions">
-                                    <button class="gd-btn gd-btn-primary" id="btnGenerar">✨ Generar</button>
-                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurl">📋 Copiar Curl</button>
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerarDocs">✨ Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurlDocs">📋 Copiar Curl</button>
                                 </div>
 
                                 <hr class="gd-divider">
 
-                                <!-- Historial -->
+                                <!-- Validar documento -->
+                                <p class="gd-label">Validar documento:</p>
+                                <div class="gd-validator-inline">
+                                    <select class="gd-select" id="selectTipoValidarDocs" aria-label="Tipo a validar">
+                                        <option value="">Auto-detectar</option>
+                                        <option value="DNI">DNI</option>
+                                        <option value="NIF">NIF</option>
+                                        <option value="NIE">NIE</option>
+                                        <option value="CIF">CIF</option>
+                                        <option value="SSN">SSN</option>
+                                        <option value="PASAPORTE">PASAPORTE</option>
+                                    </select>
+                                    <div class="gd-validator-row">
+                                        <input type="text" id="inputValidarDocs" placeholder="Ej: 12345678Z">
+                                        <button class="gd-btn-validate" id="btnValidarDocs">Validar</button>
+                                    </div>
+                                </div>
+                                <div class="gd-validation-result" id="validationResultDocs"></div>
+
+                                <hr class="gd-divider">
+
                                 <div class="gd-historial-head">
                                     <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
                                     <div style="display:flex;gap:10px;align-items:center;">
-                                        <button class="gd-btn-danger-link" id="btnExportarHistorial">⬇ Exportar</button>
-                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorial">🗑 Limpiar</button>
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorialDocs">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorialDocs">🗑 Limpiar</button>
                                     </div>
                                 </div>
-                                <ul class="gd-historial" id="ulHistorial" aria-label="Historial">
-                                    <li class="gd-empty" id="historialVacio">Sin generaciones aún</li>
+                                <ul class="gd-historial" id="ulHistorialDocs" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacioDocs">Sin generaciones aún</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ Sección 2: Datos Financieros ═══════════════════ -->
+        <section class="gd-widget-section" id="financiero">
+            <div class="container">
+                <h2 class="gd-section-title">💳 Datos Financieros</h2>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-6">
+
+                        <div class="gd-card" id="cardFinanzas">
+
+                            <div class="gd-card-header">
+                                <h2>Generador IBAN / CCC / Tarjeta</h2>
+                                <p>Genera y valida datos financieros españoles</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <p class="gd-label">Tipo de dato:</p>
+                                <div class="gd-tabs" role="group" aria-label="Tipo de dato financiero">
+                                    <button class="gd-tab active" id="tabIban" data-tipo="IBAN">IBAN</button>
+                                    <button class="gd-tab" id="tabCcc" data-tipo="CCC">CCC</button>
+                                    <button class="gd-tab" id="tabTarjeta" data-tipo="TARJETA">Tarjeta</button>
+                                </div>
+
+                                <!-- Selector de tipo de tarjeta (solo visible cuando Tarjeta está activo) -->
+                                <div class="gd-cif-type-row" id="tarjetaTypeRow">
+                                    <p class="gd-label">Tipo de Tarjeta:</p>
+                                    <select class="gd-select" id="selectTipoTarjeta" aria-label="Tipo de tarjeta">
+                                        <option value="">Aleatorio</option>
+                                        <option value="VISA">VISA</option>
+                                        <option value="MASTERCARD">MASTERCARD</option>
+                                        <option value="AMEX">AMEX</option>
+                                    </select>
+                                </div>
+
+                                <div class="gd-display" id="displayFinanzas"><span>esperando...</span></div>
+
+                                <div class="gd-curl-display" id="curlDisplayFinanzas" aria-live="polite"></div>
+
+                                <div class="gd-actions">
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerarFinanzas">✨ Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurlFinanzas">📋 Copiar Curl</button>
+                                </div>
+
+                                <hr class="gd-divider">
+
+                                <!-- Validar IBAN -->
+                                <p class="gd-label">Validar IBAN:</p>
+                                <div class="gd-validator-row">
+                                    <input type="text" id="inputValidarIban" placeholder="Ej: ES79 2100 0813 6101 2345 6789">
+                                    <button class="gd-btn-validate" id="btnValidarIban">Validar</button>
+                                </div>
+                                <div class="gd-validation-result" id="validationResultFinanzas"></div>
+
+                                <hr class="gd-divider">
+
+                                <div class="gd-historial-head">
+                                    <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
+                                    <div style="display:flex;gap:10px;align-items:center;">
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorialFinanzas">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorialFinanzas">🗑 Limpiar</button>
+                                    </div>
+                                </div>
+                                <ul class="gd-historial" id="ulHistorialFinanzas" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacioFinanzas">Sin generaciones aún</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ Sección 3: CUPS ═════════════════════════════════ -->
+        <section class="gd-widget-section" id="cups">
+            <div class="container">
+                <h2 class="gd-section-title">⚡ Códigos CUPS</h2>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-6">
+
+                        <div class="gd-card" id="cardCups">
+
+                            <div class="gd-card-header">
+                                <h2>Generador de CUPS (Luz / Gas)</h2>
+                                <p>Genera y valida códigos de punto de suministro</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <p class="gd-label">Tipo de suministro:</p>
+                                <div class="gd-tabs" role="group" aria-label="Tipo de suministro CUPS">
+                                    <button class="gd-tab active" id="tabElectricidad" data-tipo="electricidad">⚡ Electricidad</button>
+                                    <button class="gd-tab" id="tabGas" data-tipo="gas">🔥 Gas</button>
+                                </div>
+
+                                <div class="gd-select-row">
+                                    <p class="gd-label">Distribuidora (4 dígitos):</p>
+                                    <input type="text" class="gd-select" id="inputDistribuidoraCups" maxlength="4"
+                                        pattern="[0-9]{4}" placeholder="0021" aria-label="Código de distribuidora">
+                                </div>
+
+                                <div class="gd-select-row">
+                                    <p class="gd-label">Cantidad de resultados:</p>
+                                    <select class="gd-select" id="selectCantidadCups" aria-label="Cantidad de resultados">
+                                        <option value="1" selected>1</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+
+                                <div class="gd-checkbox-row">
+                                    <label>
+                                        <input type="checkbox" id="chkIncluirSufijoCups">
+                                        Incluir sufijo de frontera (ej. punto de recarga)
+                                    </label>
+                                </div>
+
+                                <div class="gd-curl-display" id="curlDisplayCups" aria-live="polite"></div>
+
+                                <div class="gd-actions">
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerarCups">✨ Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurlCups">📋 Copiar Curl</button>
+                                </div>
+
+                                <hr class="gd-divider">
+
+                                <!-- Validar CUPS -->
+                                <p class="gd-label">Validar CUPS:</p>
+                                <div class="gd-validator-row">
+                                    <input type="text" id="inputValidarCups" placeholder="Ej: ES0021000000000001RK">
+                                    <button class="gd-btn-validate" id="btnValidarCups">Validar</button>
+                                </div>
+                                <div class="gd-validation-result" id="validationResultCups"></div>
+
+                                <hr class="gd-divider">
+
+                                <div class="gd-historial-head">
+                                    <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
+                                    <div style="display:flex;gap:10px;align-items:center;">
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorialCups">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorialCups">🗑 Limpiar</button>
+                                    </div>
+                                </div>
+                                <ul class="gd-historial" id="ulHistorialCups" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacioCups">Sin generaciones aún</li>
                                 </ul>
 
                             </div>
@@ -197,7 +383,7 @@
         <!-- ── Información ───────────────────────────────────── -->
         <section class="gd-info-section">
             <div class="container">
-                <h2 class="gd-info-title">Generación de Documentos vía API REST</h2>
+                <h2 class="gd-info-title">Referencia de la API REST</h2>
 
                 <div class="gd-info-grid">
                     <div class="gd-info-card">
@@ -208,40 +394,61 @@
   -H "Content-Type: application/json" \
   -d '{"email":"api@generadordata.com","password":"generadordata"}'</pre>
                         <br />
-                        <h3>📝 Registro de nuevo usuario</h3>
-                        <p>Crea un nuevo usuario mediante el endpoint <code>POST /api/register</code>.</p>
-                        <pre>curl -X POST {baseUrl}/api/register \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -d '{"name":"John Doe","email":"user@example.com","password":"Abc123456","password_confirmation":"Abc123456"}'</pre>
-                        <br />
                         <h3>🔑 Autenticación</h3>
                         <p>Todos los endpoints requieren <strong>Bearer Token</strong>. Obtén tu token realizando login
                             en la API.</p>
                         <pre>POST /api/login
 → { "token": "eyJhbGciOi..." }</pre>
-                        <br />
-                        <h3>📄 DNI — Documento Nacional de Identidad</h3>
-                        <p>Genera <strong>DNI</strong> aleatorios válidos. Parámetro <code>result</code> define cuántos
-                            generar (máx. 20).</p>
+                    </div>
+
+                    <div class="gd-info-card">
+                        <h3>📄 Generación de Documentos</h3>
+                        <p>Genera <strong>DNI</strong>, <strong>NIF</strong>, <strong>NIE</strong>,
+                            <strong>CIF</strong> y <strong>SSN</strong> aleatorios válidos. Parámetro
+                            <code>result</code> define cuántos generar (máx. 20).</p>
                         <pre>GET /api/generate-dni?result=2
-→ ["12345678A", "87654321B"]</pre>
-                        <br />
-                        <h3>📄 NIF — Número de Identificación Fiscal</h3>
-                        <p>Genera <strong>NIF</strong> aleatorios válidos (8 dígitos + letra de control).</p>
-                        <pre>GET /api/generate-nif?result=2
-→ ["12345678A", "87654321B"]</pre>
-                        <br />
-                        <h3>📄 NIE — Número de Identificación de Extranjero</h3>
-                        <p>Genera <strong>NIE</strong> aleatorios válidos (X/Y/Z + 7 dígitos + letra de control).</p>
-                        <pre>GET /api/generate-nie?result=2
-→ ["X1234567A", "Y7654321B"]</pre>
-                        <br />
-                        <h3>🏢 CIF — Código de Identificación Fiscal</h3>
-                        <p>Genera <strong>CIF</strong> válidos filtrados por tipo de entidad con <code>type</code>
-                            (A–W).</p>
-                        <pre>GET /api/generate-cif-by-type?result=3&amp;type=B
+→ ["12345678A", "87654321B"]
+
+GET /api/generate-cif-by-type?result=3&amp;type=B
 → ["B12345678", "B87654321", "B11223344"]</pre>
+                        <br />
+                        <h3>✅ Validar documento</h3>
+                        <p>Valida cualquier documento español con <code>document</code> y, opcionalmente,
+                            <code>type</code> (si se omite, se auto-detecta).</p>
+                        <pre>GET /api/validate-document?document=12345678Z&amp;type=DNI
+→ { "document": "12345678Z", "type": "DNI", "message": "VALIDO" }</pre>
+                    </div>
+
+                    <div class="gd-info-card">
+                        <h3>💳 Datos Financieros</h3>
+                        <p>Genera <strong>IBAN</strong>, cuenta bancaria (<strong>CCC</strong>) y números de
+                            <strong>tarjeta</strong> (VISA/MASTERCARD/AMEX) válidos.</p>
+                        <pre>GET /api/generate-iban
+→ { "iban": "ES7921000813610123456789", "formatted": "ES79 2100 0813 6101 2345 6789" }
+
+GET /api/generate-tarjeta?type=VISA
+→ { "card_number": "4532123456789010", "expiry": "08/28", "cvv": "123" }</pre>
+                        <br />
+                        <h3>✅ Validar IBAN</h3>
+                        <p>Valida un IBAN español con <code>iban</code> (los espacios se ignoran).</p>
+                        <pre>GET /api/validate-iban?iban=ES79+2100+0813+6101+2345+6789
+→ { "valid": true, "message": "VALIDO" }</pre>
+                    </div>
+
+                    <div class="gd-info-card">
+                        <h3>⚡ Generar CUPS</h3>
+                        <p>Genera códigos <strong>CUPS</strong> de electricidad o gas indicando
+                            <code>tipo</code>, <code>distribuidora</code> (4 dígitos), <code>cantidad</code>
+                            (máx. 100) e <code>incluirSufijo</code>.</p>
+                        <pre>POST /api/cups/generate
+{"tipo":"electricidad","distribuidora":"0021","cantidad":3,"incluirSufijo":false}
+→ { "cups": ["ES0021123456789012AB", "ES0031987654321098CD"] }</pre>
+                        <br />
+                        <h3>✅ Validar CUPS</h3>
+                        <p>Valida el formato y letras de control de un código <code>cups</code>.</p>
+                        <pre>POST /api/cups/validate
+{"cups":"ES0021000000000001RK"}
+→ { "valido": true, "detalles": {"pais":"ES","distribuidora":"0021", ...} }</pre>
                     </div>
                 </div>
             </div>

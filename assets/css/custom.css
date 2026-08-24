@@ -5,6 +5,7 @@
 
 /* ── Reset base ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 /* ── Variables ───────────────────────────────────────────── */
 body {
@@ -76,11 +77,61 @@ body.dark-mode {
     margin: 0;
 }
 
+/* ── Quicknav (píldoras) ─────────────────────────────────── */
+.gd-quicknav {
+    position: sticky;
+    top: var(--gd-navbar-h, 76px);
+    z-index: 90;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    transition: background .3s, border-color .3s;
+}
+.gd-quicknav-inner {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.gd-quicknav-inner::-webkit-scrollbar { display: none; }
+.gd-quicknav-pill {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--page-muted);
+    background: transparent;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s, color .2s;
+}
+.gd-quicknav-pill:hover {
+    background: var(--page-bg);
+    color: var(--page-text);
+}
+.gd-quicknav-pill.active {
+    background: #2d6a4f;
+    color: #fff;
+}
+.gd-quicknav-pill.active:hover { background: #1b4332; }
+
 /* ── Widget section ──────────────────────────────────────── */
 .gd-widget-section {
     padding: 16px 0 40px;
     background: var(--page-bg);
     transition: background .3s;
+    scroll-margin-top: calc(var(--gd-navbar-h, 76px) + 56px);
+}
+.gd-widget-section + .gd-widget-section {
+    border-top: 1px solid var(--nav-border);
+}
+.gd-section-title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--page-text);
+    margin: 8px 0 24px;
 }
 
 /* ── Card principal ──────────────────────────────────────── */
@@ -290,17 +341,58 @@ body.dark-mode {
 }
 .gd-btn-validate:hover { background: #1f3a1f; color: #86efac; }
 
+/* ── Validador con selector de tipo (Documentos) ─────────── */
+.gd-validator-inline {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.gd-validator-inline .gd-select { width: 100%; }
+
+/* ── Checkbox (CUPS) ──────────────────────────────────────── */
+.gd-checkbox-row {
+    margin-bottom: 16px;
+}
+.gd-checkbox-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9ca3af;
+    font-size: .82rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+.gd-checkbox-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #d63384;
+    cursor: pointer;
+}
+
 /* ── Resultado validación ────────────────────────────────── */
-#validationResult {
+#validationResult,
+.gd-validation-result {
     font-size: .82rem;
     text-align: left;
     min-height: 20px;
     color: #6b7280;
     font-family: 'Courier New', Courier, monospace;
     padding-left: 2px;
+    white-space: pre-line;
 }
-#validationResult.valid   { color: #4ade80; }
-#validationResult.invalid { color: #f87171; }
+#validationResult.valid,   .gd-validation-result.valid   { color: #4ade80; }
+#validationResult.invalid, .gd-validation-result.invalid { color: #f87171; }
+
+/* ── Sub-línea secundaria en gd-display (tarjeta, etc.) ──── */
+.gd-display-sub {
+    display: block;
+    font-size: .78rem !important;
+    font-weight: 400 !important;
+    letter-spacing: .03em !important;
+    color: #6b7280 !important;
+    margin-top: 6px;
+}
 
 /* ── Historial ───────────────────────────────────────────── */
 .gd-historial-head {
