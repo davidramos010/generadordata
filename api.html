@@ -321,8 +321,22 @@
 
                                 <div class="gd-select-row">
                                     <p class="gd-label">Distribuidora (4 dígitos):</p>
-                                    <input type="text" class="gd-select" id="inputDistribuidoraCups" maxlength="4"
-                                        pattern="[0-9]{4}" placeholder="0021" aria-label="Código de distribuidora">
+                                    <select class="gd-select" id="selectDistribuidoraCups" aria-label="Código de distribuidora">
+                                        <optgroup label="Electricidad">
+                                            <option value="0021" selected>0021 — I-DE (Iberdrola)</option>
+                                            <option value="0022">0022 — UFD Distribución (Naturgy)</option>
+                                            <option value="0023">0023 — E-Distribución (Endesa)</option>
+                                            <option value="0026">0026 — EDP Distribución</option>
+                                            <option value="0027">0027 — Viesgo Distribución</option>
+                                        </optgroup>
+                                        <optgroup label="Gas">
+                                            <option value="0220">0220 — Nedgia (Naturgy)</option>
+                                            <option value="0201">0201 — Nortegas</option>
+                                            <option value="0205">0205 — Redexis Gas</option>
+                                            <option value="0234">0234 — Madrileña Red de Gas</option>
+                                            <option value="0207">0207 — Gas Extremadura</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
 
                                 <div class="gd-select-row">

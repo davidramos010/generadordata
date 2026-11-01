@@ -331,7 +331,7 @@ $(document).ready(function() {
     function buildBodyCups() {
         return {
             tipo: tipoActivoCups,
-            distribuidora: $('#inputDistribuidoraCups').val().trim(),
+            distribuidora: $('#selectDistribuidoraCups').val().trim(),
             cantidad: parseInt($('#selectCantidadCups').val()),
             incluirSufijo: $('#chkIncluirSufijoCups').is(':checked')
         };
@@ -350,7 +350,7 @@ $(document).ready(function() {
         $(this).addClass('active');
         actualizarCurlCups();
     });
-    $('#inputDistribuidoraCups, #selectCantidadCups, #chkIncluirSufijoCups').on('input change', actualizarCurlCups);
+    $('#selectDistribuidoraCups, #selectCantidadCups, #chkIncluirSufijoCups').on('input change', actualizarCurlCups);
 
     $('#btnGenerarCups').click(function() {
         var body = buildBodyCups();
