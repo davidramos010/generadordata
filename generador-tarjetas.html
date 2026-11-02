@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YPGC69YD28');
+    </script>
+
+    <title>Generador de Tarjetas de Crédito de Prueba | GeneradorData</title>
+    <meta name="title" content="Generador de Tarjetas de Crédito de Prueba | GeneradorData">
+    <meta name="description"
+        content="Genera números de tarjeta VISA, Mastercard y AMEX válidos según Luhn, con caducidad y CVV, para probar pasarelas de pago. No sirven para pagar. Gratis y por API.">
+    <meta name="keywords"
+        content="generador de tarjetas de credito, tarjeta de credito de prueba, numero de tarjeta valido para pruebas, generador visa, generador mastercard, generador amex, algoritmo de luhn, api tarjetas de prueba">
+    <meta name="author" content="AdminKeys Develop">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="ES">
+    <meta name="geo.placename" content="España">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://generadordata.com/generador-tarjetas.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://generadordata.com/generador-tarjetas.html">
+    <meta property="og:title" content="Generador de Tarjetas de Crédito de Prueba | GeneradorData">
+    <meta property="og:description" content="Genera números de tarjeta VISA, Mastercard y AMEX válidos según Luhn, con caducidad y CVV, para probar pasarelas de pago. No sirven para pagar. Gratis y por API.">
+    <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
+    <meta property="og:site_name" content="GeneradorData">
+    <meta property="og:locale" content="es_ES">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://generadordata.com/generador-tarjetas.html">
+    <meta property="twitter:title" content="Generador de Tarjetas de Crédito de Prueba | GeneradorData">
+    <meta property="twitter:description" content="Genera números de tarjeta VISA, Mastercard y AMEX válidos según Luhn, con caducidad y CVV, para probar pasarelas de pago. No sirven para pagar. Gratis y por API.">
+    <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
+
+    <meta name="theme-color" content="#28a745">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GeneradorData">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logoGeneradorData140.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="dns-prefetch" href="//code.jquery.com">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="assets/js/functions_api.js" defer></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "@id": "https://generadordata.com/generador-tarjetas.html#webapp",
+        "name": "Generador de tarjetas de crédito de prueba",
+        "description": "Herramienta gratuita para generar números de tarjeta VISA, Mastercard y AMEX que superan el algoritmo de Luhn, con caducidad y CVV, para pruebas de pasarelas de pago.",
+        "url": "https://generadordata.com/generador-tarjetas.html",
+        "inLanguage": "es-ES",
+        "isAccessibleForFree": true,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "featureList": ["Tarjetas VISA de prueba", "Tarjetas Mastercard de prueba", "Tarjetas AMEX de prueba", "Fecha de caducidad y CVV", "Exportación a CSV", "API REST"],
+        "publisher": { "@type": "Organization", "name": "GeneradorData", "url": "https://generadordata.com/" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://generadordata.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Generador de tarjetas de prueba", "item": "https://generadordata.com/generador-tarjetas.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Puedo pagar con una tarjeta generada?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Los números superan la comprobación de formato, pero no pertenecen a ninguna cuenta ni banco y cualquier intento de cobro real será rechazado. Úsalos solo para probar formularios, validaciones y entornos de pruebas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué es el algoritmo de Luhn?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es la fórmula de suma de control que usan todas las redes de tarjetas. Empezando por la derecha, se duplica uno de cada dos dígitos, se restan 9 a los resultados mayores que 9 y se suman todos. Si el total es múltiplo de 10, el número es válido."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo sé si una tarjeta es VISA, Mastercard o AMEX?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Por sus primeros dígitos: las VISA empiezan por 4, las Mastercard por 51 a 55 o 2221 a 2720, y las American Express por 34 o 37. Las VISA y Mastercard tienen 16 dígitos y las AMEX 15."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Puedo generar tarjetas de prueba desde mi código?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. El endpoint GET /api/generate-tarjeta de nuestra API REST devuelve número, caducidad y CVV, y acepta el parámetro type con VISA, MASTERCARD o AMEX. Tienes los ejemplos con curl en la documentación de la API."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <nav class="gd-navbar">
+        <div class="container gd-navbar-inner">
+            <a href="/" class="gd-logo">
+                <img src="assets/img/logoGeneradorData.png" alt="GeneradorData" height="100">
+            </a>
+            <button id="themeToggle" class="gd-theme-btn" aria-label="Cambiar tema">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="gd-hero">
+        <div class="container text-center">
+            <h1 class="gd-hero-title">Generador de tarjetas de crédito de prueba</h1>
+            <p class="gd-hero-sub">Números VISA, Mastercard y AMEX válidos según Luhn, con caducidad y CVV, para probar pasarelas de pago</p>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <section class="gd-widget-section" id="financiero">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-6">
+
+                        <div class="gd-card" id="cardFinanzas">
+
+                            <div class="gd-card-header">
+                                <h2>Generador de tarjetas de prueba</h2>
+                                <p>VISA · Mastercard · AMEX</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <p class="gd-label">Tipo de dato:</p>
+                                <div class="gd-tabs" role="group" aria-label="Tipo de dato financiero">
+                                    <button class="gd-tab active" id="tabTarjeta" data-tipo="TARJETA">Tarjeta</button>
+                                    <button class="gd-tab" id="tabIban" data-tipo="IBAN">IBAN</button>
+                                    <button class="gd-tab" id="tabCcc" data-tipo="CCC">CCC</button>
+                                </div>
+
+                                <div class="gd-cif-type-row" id="tarjetaTypeRow">
+                                    <p class="gd-label">Tipo de Tarjeta:</p>
+                                    <select class="gd-select" id="selectTipoTarjeta" aria-label="Tipo de tarjeta">
+                                        <option value="">Aleatorio</option>
+                                        <option value="VISA">VISA</option>
+                                        <option value="MASTERCARD">MASTERCARD</option>
+                                        <option value="AMEX">AMEX</option>
+                                    </select>
+                                </div>
+
+                                <div class="gd-display" id="displayFinanzas"><span>esperando...</span></div>
+
+                                <div class="gd-curl-display" id="curlDisplayFinanzas" aria-live="polite"></div>
+
+                                <div class="gd-actions">
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerarFinanzas">✨ Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurlFinanzas">📋 Copiar Curl</button>
+                                </div>
+
+                                <hr class="gd-divider">
+
+                                <div class="gd-historial-head">
+                                    <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
+                                    <div style="display:flex;gap:10px;align-items:center;">
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorialFinanzas">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorialFinanzas">🗑 Limpiar</button>
+                                    </div>
+                                </div>
+                                <ul class="gd-historial" id="ulHistorialFinanzas" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacioFinanzas">Sin generaciones aún</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section">
+            <div class="container">
+                <h2 class="gd-info-title">Cómo funcionan los números de tarjeta</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>⚠️ Solo para pruebas</h3>
+                        <p>Las tarjetas generadas tienen un <strong>formato válido</strong>, pero no están emitidas por ningún banco ni vinculadas a ninguna cuenta. Ninguna pasarela aceptará un cobro real con ellas. Para probar pagos de extremo a extremo usa también las tarjetas de test que publica tu proveedor de pagos en su modo sandbox.</p>
+                        <br />
+                        <h3>Prefijo y longitud de cada red</h3>
+                        <p>Los primeros dígitos (el <strong>BIN</strong> o IIN) identifican la red: <strong>VISA</strong> empieza por 4, <strong>Mastercard</strong> por 51-55 o 2221-2720 y <strong>American Express</strong> por 34 o 37. VISA y Mastercard usan 16 dígitos; AMEX, 15.</p>
+                        <br />
+                        <h3>El algoritmo de Luhn</h3>
+                        <p>El último dígito es de control. Empezando por la derecha se duplica uno de cada dos dígitos; si el resultado pasa de 9 se le restan 9, y al final se suman todos. Un número es válido cuando la suma es <strong>múltiplo de 10</strong>. Así detectan los formularios los errores de tecleo antes de enviar nada al banco.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>🧪 Casos de uso</h3>
+                        <p>Probar la validación de formularios de pago, la detección automática de la red (el logotipo que aparece al teclear), los campos de caducidad y CVV, y poblar bases de datos de desarrollo <strong>sin manejar datos de tarjetas reales</strong>, lo que además te mantiene lejos del alcance de PCI DSS en tus entornos de prueba.</p>
+                        <br />
+                        <h3>⚙️ Úsalo desde tu código</h3>
+                        <p>El mismo generador está disponible en nuestra <a href="/api.html">API REST</a>. Elige la red con el parámetro <code>type</code>:</p>
+                        <pre>GET https://api.generadordata.com/api/generate-tarjeta?type=VISA
+→ { "card_number": "4811791754017924",
+    "type": "VISA", "expiry": "05/30", "cvv": "635" }</pre>
+                        <br />
+                        <h3>🔗 Otros generadores</h3>
+                        <p><a href="/generador-iban.html">IBAN y CCC</a> · <a href="/generador-cups.html">Códigos CUPS</a> · <a href="/">DNI, NIF, NIE y CIF</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Preguntas frecuentes sobre tarjetas de prueba</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>¿Puedo pagar con una tarjeta generada?</h3>
+                        <p>No. Los números superan la comprobación de formato, pero no pertenecen a ninguna cuenta ni banco y cualquier intento de cobro real será rechazado. Úsalos solo para probar formularios, validaciones y entornos de pruebas.</p>
+                        <br />
+                        <h3>¿Qué es el algoritmo de Luhn?</h3>
+                        <p>Es la fórmula de suma de control que usan todas las redes de tarjetas. Empezando por la derecha, se duplica uno de cada dos dígitos, se restan 9 a los resultados mayores que 9 y se suman todos. Si el total es múltiplo de 10, el número es válido.</p>
+                        <br />
+                        <h3>¿Cómo sé si una tarjeta es VISA, Mastercard o AMEX?</h3>
+                        <p>Por sus primeros dígitos: las VISA empiezan por 4, las Mastercard por 51 a 55 o 2221 a 2720, y las American Express por 34 o 37. Las VISA y Mastercard tienen 16 dígitos y las AMEX 15.</p>
+                        <br />
+                        <h3>¿Puedo generar tarjetas de prueba desde mi código?</h3>
+                        <p>Sí. El endpoint GET /api/generate-tarjeta de nuestra API REST devuelve número, caducidad y CVV, y acepta el parámetro type con VISA, MASTERCARD o AMEX. Tienes los ejemplos con curl en la documentación de la API.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="alertCopiItem"
+        style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
+        ✓ ¡Copiado al portapapeles!
+    </div>
+
+    <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                            <a class="text-decoration-none"
+                                href="mailto:info@generadordata.com">info@generadordata.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="/about.html">Acerca de</a></li>
+                        <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/#generadores">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/generador-iban.html">Generador IBAN</a></li>
+                        <li><a class="text-decoration-none" href="/generador-tarjetas.html">Generador de tarjetas</a></li>
+                        <li><a class="text-decoration-none" href="/generador-cups.html">Generador CUPS</a></li>
+                        <li><a class="text-decoration-none" href="/api.html">API REST</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <p class="text-left text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

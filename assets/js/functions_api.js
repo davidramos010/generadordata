@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // ── Configuración API base URL (usada solo para mostrar en curl) ────
-    var API_BASE_URL = 'http://web/';
+    var API_BASE_URL = 'https://api.generadordata.com/api';
 
     // ── Tema light / dark ─────────────────────────────────────
     var savedTheme = localStorage.getItem('gd-theme');
@@ -166,7 +166,7 @@ $(document).ready(function() {
     // Sección 1: Generación de Documentos
     // ══════════════════════════════════════════════════════════
 
-    var tipoActivoDocs = 'DNI';
+    var tipoActivoDocs = $('#cardDocs .gd-tab.active').data('tipo') || 'DNI';
     var endpointMapDocs = { DNI: 'generate-dni', NIF: 'generate-nif', NIE: 'generate-nie', SSN: 'generate-ssn' };
 
     function actionForDocs(tipo, tipoCif) {
@@ -246,7 +246,7 @@ $(document).ready(function() {
     // Sección 2: Datos Financieros
     // ══════════════════════════════════════════════════════════
 
-    var tipoActivoFin = 'IBAN';
+    var tipoActivoFin = $('#cardFinanzas .gd-tab.active').data('tipo') || 'IBAN';
     var endpointMapFin = { IBAN: 'generate-iban', CCC: 'generate-cuenta', TARJETA: 'generate-tarjeta' };
 
     function buildApiUrlFin(tipo, tipoTarjeta) {
@@ -326,12 +326,12 @@ $(document).ready(function() {
     // Sección 3: CUPS
     // ══════════════════════════════════════════════════════════
 
-    var tipoActivoCups = 'electricidad';
+    var tipoActivoCups = $('#cardCups .gd-tab.active').data('tipo') || 'electricidad';
 
     function buildBodyCups() {
         return {
             tipo: tipoActivoCups,
-            distribuidora: $('#selectDistribuidoraCups').val().trim(),
+            distribuidora: ($('#selectDistribuidoraCups').val() || '').trim(),
             cantidad: parseInt($('#selectCantidadCups').val()),
             incluirSufijo: $('#chkIncluirSufijoCups').is(':checked')
         };

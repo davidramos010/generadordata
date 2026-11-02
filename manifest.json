@@ -1,7 +1,7 @@
 {
-    "name": "GeneradorData - Generador de NIF, NIE y CIF",
+    "name": "GeneradorData - Generador de NIF, NIE, CIF, IBAN y CUPS",
     "short_name": "GeneradorData",
-    "description": "Herramienta gratuita para generar números de NIF, NIE y CIF válidos",
+    "description": "Herramienta gratuita para generar y validar DNI, NIF, NIE, CIF, IBAN, tarjetas de prueba y CUPS, también por API REST",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",

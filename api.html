@@ -12,12 +12,12 @@
         gtag('config', 'G-YPGC69YD28');
     </script>
 
-    <title>API para Generar NIF, NIE, CIF y DNI | GeneradorData</title>
-    <meta name="title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
+    <title>API REST de DNI, NIF, NIE, CIF, IBAN y CUPS | GeneradorData</title>
+    <meta name="title" content="API REST de DNI, NIF, NIE, CIF, IBAN y CUPS | GeneradorData">
     <meta name="description"
-        content="Genera números de NIF, NIE, CIF y DNI válidos mediante API REST. Accede a los servicios de generación de documentos españoles vía endpoints autenticados.">
+        content="API REST gratuita para generar y validar DNI, NIF, NIE, CIF, NSS, IBAN, CCC, tarjetas de prueba y códigos CUPS de luz y gas. Ejemplos curl listos para usar.">
     <meta name="keywords"
-        content="api generar nif, api generar nie, api generar cif, api generar dni, api rest documentos españa, curl nif nie cif dni">
+        content="api generar dni, api generar nif, api generar nie, api generar cif, api generar iban, api validar iban, api generar ccc, api tarjetas de prueba, api generar cups, api validar cups, api nss, api rest datos de prueba españa">
     <meta name="author" content="AdminKeys Develop">
     <meta name="language" content="Spanish">
     <meta name="geo.region" content="ES">
@@ -30,16 +30,16 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://generadordata.com/api.html">
-    <meta property="og:title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
-    <meta property="og:description" content="Genera documentos españoles válidos mediante API REST autenticada.">
+    <meta property="og:title" content="API REST de DNI, NIF, NIE, CIF, IBAN y CUPS | GeneradorData">
+    <meta property="og:description" content="API REST gratuita para generar y validar DNI, NIF, NIE, CIF, NSS, IBAN, CCC, tarjetas de prueba y códigos CUPS de luz y gas. Ejemplos curl listos para usar.">
     <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
     <meta property="og:site_name" content="GeneradorData">
     <meta property="og:locale" content="es_ES">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://generadordata.com/api.html">
-    <meta property="twitter:title" content="API para Generar NIF, NIE, CIF y DNI | GeneradorData">
-    <meta property="twitter:description" content="Genera documentos españoles válidos mediante API REST autenticada.">
+    <meta property="twitter:title" content="API REST de DNI, NIF, NIE, CIF, IBAN y CUPS | GeneradorData">
+    <meta property="twitter:description" content="API REST gratuita para generar y validar DNI, NIF, NIE, CIF, NSS, IBAN, CCC, tarjetas de prueba y códigos CUPS de luz y gas. Ejemplos curl listos para usar.">
     <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,7 +57,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//code.jquery.com">
 
-    <meta name="robots" content="noindex, follow">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="assets/js/functions_api.js" defer></script>
 
@@ -65,6 +64,37 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebAPI",
+        "@id": "https://generadordata.com/api.html#webapi",
+        "name": "API REST de GeneradorData",
+        "description": "API REST gratuita para generar y validar DNI, NIF, NIE, CIF, NSS, IBAN, CCC, tarjetas de prueba y códigos CUPS de luz y gas, pensada para pruebas de software y desarrollo.",
+        "url": "https://generadordata.com/api.html",
+        "documentation": "https://generadordata.com/api.html",
+        "termsOfService": "https://generadordata.com/rgpd.html",
+        "inLanguage": "es-ES",
+        "isAccessibleForFree": true,
+        "provider": {
+            "@type": "Organization",
+            "name": "GeneradorData",
+            "url": "https://generadordata.com/",
+            "logo": "https://generadordata.com/assets/img/logoGeneradorData.png"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://generadordata.com/" },
+            { "@type": "ListItem", "position": 2, "name": "API REST", "item": "https://generadordata.com/api.html" }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -84,9 +114,9 @@
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="gd-hero">
         <div class="container text-center">
-            <h1 class="gd-hero-title">Api para generar de DNI, NIF, NIE y CIF</h1>
-            <p class="gd-hero-sub">Accede a los servicios de generación de documentos de identificación españoles
-                mediante nuestra API REST</p>
+            <h1 class="gd-hero-title">API REST para generar DNI, NIF, NIE, CIF, IBAN y CUPS</h1>
+            <p class="gd-hero-sub">Genera y valida documentos de identidad, datos bancarios, tarjetas de prueba y
+                códigos CUPS de luz y gas desde tu propio código</p>
         </div>
     </section>
 
@@ -293,6 +323,11 @@
                             </div>
                         </div>
 
+                        <p class="gd-api-note">
+                            Más información: <a href="/generador-iban.html">generador de IBAN y CCC</a> ·
+                            <a href="/generador-tarjetas.html">generador de tarjetas de prueba</a>
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -390,6 +425,10 @@
                             </div>
                         </div>
 
+                        <p class="gd-api-note">
+                            Más información: <a href="/generador-cups.html">generador de CUPS de luz y gas →</a>
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -405,7 +444,7 @@
                         <h3>🧪 Credenciales de prueba</h3>
                         <p>Puedes usar el usuario <strong>api@generadordata.com</strong> y la contraseña
                             <strong>generadordata</strong> para generar tu token vía curl.</p>
-                        <pre>curl -X POST {baseUrl}/api/login \
+                        <pre>curl -X POST https://api.generadordata.com/api/login \
   -H "Content-Type: application/json" \
   -d '{"email":"api@generadordata.com","password":"generadordata"}'</pre>
                         <br />
@@ -505,7 +544,10 @@ GET /api/generate-tarjeta?type=VISA
                         <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
                         <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
                         <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
-
+                        <li><a class="text-decoration-none" href="/generador-iban.html">Generador IBAN</a></li>
+                        <li><a class="text-decoration-none" href="/generador-tarjetas.html">Generador de tarjetas</a></li>
+                        <li><a class="text-decoration-none" href="/generador-cups.html">Generador CUPS</a></li>
+                        <li><a class="text-decoration-none" href="/api.html">API REST</a></li>
                     </ul>
                 </div>
             </div>
