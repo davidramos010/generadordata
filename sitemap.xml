@@ -6,16 +6,37 @@
     
     <url>
         <loc>https://generadordata.com/</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-11-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://generadordata.com/api.html</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-11-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://generadordata.com/generador-iban.html</loc>
+        <lastmod>2026-11-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://generadordata.com/generador-tarjetas.html</loc>
+        <lastmod>2026-11-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://generadordata.com/generador-cups.html</loc>
+        <lastmod>2026-11-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
     <url>

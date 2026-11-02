@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YPGC69YD28');
+    </script>
+
+    <title>Generador de CUPS de Luz y Gas | Validar CUPS | GeneradorData</title>
+    <meta name="title" content="Generador de CUPS de Luz y Gas | Validar CUPS | GeneradorData">
+    <meta name="description"
+        content="Genera códigos CUPS de luz y gas válidos para Iberdrola, Endesa, Naturgy, Nedgia y otras distribuidoras, y valida cualquier CUPS online. Gratis y por API REST.">
+    <meta name="keywords"
+        content="generador cups, generar cups, cups aleatorio, cups valido para pruebas, validar cups, comprobar cups, cups luz, cups gas, codigo cups distribuidora, api cups">
+    <meta name="author" content="AdminKeys Develop">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="ES">
+    <meta name="geo.placename" content="España">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://generadordata.com/generador-cups.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://generadordata.com/generador-cups.html">
+    <meta property="og:title" content="Generador de CUPS de Luz y Gas | Validar CUPS | GeneradorData">
+    <meta property="og:description" content="Genera códigos CUPS de luz y gas válidos para Iberdrola, Endesa, Naturgy, Nedgia y otras distribuidoras, y valida cualquier CUPS online. Gratis y por API REST.">
+    <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
+    <meta property="og:site_name" content="GeneradorData">
+    <meta property="og:locale" content="es_ES">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://generadordata.com/generador-cups.html">
+    <meta property="twitter:title" content="Generador de CUPS de Luz y Gas | Validar CUPS | GeneradorData">
+    <meta property="twitter:description" content="Genera códigos CUPS de luz y gas válidos para Iberdrola, Endesa, Naturgy, Nedgia y otras distribuidoras, y valida cualquier CUPS online. Gratis y por API REST.">
+    <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
+
+    <meta name="theme-color" content="#28a745">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GeneradorData">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logoGeneradorData140.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="dns-prefetch" href="//code.jquery.com">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="assets/js/functions_api.js" defer></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "@id": "https://generadordata.com/generador-cups.html#webapp",
+        "name": "Generador de CUPS de luz y gas",
+        "description": "Herramienta gratuita para generar códigos CUPS de electricidad y gas con letras de control válidas para las principales distribuidoras de España, y validar CUPS online.",
+        "url": "https://generadordata.com/generador-cups.html",
+        "inLanguage": "es-ES",
+        "isAccessibleForFree": true,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "featureList": ["CUPS de electricidad", "CUPS de gas", "Selección de distribuidora", "Sufijo de frontera opcional", "Validador de CUPS", "Exportación a CSV", "API REST"],
+        "publisher": { "@type": "Organization", "name": "GeneradorData", "url": "https://generadordata.com/" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://generadordata.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Generador de CUPS", "item": "https://generadordata.com/generador-cups.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Qué es el código CUPS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El CUPS (Código Universal del Punto de Suministro) identifica de forma única cada punto de suministro de luz o gas en España. No cambia aunque cambies de comercializadora y aparece en todas las facturas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Los CUPS generados corresponden a suministros reales?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Tienen un formato correcto y letras de control válidas, pero los 12 dígitos del suministro se generan al azar. Sirven para probar formularios y sistemas de contratación, no para hacer gestiones con una distribuidora."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo se sabe la distribuidora de un CUPS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Por los cuatro dígitos que siguen a ES. Por ejemplo, 0021 corresponde a i-DE (Iberdrola), 0022 a UFD (Naturgy) y 0023 a e-distribución (Endesa)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Puedo generar CUPS desde mi código?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. El endpoint POST /api/cups/generate de nuestra API REST genera hasta 100 CUPS por llamada indicando tipo, distribuidora y cantidad, y POST /api/cups/validate los valida. Tienes los ejemplos con curl en la documentación de la API."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <nav class="gd-navbar">
+        <div class="container gd-navbar-inner">
+            <a href="/" class="gd-logo">
+                <img src="assets/img/logoGeneradorData.png" alt="GeneradorData" height="100">
+            </a>
+            <button id="themeToggle" class="gd-theme-btn" aria-label="Cambiar tema">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="gd-hero">
+        <div class="container text-center">
+            <h1 class="gd-hero-title">Generador de CUPS de luz y gas</h1>
+            <p class="gd-hero-sub">Códigos CUPS válidos para las principales distribuidoras de España, listos para tus pruebas</p>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <section class="gd-widget-section" id="cups">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-6">
+
+                        <div class="gd-card" id="cardCups">
+
+                            <div class="gd-card-header">
+                                <h2>Generador de CUPS (Luz / Gas)</h2>
+                                <p>Genera y valida códigos de punto de suministro</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <p class="gd-label">Tipo de suministro:</p>
+                                <div class="gd-tabs" role="group" aria-label="Tipo de suministro CUPS">
+                                    <button class="gd-tab active" id="tabElectricidad" data-tipo="electricidad">⚡ Electricidad</button>
+                                    <button class="gd-tab" id="tabGas" data-tipo="gas">🔥 Gas</button>
+                                </div>
+
+                                <div class="gd-select-row">
+                                    <p class="gd-label">Distribuidora (4 dígitos):</p>
+                                    <select class="gd-select" id="selectDistribuidoraCups" aria-label="Código de distribuidora">
+                                        <optgroup label="Electricidad">
+                                            <option value="0021" selected>0021 — I-DE (Iberdrola)</option>
+                                            <option value="0022">0022 — UFD Distribución (Naturgy)</option>
+                                            <option value="0023">0023 — E-Distribución (Endesa)</option>
+                                            <option value="0026">0026 — EDP Distribución</option>
+                                            <option value="0027">0027 — Viesgo Distribución</option>
+                                        </optgroup>
+                                        <optgroup label="Gas">
+                                            <option value="0220">0220 — Nedgia (Naturgy)</option>
+                                            <option value="0201">0201 — Nortegas</option>
+                                            <option value="0205">0205 — Redexis Gas</option>
+                                            <option value="0234">0234 — Madrileña Red de Gas</option>
+                                            <option value="0207">0207 — Gas Extremadura</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <div class="gd-select-row">
+                                    <p class="gd-label">Cantidad de resultados:</p>
+                                    <select class="gd-select" id="selectCantidadCups" aria-label="Cantidad de resultados">
+                                        <option value="1" selected>1</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+
+                                <div class="gd-checkbox-row">
+                                    <label>
+                                        <input type="checkbox" id="chkIncluirSufijoCups">
+                                        Incluir sufijo de frontera (ej. punto de recarga)
+                                    </label>
+                                </div>
+
+                                <div class="gd-curl-display" id="curlDisplayCups" aria-live="polite"></div>
+
+                                <div class="gd-actions">
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerarCups">✨ Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurlCups">📋 Copiar Curl</button>
+                                </div>
+
+                                <hr class="gd-divider">
+
+                                <p class="gd-label">Validar CUPS:</p>
+                                <div class="gd-validator-row">
+                                    <input type="text" id="inputValidarCups" placeholder="Ej: ES0021000000000001RK">
+                                    <button class="gd-btn-validate" id="btnValidarCups">Validar</button>
+                                </div>
+                                <div class="gd-validation-result" id="validationResultCups"></div>
+
+                                <hr class="gd-divider">
+
+                                <div class="gd-historial-head">
+                                    <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
+                                    <div style="display:flex;gap:10px;align-items:center;">
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorialCups">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorialCups">🗑 Limpiar</button>
+                                    </div>
+                                </div>
+                                <ul class="gd-historial" id="ulHistorialCups" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacioCups">Sin generaciones aún</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section">
+            <div class="container">
+                <h2 class="gd-info-title">Cómo es un código CUPS</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>Estructura del CUPS</h3>
+                        <p>Un CUPS tiene <strong>20 caracteres</strong>: el país <strong>ES</strong>, los <strong>4 dígitos de la distribuidora</strong>, <strong>12 dígitos</strong> que identifican el punto de suministro y <strong>2 letras de control</strong>. Algunos puntos añaden un <strong>sufijo de frontera</strong> de 2 caracteres (un número y una letra) y llegan a 22, por ejemplo en puntos de recarga o autoconsumo.</p>
+                        <br />
+                        <h3>Cómo se calculan las letras de control</h3>
+                        <p>Se toman los 16 dígitos (distribuidora + suministro) como un único número y se calcula el resto de dividirlo entre <strong>529</strong>. Ese resto se divide entre 23: el cociente da la primera letra y el resto la segunda, consultando la tabla <code>TRWAGMYFPDXBNJZSQVHLCKE</code>, la misma que usa el DNI.</p>
+                        <br />
+                        <h3>Códigos de distribuidora incluidos</h3>
+                        <p><strong>Luz:</strong> 0021 i-DE (Iberdrola), 0022 UFD (Naturgy), 0023 e-distribución (Endesa), 0026 EDP, 0027 Viesgo. <strong>Gas:</strong> 0220 Nedgia (Naturgy), 0201 Nortegas, 0205 Redexis, 0234 Madrileña Red de Gas, 0207 Gas Extremadura.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>🧪 Para qué sirve un CUPS de prueba</h3>
+                        <p>Comercializadoras, comparadores de tarifas e integradores de software energético necesitan CUPS con formato correcto para probar <strong>formularios de contratación</strong>, cambios de comercializadora, importaciones masivas y validaciones, sin usar datos de suministros reales de clientes.</p>
+                        <br />
+                        <h3>⚙️ Úsalo desde tu código</h3>
+                        <p>El mismo generador está disponible en nuestra <a href="/api.html">API REST</a>, con hasta 100 CUPS por llamada:</p>
+                        <pre>POST https://api.generadordata.com/api/cups/generate
+{"tipo":"electricidad","distribuidora":"0021","cantidad":3}
+→ { "cups": ["ES0021...", "ES0021...", "ES0021..."] }</pre>
+                        <br />
+                        <h3>🔗 Otros generadores</h3>
+                        <p><a href="/generador-iban.html">IBAN y CCC</a> · <a href="/generador-tarjetas.html">Tarjetas de prueba</a> · <a href="/">DNI, NIF, NIE y CIF</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Preguntas frecuentes sobre el CUPS</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>¿Qué es el código CUPS?</h3>
+                        <p>El CUPS (Código Universal del Punto de Suministro) identifica de forma única cada punto de suministro de luz o gas en España. No cambia aunque cambies de comercializadora y aparece en todas las facturas.</p>
+                        <br />
+                        <h3>¿Los CUPS generados corresponden a suministros reales?</h3>
+                        <p>No. Tienen un formato correcto y letras de control válidas, pero los 12 dígitos del suministro se generan al azar. Sirven para probar formularios y sistemas de contratación, no para hacer gestiones con una distribuidora.</p>
+                        <br />
+                        <h3>¿Cómo se sabe la distribuidora de un CUPS?</h3>
+                        <p>Por los cuatro dígitos que siguen a ES. Por ejemplo, 0021 corresponde a i-DE (Iberdrola), 0022 a UFD (Naturgy) y 0023 a e-distribución (Endesa).</p>
+                        <br />
+                        <h3>¿Puedo generar CUPS desde mi código?</h3>
+                        <p>Sí. El endpoint POST /api/cups/generate de nuestra API REST genera hasta 100 CUPS por llamada indicando tipo, distribuidora y cantidad, y POST /api/cups/validate los valida. Tienes los ejemplos con curl en la documentación de la API.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="alertCopiItem"
+        style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
+        ✓ ¡Copiado al portapapeles!
+    </div>
+
+    <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                            <a class="text-decoration-none"
+                                href="mailto:info@generadordata.com">info@generadordata.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="/about.html">Acerca de</a></li>
+                        <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/#generadores">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/generador-iban.html">Generador IBAN</a></li>
+                        <li><a class="text-decoration-none" href="/generador-tarjetas.html">Generador de tarjetas</a></li>
+                        <li><a class="text-decoration-none" href="/generador-cups.html">Generador CUPS</a></li>
+                        <li><a class="text-decoration-none" href="/api.html">API REST</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <p class="text-left text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

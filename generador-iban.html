@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YPGC69YD28');
+    </script>
+
+    <title>Generador de IBAN válidos para pruebas | Validar IBAN | GeneradorData</title>
+    <meta name="title" content="Generador de IBAN válidos para pruebas | Validar IBAN | GeneradorData">
+    <meta name="description"
+        content="Genera IBAN españoles válidos para pruebas de software, con su número de cuenta CCC, y valida cualquier IBAN online. Gratis, sin registro y también por API REST.">
+    <meta name="keywords"
+        content="generador iban, generar iban, iban aleatorio, iban valido para pruebas, validar iban, comprobar iban, generador ccc, cuenta bancaria de prueba, api iban">
+    <meta name="author" content="AdminKeys Develop">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="ES">
+    <meta name="geo.placename" content="España">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://generadordata.com/generador-iban.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://generadordata.com/generador-iban.html">
+    <meta property="og:title" content="Generador de IBAN válidos para pruebas | Validar IBAN | GeneradorData">
+    <meta property="og:description" content="Genera IBAN españoles válidos para pruebas de software, con su número de cuenta CCC, y valida cualquier IBAN online. Gratis, sin registro y también por API REST.">
+    <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
+    <meta property="og:site_name" content="GeneradorData">
+    <meta property="og:locale" content="es_ES">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://generadordata.com/generador-iban.html">
+    <meta property="twitter:title" content="Generador de IBAN válidos para pruebas | Validar IBAN | GeneradorData">
+    <meta property="twitter:description" content="Genera IBAN españoles válidos para pruebas de software, con su número de cuenta CCC, y valida cualquier IBAN online. Gratis, sin registro y también por API REST.">
+    <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
+
+    <meta name="theme-color" content="#28a745">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GeneradorData">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logoGeneradorData140.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="dns-prefetch" href="//code.jquery.com">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="assets/js/functions_api.js" defer></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "@id": "https://generadordata.com/generador-iban.html#webapp",
+        "name": "Generador de IBAN y CCC",
+        "description": "Herramienta gratuita para generar IBAN españoles válidos para pruebas de software, con su número de cuenta CCC, y validar IBAN online.",
+        "url": "https://generadordata.com/generador-iban.html",
+        "inLanguage": "es-ES",
+        "isAccessibleForFree": true,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "featureList": ["Generador de IBAN español", "Número de cuenta CCC", "Validador de IBAN", "Exportación a CSV", "API REST"],
+        "publisher": { "@type": "Organization", "name": "GeneradorData", "url": "https://generadordata.com/" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://generadordata.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Generador de IBAN", "item": "https://generadordata.com/generador-iban.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Los IBAN generados son cuentas bancarias reales?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Los IBAN tienen un formato correcto y dígitos de control válidos, pero se generan al azar y no están asociados a ninguna cuenta ni titular. Sirven para probar formularios y validaciones, no para recibir ni enviar dinero."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo se comprueba si un IBAN es válido?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Se mueven los cuatro primeros caracteres al final, se sustituye cada letra por su número (A=10 … Z=35) y se calcula el resto de dividir el resultado entre 97. Si el resto es 1, el IBAN es válido. Es lo que hace el validador de esta página."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué diferencia hay entre IBAN y CCC?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El CCC (Código Cuenta Cliente) son los 20 dígitos de la cuenta en España. El IBAN es el formato internacional: añade delante el código de país ES y dos dígitos de control, hasta 24 caracteres."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Puedo generar IBAN desde mi código?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. El endpoint GET /api/generate-iban de nuestra API REST devuelve un IBAN nuevo en cada llamada, y GET /api/validate-iban lo valida. Tienes los ejemplos con curl en la documentación de la API."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <nav class="gd-navbar">
+        <div class="container gd-navbar-inner">
+            <a href="/" class="gd-logo">
+                <img src="assets/img/logoGeneradorData.png" alt="GeneradorData" height="100">
+            </a>
+            <button id="themeToggle" class="gd-theme-btn" aria-label="Cambiar tema">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="gd-hero">
+        <div class="container text-center">
+            <h1 class="gd-hero-title">Generador de IBAN válidos para pruebas</h1>
+            <p class="gd-hero-sub">Genera cuentas bancarias españolas para pruebas de software y valida cualquier IBAN al instante</p>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <section class="gd-widget-section" id="financiero">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-6">
+
+                        <div class="gd-card" id="cardFinanzas">
+
+                            <div class="gd-card-header">
+                                <h2>Generador IBAN / CCC</h2>
+                                <p>Genera y valida cuentas bancarias españolas</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <p class="gd-label">Tipo de dato:</p>
+                                <div class="gd-tabs" role="group" aria-label="Tipo de dato financiero">
+                                    <button class="gd-tab active" id="tabIban" data-tipo="IBAN">IBAN</button>
+                                    <button class="gd-tab" id="tabCcc" data-tipo="CCC">CCC</button>
+                                    <button class="gd-tab" id="tabTarjeta" data-tipo="TARJETA">Tarjeta</button>
+                                </div>
+
+                                <div class="gd-cif-type-row" id="tarjetaTypeRow">
+                                    <p class="gd-label">Tipo de Tarjeta:</p>
+                                    <select class="gd-select" id="selectTipoTarjeta" aria-label="Tipo de tarjeta">
+                                        <option value="">Aleatorio</option>
+                                        <option value="VISA">VISA</option>
+                                        <option value="MASTERCARD">MASTERCARD</option>
+                                        <option value="AMEX">AMEX</option>
+                                    </select>
+                                </div>
+
+                                <div class="gd-display" id="displayFinanzas"><span>esperando...</span></div>
+
+                                <div class="gd-curl-display" id="curlDisplayFinanzas" aria-live="polite"></div>
+
+                                <div class="gd-actions">
+                                    <button class="gd-btn gd-btn-primary" id="btnGenerarFinanzas">✨ Generar</button>
+                                    <button class="gd-btn gd-btn-secondary" id="btnCopiarCurlFinanzas">📋 Copiar Curl</button>
+                                </div>
+
+                                <hr class="gd-divider">
+
+                                <p class="gd-label">Validar IBAN:</p>
+                                <div class="gd-validator-row">
+                                    <input type="text" id="inputValidarIban" placeholder="Ej: ES79 2100 0813 6101 2345 6789">
+                                    <button class="gd-btn-validate" id="btnValidarIban">Validar</button>
+                                </div>
+                                <div class="gd-validation-result" id="validationResultFinanzas"></div>
+
+                                <hr class="gd-divider">
+
+                                <div class="gd-historial-head">
+                                    <span class="gd-label" style="margin:0">Historial (Hasta 1000 registros)</span>
+                                    <div style="display:flex;gap:10px;align-items:center;">
+                                        <button class="gd-btn-danger-link" id="btnExportarHistorialFinanzas">⬇ Exportar</button>
+                                        <button class="gd-btn-danger-link" id="btnLimpiarHistorialFinanzas">🗑 Limpiar</button>
+                                    </div>
+                                </div>
+                                <ul class="gd-historial" id="ulHistorialFinanzas" aria-label="Historial">
+                                    <li class="gd-empty" id="historialVacioFinanzas">Sin generaciones aún</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section">
+            <div class="container">
+                <h2 class="gd-info-title">Cómo es un IBAN español</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>Estructura del IBAN</h3>
+                        <p>Un IBAN español tiene <strong>24 caracteres</strong>: el código de país <strong>ES</strong>, <strong>2 dígitos de control</strong> y los 20 dígitos de la cuenta (CCC). Por ejemplo, en <code>ES79 2100 0813 6101 2345 6789</code>, <strong>79</strong> son los dígitos de control, <strong>2100</strong> la entidad, <strong>0813</strong> la oficina, <strong>61</strong> los dígitos de control de la cuenta y <strong>0123456789</strong> el número de cuenta.</p>
+                        <br />
+                        <h3>Dígitos de control (módulo 97)</h3>
+                        <p>Los dos dígitos que siguen a ES se calculan con el estándar ISO 13616: se colocan el país y <code>00</code> al final del número, las letras se convierten en números (E=14, S=28) y se resta a 98 el resto de dividir entre 97. Al validar se hace la operación inversa: el resto debe ser 1.</p>
+                        <br />
+                        <h3>IBAN y CCC</h3>
+                        <p>El <strong>CCC</strong> son los 20 dígitos nacionales de la cuenta: entidad (4), oficina (4), dígitos de control (2) y número de cuenta (10). Sus dos dígitos de control se calculan con pesos y módulo 11. El IBAN es el mismo número con el prefijo internacional, obligatorio desde la llegada de SEPA.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>🧪 Para qué sirve un IBAN de prueba</h3>
+                        <p>Los formularios de alta, las domiciliaciones y los ficheros de remesas SEPA validan el IBAN antes de aceptarlo. Con un IBAN generado puedes probar esos flujos, poblar bases de datos de desarrollo y preparar demos <strong>sin usar cuentas reales</strong> de clientes.</p>
+                        <br />
+                        <h3>⚙️ Úsalo desde tu código</h3>
+                        <p>El mismo generador está disponible en nuestra <a href="/api.html">API REST</a>. Con un token de acceso puedes pedir un IBAN nuevo en cada llamada:</p>
+                        <pre>GET https://api.generadordata.com/api/generate-iban
+→ { "iban": "ES7921000813610123456789",
+    "formatted": "ES79 2100 0813 6101 2345 6789" }</pre>
+                        <br />
+                        <h3>🔗 Otros generadores</h3>
+                        <p><a href="/generador-tarjetas.html">Tarjetas de prueba</a> · <a href="/generador-cups.html">Códigos CUPS</a> · <a href="/">DNI, NIF, NIE y CIF</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Preguntas frecuentes sobre el IBAN</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>¿Los IBAN generados son cuentas bancarias reales?</h3>
+                        <p>No. Los IBAN tienen un formato correcto y dígitos de control válidos, pero se generan al azar y no están asociados a ninguna cuenta ni titular. Sirven para probar formularios y validaciones, no para recibir ni enviar dinero.</p>
+                        <br />
+                        <h3>¿Cómo se comprueba si un IBAN es válido?</h3>
+                        <p>Se mueven los cuatro primeros caracteres al final, se sustituye cada letra por su número (A=10 … Z=35) y se calcula el resto de dividir el resultado entre 97. Si el resto es 1, el IBAN es válido. Es lo que hace el validador de esta página.</p>
+                        <br />
+                        <h3>¿Qué diferencia hay entre IBAN y CCC?</h3>
+                        <p>El CCC (Código Cuenta Cliente) son los 20 dígitos de la cuenta en España. El IBAN es el formato internacional: añade delante el código de país ES y dos dígitos de control, hasta 24 caracteres.</p>
+                        <br />
+                        <h3>¿Puedo generar IBAN desde mi código?</h3>
+                        <p>Sí. El endpoint GET /api/generate-iban de nuestra API REST devuelve un IBAN nuevo en cada llamada, y GET /api/validate-iban lo valida. Tienes los ejemplos con curl en la documentación de la API.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="alertCopiItem"
+        style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
+        ✓ ¡Copiado al portapapeles!
+    </div>
+
+    <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                            <a class="text-decoration-none"
+                                href="mailto:info@generadordata.com">info@generadordata.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="/about.html">Acerca de</a></li>
+                        <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/#generadores">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/generador-iban.html">Generador IBAN</a></li>
+                        <li><a class="text-decoration-none" href="/generador-tarjetas.html">Generador de tarjetas</a></li>
+                        <li><a class="text-decoration-none" href="/generador-cups.html">Generador CUPS</a></li>
+                        <li><a class="text-decoration-none" href="/api.html">API REST</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <p class="text-left text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

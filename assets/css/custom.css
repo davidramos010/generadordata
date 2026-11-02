@@ -116,6 +116,69 @@ body.dark-mode {
 }
 .gd-quicknav-pill.active:hover { background: #1b4332; }
 
+/* ── Banner API (hero del index) ─────────────────────────── */
+.gd-api-banner {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+    margin-top: 22px;
+    padding: 8px 10px 8px 8px;
+    max-width: 100%;
+    border-radius: 999px;
+    background: var(--info-bg);
+    border: 1px solid #2d6a4f;
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, .12), 0 6px 18px rgba(15, 23, 42, .08);
+    color: var(--page-text);
+    font-size: .9rem !important;
+    font-weight: 400 !important;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+}
+.gd-api-banner:hover {
+    color: var(--page-text);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 6px rgba(45, 106, 79, .18), 0 10px 24px rgba(15, 23, 42, .12);
+}
+.gd-api-banner-badge {
+    background: #2d6a4f;
+    color: #fff;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    animation: gd-badge-pulse 2.4s ease-out infinite;
+}
+.gd-api-banner-text { font-size: .9rem; }
+.gd-api-banner-text strong { font-weight: 700; }
+.gd-api-banner-cta {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    background: #2d6a4f;
+    padding: 6px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background .2s;
+}
+.gd-api-banner:hover .gd-api-banner-cta { background: #1b4332; }
+body.dark-mode .gd-api-banner { border-color: #52b788; box-shadow: 0 0 0 4px rgba(82, 183, 136, .15); }
+body.dark-mode .gd-api-banner:hover { box-shadow: 0 0 0 6px rgba(82, 183, 136, .22); }
+@keyframes gd-badge-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(45, 106, 79, .55); }
+    70%  { box-shadow: 0 0 0 8px rgba(45, 106, 79, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .gd-api-banner, .gd-api-banner-badge { animation: none; transition: none; }
+}
+@media (max-width: 576px) {
+    .gd-api-banner { border-radius: 16px; padding: 12px; }
+}
+
 /* ── Aviso API (index) ───────────────────────────────────── */
 .gd-api-note {
     margin: 16px 0 0;
@@ -514,6 +577,10 @@ body.dark-mode .gd-api-note a:hover { color: #74c69d; }
     text-align: justify;
 }
 .gd-info-card strong { color: var(--page-text); }
+.gd-info-card a { color: #2d6a4f; font-weight: 600 !important; text-decoration: none; }
+.gd-info-card a:hover { color: #1b4332; text-decoration: underline; }
+body.dark-mode .gd-info-card a { color: #52b788; }
+body.dark-mode .gd-info-card a:hover { color: #74c69d; }
 
 /* ── API page — Select row ──────────────────────────────── */
 .gd-select-row {
