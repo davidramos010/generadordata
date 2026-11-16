@@ -23,3 +23,5 @@ phpunit.phar
 /phpunit.xml
 
 # ignore dev installed apps and extensions
+# credenciales reales de producción
+/assets/config.local.php
