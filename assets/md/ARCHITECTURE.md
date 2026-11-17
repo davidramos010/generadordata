@@ -3,8 +3,8 @@
 ## Componentes
 
 ```
-Navegador (index.html / api.html)
-   │  assets/js/functions_api.js, custom.js, functions.js
+Navegador (index.html, api.html, generador-*.html, about/contact/rgpd.html)
+   │  assets/js/theme.js (tema), counter.js (visitas), functions.js / functions_api.js
    │
    ├── Validación de documentos (NIF/NIE/CIF) ──► se resuelve 100% en el navegador
    │                                               (assets/js/functions.js → validateSpanishID)
@@ -49,13 +49,26 @@ algoritmo de la letra de control española y no depende de `api_proxy.php` ni de
 usando las constantes de `assets/config.php`, incrementa `conter.num` para la página indicada y
 devuelve el nuevo valor.
 
+## Cascarón común de las 8 páginas
+
+Todas las páginas comparten el mismo HTML de cabecera móvil, menú lateral (`#gdSidebar`,
+Bootstrap Offcanvas responsive `offcanvas-lg`), barra de píldoras `gd-quicknav` con las 5
+herramientas y footer. Está duplicado en cada archivo (sitio estático, sin includes): al tocarlo
+hay que replicar el cambio en las 8 páginas. Cada página marca su enlace con `class="active"
+aria-current="page"` en el menú y en la quicknav.
+
+El tema lo fija `<html data-bs-theme="dark|light">` (sistema nativo de Bootstrap 5.3). Un
+snippet al inicio de `<body>` lo lee de `localStorage['gd-theme']` antes del primer pintado y
+`assets/js/theme.js` lo alterna con los botones `[data-theme-toggle]`. Oscuro por defecto.
+
 ## Estructura de `assets/`
 
 | Carpeta | Contenido |
 |---|---|
-| `assets/css/` | Bootstrap + estilos del tema TemplateMo + `custom.css` (estilos propios). |
-| `assets/js/` | jQuery, Bootstrap bundle, y JS propio: `functions.js` (validadores), `functions_api.js` (generador/página API), `custom.js`, `floating-sidebar.js`, `product-banner.js`. |
-| `assets/img/`, `assets/webfonts/` | Recursos estáticos del tema. |
+| `assets/css/` | `bootstrap.min.css` (5.3.9), `theme.css` (tokens de color claro/oscuro + variables `--bs-*`), `layout.css` (cascarón: menú, quicknav, hero, banner API, secciones info, footer), `widgets.css` (paneles de los generadores `.gd-card`), `fontawesome.css` (iconos del footer). `templatemo.css` y `custom.css` solo los usan `shop.html`/`shop-single.html` (restos de la plantilla). |
+| `assets/js/` | `bootstrap.bundle.min.js` (5.3.9), `theme.js` (tema), `counter.js` (visitas), `functions.js` (generador/validador del index), `functions_api.js` (widgets de api.html y landings). jQuery 1.11, `templatemo.js`, `custom.js`, `floating-sidebar.js`, `product-banner.js` y slick solo los usan las páginas shop. |
+| `assets/img/` | `logo.svg` (isotipo en espiral del menú), `icons.svg` (sprite de iconos, se usa con `<use href="assets/img/icons.svg#i-…">`), `logoGeneradorData*.png` (Open Graph / JSON-LD), resto de imágenes. |
+| `assets/webfonts/` | Fuentes de FontAwesome. Inter y JetBrains Mono se cargan de Google Fonts. |
 | `assets/md/` | Documentación del proyecto (este archivo y los relacionados). |
 | `assets/config.php` | Configuración centralizada de credenciales (ver [CONFIGURATION.md](CONFIGURATION.md)). |
 

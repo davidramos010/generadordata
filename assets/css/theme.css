@@ -1,0 +1,110 @@
+/* ═══════════════════════════════════════════════════════════
+   GENERADORDATA — Tema (tokens de color + puente con Bootstrap 5.3)
+   El tema activo lo fija <html data-bs-theme="dark|light">.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+    --gd-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --gd-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --gd-sidebar-w: 16rem;
+    --gd-mobile-header-h: 56px;
+
+    /* Marca (colores del logo): solo para elementos decorativos, nunca para estados interactivos */
+    --gd-brand: #ec4899;
+    --gd-brand-gradient: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #fb923c);
+
+    /* Paneles de los generadores: siempre oscuros, en los dos temas */
+    --gd-panel:        #0d1117;
+    --gd-panel-2:      #161b22;
+    --gd-panel-deep:   #090d12;
+    --gd-panel-border: #30363d;
+    --gd-panel-text:   #e6edf3;
+    --gd-panel-muted:  #8b949e;
+    --gd-panel-faint:  #484f58;
+}
+
+[data-bs-theme="dark"] {
+    --gd-bg:           #09090b;
+    --gd-surface:      #0d1117;
+    --gd-surface-2:    #18181b;
+    --gd-border:       #27272a;
+    --gd-text:         #f4f4f5;
+    --gd-muted:        #a1a1aa;
+    --gd-subtle:       #71717a;
+    --gd-accent:       #34d399;
+    --gd-accent-solid: #10b981;
+    --gd-accent-hover: #34d399;
+    --gd-on-accent:    #09090b;
+    --gd-accent-soft:  rgba(16, 185, 129, .12);
+    --gd-accent-ring:  rgba(16, 185, 129, .25);
+    --gd-brand-text:   #f472b6;
+
+    --bs-body-bg:           var(--gd-bg);
+    --bs-body-color:        var(--gd-text);
+    --bs-emphasis-color:    #ffffff;
+    --bs-secondary-color:   var(--gd-muted);
+    --bs-tertiary-color:    var(--gd-subtle);
+    --bs-secondary-bg:      var(--gd-surface);
+    --bs-tertiary-bg:       var(--gd-surface-2);
+    --bs-border-color:      var(--gd-border);
+    --bs-link-color:        var(--gd-accent);
+    --bs-link-hover-color:  var(--gd-accent-hover);
+    --bs-link-color-rgb:    52, 211, 153;
+    --bs-link-hover-color-rgb: 52, 211, 153;
+}
+
+[data-bs-theme="light"] {
+    --gd-bg:           #fafafa;
+    --gd-surface:      #ffffff;
+    --gd-surface-2:    #f4f4f5;
+    --gd-border:       #e4e4e7;
+    --gd-text:         #18181b;
+    --gd-muted:        #52525b;
+    --gd-subtle:       #71717a;
+    --gd-accent:       #047857;
+    --gd-accent-solid: #059669;
+    --gd-accent-hover: #047857;
+    --gd-on-accent:    #ffffff;
+    --gd-accent-soft:  rgba(5, 150, 105, .10);
+    --gd-accent-ring:  rgba(5, 150, 105, .22);
+    --gd-brand-text:   #be185d;
+
+    --bs-body-bg:           var(--gd-bg);
+    --bs-body-color:        var(--gd-text);
+    --bs-emphasis-color:    #000000;
+    --bs-secondary-color:   var(--gd-muted);
+    --bs-tertiary-color:    var(--gd-subtle);
+    --bs-secondary-bg:      var(--gd-surface);
+    --bs-tertiary-bg:       var(--gd-surface-2);
+    --bs-border-color:      var(--gd-border);
+    --bs-link-color:        var(--gd-accent);
+    --bs-link-hover-color:  var(--gd-accent-hover);
+    --bs-link-color-rgb:    4, 120, 87;
+    --bs-link-hover-color-rgb: 4, 120, 87;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--gd-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color .3s, color .3s;
+}
+
+code, pre, kbd, samp, .font-mono { font-family: var(--gd-font-mono); }
+
+::selection { background: rgba(236, 72, 153, .25); }
+
+/* ── Scrollbar sutil ─────────────────────────────────────── */
+* { scrollbar-width: thin; scrollbar-color: var(--gd-border) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gd-border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gd-subtle); }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    body { transition: none; }
+}

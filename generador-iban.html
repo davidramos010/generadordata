@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8">
@@ -51,12 +51,14 @@
     <link rel="dns-prefetch" href="//code.jquery.com">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="assets/js/functions_api.js" defer></script>
+    <script src="assets/js/functions_api.js?v=20261117" defer></script>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=20261117">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/theme.css?v=20261117">
+    <link rel="stylesheet" href="assets/css/layout.css?v=20261117">
+    <link rel="stylesheet" href="assets/css/widgets.css?v=20261117">
 
     <script type="application/ld+json">
     {
@@ -128,17 +130,71 @@
 </head>
 
 <body>
+    <script>document.documentElement.setAttribute('data-bs-theme', (function () { try { return localStorage.getItem('gd-theme') || 'dark'; } catch (e) { return 'dark'; } })());</script>
 
-    <nav class="gd-navbar">
-        <div class="container gd-navbar-inner">
-            <a href="/" class="gd-logo">
-                <img src="assets/img/logoGeneradorData.png" alt="GeneradorData" height="100">
-            </a>
-            <button id="themeToggle" class="gd-theme-btn" aria-label="Cambiar tema">
-                <span id="themeIcon">🌙</span>
-            </button>
+
+    <!-- ── Cabecera móvil ───────────────────────────────────── -->
+    <header class="gd-mobile-header d-lg-none">
+        <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
+            <img src="assets/img/logo.svg" alt="" width="40" height="40">
+            <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
+        </a>
+        <div class="gd-mobile-header-actions">
+            <button type="button" class="gd-icon-btn" data-theme-toggle aria-label="Cambiar tema"><svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg></button>
+            <button type="button" class="gd-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#gdSidebar" aria-controls="gdSidebar" aria-label="Abrir menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-menu"/></svg></button>
         </div>
-    </nav>
+    </header>
+
+    <div class="gd-shell">
+
+    <!-- ── Menú lateral ─────────────────────────────────────── -->
+    <aside id="gdSidebar" class="gd-sidebar offcanvas-lg offcanvas-start" tabindex="-1" aria-label="Menú principal">
+        <div class="gd-sidebar-inner">
+            <div class="gd-sidebar-head">
+                <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
+                    <img src="assets/img/logo.svg" alt="" width="40" height="40">
+                    <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
+                </a>
+                <button type="button" class="gd-icon-btn d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#gdSidebar" aria-label="Cerrar menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-close"/></svg></button>
+            </div>
+
+            <nav class="gd-nav" aria-label="Secciones del sitio">
+                <div>
+                    <p class="gd-nav-group">Generadores</p>
+                    <ul>
+                        <li><a href="/"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-doc"/></svg><span>Documentos</span></a></li>
+                        <li><a href="/generador-iban.html" class="active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bank"/></svg><span>IBAN</span></a></li>
+                        <li><a href="/generador-tarjetas.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-card"/></svg><span>Tarjetas</span></a></li>
+                        <li><a href="/generador-cups.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bolt"/></svg><span>CUPS</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">API</p>
+                    <ul>
+                        <li><a href="/api.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-api"/></svg><span>API REST</span><span class="gd-nav-badge">12</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">Sitio</p>
+                    <ul>
+                        <li><a href="/about.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-info"/></svg><span>Acerca de</span></a></li>
+                        <li><a href="/contact.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-mail"/></svg><span>Contacto</span></a></li>
+                        <li><a href="/rgpd.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield"/></svg><span>Privacidad</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="gd-sidebar-foot">
+                <button type="button" id="themeToggle" class="gd-theme-btn" data-theme-toggle>
+                    <svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg>
+                    <span class="gd-theme-label-light">Cambiar a modo claro</span>
+                    <span class="gd-theme-label-dark">Cambiar a modo oscuro</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="gd-main">
 
     <section class="gd-hero">
         <div class="container text-center">
@@ -146,6 +202,17 @@
             <p class="gd-hero-sub">Genera cuentas bancarias españolas para pruebas de software y valida cualquier IBAN al instante</p>
         </div>
     </section>
+
+    <!-- ── Navegación rápida ────────────────────────────────── -->
+    <nav class="gd-quicknav" aria-label="Herramientas">
+        <div class="container gd-quicknav-inner">
+            <a href="/" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-doc"/></svg>Documentos</a>
+            <a href="/generador-iban.html" class="gd-quicknav-pill active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bank"/></svg>IBAN</a>
+            <a href="/generador-tarjetas.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-card"/></svg>Tarjetas</a>
+            <a href="/generador-cups.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bolt"/></svg>CUPS</a>
+            <a href="/api.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-api"/></svg>API</a>
+        </div>
+    </nav>
 
     <main id="main-content">
         <section class="gd-widget-section" id="financiero">
@@ -316,7 +383,7 @@
                     <div class="w-100 my-3 border-top border-light"></div>
                 </div>
                 <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
+                    <ul class="list-inline text-start footer-icons">
                         <li class="list-inline-item border border-light rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank"
                                 href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
@@ -327,14 +394,18 @@
         </div>
         <div class="w-100 bg-black py-3">
             <div class="container">
-                <p class="text-left text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
+                <p class="text-start text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
                 </p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/counter.js" defer></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    </div><!-- /gd-main -->
+    </div><!-- /gd-shell -->
+
+    <script src="assets/js/theme.js?v=20261117" defer></script>
+    <script src="assets/js/counter.js?v=20261117" defer></script>
+    <script src="assets/js/bootstrap.bundle.min.js?v=20261117"></script>
 
 </body>
 

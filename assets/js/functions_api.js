@@ -3,46 +3,6 @@ $(document).ready(function() {
     // ── Configuración API base URL (usada solo para mostrar en curl) ────
     var API_BASE_URL = 'https://api.generadordata.com/api';
 
-    // ── Tema light / dark ─────────────────────────────────────
-    var savedTheme = localStorage.getItem('gd-theme');
-    if (savedTheme !== 'light') {
-        document.body.classList.add('dark-mode');
-        document.getElementById('themeIcon').textContent = '☀️';
-    }
-
-    $('#themeToggle').click(function() {
-        var isDark = document.body.classList.toggle('dark-mode');
-        document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('gd-theme', isDark ? 'dark' : 'light');
-    });
-
-    // ── Quicknav: alto del navbar + scrollspy de secciones ─────
-    var $navbar = $('.gd-navbar');
-    var $quickNav = $('#quickNav');
-    if ($quickNav.length) {
-        var updateNavbarHeight = function() {
-            document.documentElement.style.setProperty('--gd-navbar-h', $navbar.outerHeight() + 'px');
-        };
-        updateNavbarHeight();
-        $(window).on('resize', updateNavbarHeight);
-
-        var pills = document.querySelectorAll('.gd-quicknav-pill');
-        var sections = document.querySelectorAll('.gd-widget-section');
-        if ('IntersectionObserver' in window && sections.length) {
-            var navHeight = $navbar.outerHeight() + $quickNav.outerHeight();
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        pills.forEach(function(pill) {
-                            pill.classList.toggle('active', pill.dataset.target === entry.target.id);
-                        });
-                    }
-                });
-            }, { rootMargin: '-' + navHeight + 'px 0px -70% 0px', threshold: 0 });
-            sections.forEach(function(section) { observer.observe(section); });
-        }
-    }
-
     // ══════════════════════════════════════════════════════════
     // Utilidades compartidas por las 3 secciones
     // ══════════════════════════════════════════════════════════
