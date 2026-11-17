@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-bs-theme="dark">
 
 <head>
     <!-- Google tag (gtag.js) -->
@@ -29,178 +29,189 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-
-    <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/functions.js" type="application/javascript"></script>
-    <!-- generadordata.com -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=20261117">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/theme.css?v=20261117">
+    <link rel="stylesheet" href="assets/css/layout.css?v=20261117">
+    <link rel="stylesheet" href="assets/css/widgets.css?v=20261117">
 </head>
 
 <body>
-<!-- Start Top Nav -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-    <div class="container text-light">
-        <div class="w-100 d-flex justify-content-between">
-            <div>
-                <i class="fa fa-envelope mx-2"><header><h1>Política de Privacidad</h1></header></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@generadordata.com">info@generadordata.com</a>
-                <i class="fa fa-phone mx-2"></i>
-            </div>
-            <div>
-                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-            </div>
-        </div>
-    </div>
-</nav>
-<!-- Close Top Nav -->
+    <script>document.documentElement.setAttribute('data-bs-theme', (function () { try { return localStorage.getItem('gd-theme') || 'dark'; } catch (e) { return 'dark'; } })());</script>
 
-
-<!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light shadow">
-    <div class="container d-flex justify-content-between align-items-center">
-
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-            <img src="assets/img/logoGeneradorData.png">
+    <!-- ── Cabecera móvil ───────────────────────────────────── -->
+    <header class="gd-mobile-header d-lg-none">
+        <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
+            <img src="assets/img/logo.svg" alt="" width="40" height="40">
+            <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
         </a>
-
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-            <div class="flex-fill">
-                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Ejecutables</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rgpd.html">rgpd</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar align-self-center d-flex">
-
-            </div>
+        <div class="gd-mobile-header-actions">
+            <button type="button" class="gd-icon-btn" data-theme-toggle aria-label="Cambiar tema"><svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg></button>
+            <button type="button" class="gd-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#gdSidebar" aria-controls="gdSidebar" aria-label="Abrir menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-menu"/></svg></button>
         </div>
+    </header>
 
-    </div>
-</nav>
-<!-- Close Header -->
+    <div class="gd-shell">
 
-<!-- Modal -->
-<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="w-100 pt-1 mb-5 text-right">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="" method="get" class="modal-content modal-body border-0 p-0">
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                <button type="submit" class="input-group-text bg-success text-light">
-                    <i class="fa fa-fw fa-search text-white"></i>
+    <!-- ── Menú lateral ─────────────────────────────────────── -->
+    <aside id="gdSidebar" class="gd-sidebar offcanvas-lg offcanvas-start" tabindex="-1" aria-label="Menú principal">
+        <div class="gd-sidebar-inner">
+            <div class="gd-sidebar-head">
+                <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
+                    <img src="assets/img/logo.svg" alt="" width="40" height="40">
+                    <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
+                </a>
+                <button type="button" class="gd-icon-btn d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#gdSidebar" aria-label="Cerrar menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-close"/></svg></button>
+            </div>
+
+            <nav class="gd-nav" aria-label="Secciones del sitio">
+                <div>
+                    <p class="gd-nav-group">Generadores</p>
+                    <ul>
+                        <li><a href="/"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-doc"/></svg><span>Documentos</span></a></li>
+                        <li><a href="/generador-iban.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bank"/></svg><span>IBAN</span></a></li>
+                        <li><a href="/generador-tarjetas.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-card"/></svg><span>Tarjetas</span></a></li>
+                        <li><a href="/generador-cups.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bolt"/></svg><span>CUPS</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">API</p>
+                    <ul>
+                        <li><a href="/api.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-api"/></svg><span>API REST</span><span class="gd-nav-badge">12</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">Sitio</p>
+                    <ul>
+                        <li><a href="/about.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-info"/></svg><span>Acerca de</span></a></li>
+                        <li><a href="/contact.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-mail"/></svg><span>Contacto</span></a></li>
+                        <li><a href="/rgpd.html" class="active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield"/></svg><span>Privacidad</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="gd-sidebar-foot">
+                <button type="button" id="themeToggle" class="gd-theme-btn" data-theme-toggle>
+                    <svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg>
+                    <span class="gd-theme-label-light">Cambiar a modo claro</span>
+                    <span class="gd-theme-label-dark">Cambiar a modo oscuro</span>
                 </button>
             </div>
-        </form>
-    </div>
-</div>
-<!-- Start Featured Product -->
-<section class="bg-light">
-    <div class="container py-5">
-        <div class="row text-center py-3">
-            <div class="col-lg-10 m-auto">
-                <main>
-                    <section>
-                        <h2>Información sobre el tratamiento de datos personales</h2>
+        </div>
+    </aside>
+
+    <div class="gd-main">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="gd-hero">
+        <div class="container text-center">
+            <h1 class="gd-hero-title">Política de privacidad</h1>
+            <p class="gd-hero-sub">Cómo tratamos los datos en GeneradorData</p>
+        </div>
+    </section>
+
+    <!-- ── Navegación rápida ────────────────────────────────── -->
+    <nav class="gd-quicknav" aria-label="Herramientas">
+        <div class="container gd-quicknav-inner">
+            <a href="/" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-doc"/></svg>Documentos</a>
+            <a href="/generador-iban.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bank"/></svg>IBAN</a>
+            <a href="/generador-tarjetas.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-card"/></svg>Tarjetas</a>
+            <a href="/generador-cups.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bolt"/></svg>CUPS</a>
+            <a href="/api.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-api"/></svg>API</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="gd-info-section">
+            <div class="container">
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>Información sobre el tratamiento de datos personales</h3>
                         <p>En esta sección, describa cómo se recopilan, almacenan, y utilizan los datos personales en su sitio web o aplicación.</p>
-                    </section>
-
-                    <section>
-                        <h2>Uso de cookies</h2>
+                        <br />
+                        <h3>Uso de cookies</h3>
                         <p>Explique el uso de cookies en su sitio web, cómo se utilizan y cómo los usuarios pueden gestionar sus preferencias de cookies.</p>
-                    </section>
-
-                    <section>
-                        <h2>Derechos de los usuarios</h2>
+                        <br />
+                        <h3>Derechos de los usuarios</h3>
                         <p>Detalle los derechos de privacidad de los usuarios, como el acceso, rectificación, eliminación y oposición al procesamiento de sus datos personales.</p>
-                    </section>
-
-                    <section>
-                        <h2>Consentimiento</h2>
+                        <br />
+                        <h3>Consentimiento</h3>
                         <p>Indique cómo los usuarios pueden dar su consentimiento para el procesamiento de sus datos personales y cómo pueden retirarlo en cualquier momento.</p>
-                    </section>
-
-                    <section>
-                        <h2>Información de contacto</h2>
+                        <br />
+                        <h3>Información de contacto</h3>
                         <p>Proporcione información de contacto para consultas relacionadas con la política de privacidad y el tratamiento de datos.</p>
-                    </section>
-                </main>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- End Featured Product -->
+        </section>
+    </main>
 
-
-<!-- Start Footer -->
-<footer class="bg-dark" id="tempaltemo_footer">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-4 pt-5">
-                <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
-                <ul class="list-unstyled text-light footer-link-list">
-                    <li>
-                        <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@generadordata.com">info@generadordata.com</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-4 pt-5">
-
-            </div>
-
-            <div class="col-md-4 pt-5">
-
-            </div>
-
-        </div>
-
-        <div class="row text-light mb-4">
-            <div class="col-12 mb-3">
-                <div class="w-100 my-3 border-top border-light"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="w-100 bg-black py-3">
+    <!-- ── Footer ───────────────────────────────────────────── -->
+    <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
         <div class="container">
-            <div class="row pt-2">
-                <div class="col-12">
-                    <p class="text-left text-light">
-                        Copyright &copy; 2023 GenerateDATA
-                    </p>
+            <div class="row">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                            <a class="text-decoration-none"
+                                href="mailto:info@generadordata.com">info@generadordata.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="/about.html">Acerca de</a></li>
+                        <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/#generadores">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/generador-iban.html">Generador IBAN</a></li>
+                        <li><a class="text-decoration-none" href="/generador-tarjetas.html">Generador de tarjetas</a></li>
+                        <li><a class="text-decoration-none" href="/generador-cups.html">Generador CUPS</a></li>
+                        <li><a class="text-decoration-none" href="/api.html">API REST</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-start footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <p class="text-start text-light mb-0">Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
 
-</footer>
-<!-- End Footer -->
+    </div><!-- /gd-main -->
+    </div><!-- /gd-shell -->
 
-<!-- Start Script -->
-<script src="assets/js/jquery-1.11.0.min.js"></script>
-<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/templatemo.js"></script>
-<script src="assets/js/custom.js"></script>
-<!-- End Script -->
+    <script src="assets/js/theme.js?v=20261117" defer></script>
+    <script src="assets/js/counter.js?v=20261117" defer></script>
+    <script src="assets/js/bootstrap.bundle.min.js?v=20261117"></script>
+
 </body>
 
 </html>

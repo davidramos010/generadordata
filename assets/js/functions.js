@@ -190,19 +190,6 @@ function validateSpanishID(id) {
 
 $(document).ready(function() {
 
-    // ── Tema light / dark ─────────────────────────────────────
-    var savedTheme = localStorage.getItem('gd-theme');
-    if (savedTheme !== 'light') {
-        document.body.classList.add('dark-mode');
-        document.getElementById('themeIcon').textContent = '☀️';
-    }
-
-    $('#themeToggle').click(function() {
-        var isDark = document.body.classList.toggle('dark-mode');
-        document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('gd-theme', isDark ? 'dark' : 'light');
-    });
-
     // ── Generador ─────────────────────────────────────────────
     var tipoActivo = 'DNI';
 
