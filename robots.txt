@@ -8,6 +8,8 @@ Disallow: /shop-single.html
 Disallow: /api_proxy.php
 Disallow: /counter.php
 Disallow: /assets/config.php
+Disallow: /base64controller.php
+Disallow: /assets/functions/
 
 # Sitemap
 Sitemap: https://generadordata.com/sitemap.xml

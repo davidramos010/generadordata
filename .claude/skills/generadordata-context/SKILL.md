@@ -9,9 +9,13 @@ Sitio estático (HTML + Bootstrap 5.3) para **generar y validar datos de prueba 
 DNI, NIF, NIE, CIF, NSS, IBAN/CCC, tarjetas y CUPS, con una API REST documentada en `api.html`
 y landing pages `generador-iban.html`, `generador-tarjetas.html`, `generador-cups.html`.
 
-Las 8 páginas comparten un cascarón duplicado en cada archivo (cabecera móvil, menú lateral
-Offcanvas `#gdSidebar`, quicknav de 5 píldoras, footer): un cambio en el menú se replica en las
-8. CSS en `assets/css/theme.css` (tokens claro/oscuro vía `data-bs-theme`), `layout.css` y
+`base64-pdf.html` es un conversor Base64 ↔ PDF: `assets/js/base64_pdf.js` → `base64controller.php`
+→ funciones de `assets/functions/base64_pdf.php` (patrón para nuevas utilidades PHP: lógica en
+`assets/functions/`, controlador en la raíz, todo en memoria, mensajes de error de tabla cerrada).
+
+Las 9 páginas comparten un cascarón duplicado en cada archivo (cabecera móvil, menú lateral
+Offcanvas `#gdSidebar`, quicknav de 6 píldoras, footer): un cambio en el menú se replica en las
+9. CSS en `assets/css/theme.css` (tokens claro/oscuro vía `data-bs-theme`), `layout.css` y
 `widgets.css`; tema en `assets/js/theme.js`. `templatemo.css`/`custom.css` son restos de la
 plantilla y solo los usan `shop*.html`. El `<head>` SEO (metas, JSON-LD, GA) no se toca sin
 motivo: ver `assets/md/ARCHITECTURE.md`.

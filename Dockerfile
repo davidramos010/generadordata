@@ -3,6 +3,9 @@ FROM php:8.1-apache
 # Instalar extensiones PHP necesarias en una sola capa
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Límites de subida para el conversor Base64 ↔ PDF
+COPY docker/php/uploads.ini /usr/local/etc/php/conf.d/uploads.ini
+
 # Habilitar mod_rewrite para Apache
 RUN a2enmod rewrite
 

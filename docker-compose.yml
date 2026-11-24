@@ -18,6 +18,7 @@ services:
       - LOGIN_PASS=password
     volumes:
       - .:/var/www/html              # Monta el código en desarrollo (hot-reload)
+      - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
     restart: unless-stopped
 
   db:
