@@ -49,7 +49,29 @@ algoritmo de la letra de control española y no depende de `api_proxy.php` ni de
 usando las constantes de `assets/config.php`, incrementa `conter.num` para la página indicada y
 devuelve el nuevo valor.
 
-## Cascarón común de las 8 páginas
+## Conversor Base64 ↔ PDF
+
+```
+base64-pdf.html + assets/js/base64_pdf.js
+   │  fetch POST (FormData) con cabecera X-Requested-With: XMLHttpRequest
+   ▼
+base64controller.php   (POST only · mismo origen · límite 20 peticiones/10 min por IP · post_max_size)
+   │  action=decode → gd_b64_to_pdf($_POST['base64'])
+   │  action=encode → gd_pdf_to_b64($_FILES['pdf'])
+   ▼
+assets/functions/base64_pdf.php   (solo funciones; protegido con GD_APP y .htaccess)
+```
+
+- Todo se procesa en memoria: no se escribe ningún archivo del usuario en disco.
+- Validación de PDF (`gd_pdf_inspect`): cabecera `%PDF-` en el primer KB, `finfo` = `application/pdf`,
+  `%%EOF` en el último KB. Detecta contenido activo (`/JavaScript`, `/Launch`, `/EmbeddedFile`…): la
+  página no muestra vista previa de esos PDFs.
+- Los mensajes de error salen de una tabla cerrada (`gd_b64_error_message`) y nunca repiten la entrada.
+- Límites: PDF de 10 MB, Base64 de 14 M caracteres. PHP necesita `upload_max_filesize=11M`,
+  `post_max_size=16M`, `memory_limit=256M` y `display_errors=Off` (`docker/php/uploads.ini` en Docker,
+  `.user.ini` o panel de Plesk en producción).
+
+## Cascarón común de las páginas
 
 Todas las páginas comparten el mismo HTML de cabecera móvil, menú lateral (`#gdSidebar`,
 Bootstrap Offcanvas responsive `offcanvas-lg`), barra de píldoras `gd-quicknav` con las 5

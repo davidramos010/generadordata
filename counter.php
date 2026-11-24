@@ -15,7 +15,7 @@ header('X-Robots-Tag: noindex');
 
 const PAGINAS_PERMITIDAS = [
     'index', 'api', 'generador-iban', 'generador-tarjetas', 'generador-cups',
-    'about', 'contact', 'rgpd',
+    'about', 'contact', 'rgpd', 'base64-pdf',
 ];
 
 function responder($status, $body)

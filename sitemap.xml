@@ -40,6 +40,13 @@
     </url>
 
     <url>
+        <loc>https://generadordata.com/base64-pdf.html</loc>
+        <lastmod>2026-11-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>https://generadordata.com/about.html</loc>
         <lastmod>2026-05-18</lastmod>
         <changefreq>monthly</changefreq>
