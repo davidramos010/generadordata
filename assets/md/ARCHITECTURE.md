@@ -71,13 +71,56 @@ assets/functions/base64_pdf.php   (solo funciones; protegido con GD_APP y .htacc
   `post_max_size=16M`, `memory_limit=256M` y `display_errors=Off` (`docker/php/uploads.ini` en Docker,
   `.user.ini` o panel de Plesk en producción).
 
+## Decodificador / codificador JWT
+
+```
+decodificador-jwt.html + assets/js/jwt.js
+   │  decodificación visual en el navegador (Base64URL + JSON, sin claves)
+   │  fetch POST solo en: decode (claims, al pegar), verify y encode
+   ▼
+jwtcontroller.php   (mismos guardas que base64: POST · mismo origen · X-Requested-With · 60 peticiones/10 min por IP)
+   ▼
+assets/functions/jwt.php
+```
+
+- Algoritmos: verifica y firma HS256/384/512, RS256/384/512, ES256/384/512 (OpenSSL) y EdDSA (sodium).
+  PS256/384/512 solo se decodifican (`openssl_sign` no admite RSA-PSS). `alg: none` nunca se verifica.
+- Contra la confusión de algoritmos: un HS* solo se verifica con secreto y un RS/ES/EdDSA solo con clave
+  pública; la curva tiene que corresponder al algoritmo y las claves RSA de firma han de tener ≥ 2048 bits.
+- Claves: PEM (SPKI, PKCS#1, PKCS#8, certificado), JWK (RSA, EC, OKP) o URL JWKS / OpenID configuration.
+- JWKS (`gd_jwks_fetch`): solo https:443, bloquea IPs privadas, locales y de metadatos, fija la IP
+  validada con `CURLOPT_RESOLVE` (anti DNS rebinding), sin redirecciones, 5 s y 100 KB como máximo.
+- Sin botón «Compartir»: meter un token en la URL lo filtraría al historial, los logs y Analytics.
+
+## Utilidades comunes de los controladores
+
+`assets/functions/security.php`: `gd_fail`, `gd_json_headers`, `gd_respond`, `gd_ajax_guard` (POST,
+mismo origen, `X-Requested-With`, `post_max_size`) y `gd_rate_limit` (con un cubo por controlador).
+Cualquier controlador AJAX nuevo debe empezar por `define('GD_APP', true)`, cargar `security.php` y
+pasar por `gd_ajax_guard()` y `gd_rate_limit()`.
+
 ## Cascarón común de las páginas
 
-Todas las páginas comparten el mismo HTML de cabecera móvil, menú lateral (`#gdSidebar`,
-Bootstrap Offcanvas responsive `offcanvas-lg`), barra de píldoras `gd-quicknav` con las 5
-herramientas y footer. Está duplicado en cada archivo (sitio estático, sin includes): al tocarlo
-hay que replicar el cambio en las 8 páginas. Cada página marca su enlace con `class="active"
-aria-current="page"` en el menú y en la quicknav.
+La cabecera móvil, el menú lateral (`#gdSidebar`, Bootstrap Offcanvas `offcanvas-lg`), la barra
+de herramientas `gd-quicknav` y el pie se editan en **un solo archivo: `partials/layout.html`**.
+Después de cambiarlo (o de cambiar un CSS, JS o icono) se ejecuta:
+
+```bash
+docker compose exec web php build/layout.php            # aplica a todas las páginas
+docker compose exec web php build/layout.php --check    # solo comprueba; sale con 1 si hay páginas desactualizadas
+```
+
+`build/layout.php` (compatible con PHP 7.4) copia cada bloque de `partials/layout.html` entre las
+marcas `<!-- @inicio cabecera|quicknav|pie … -->` / `<!-- @fin … -->` de cada `.html` de la raíz,
+marca como activo el enlace de esa página (`class="active" aria-current="page"`; en la barra,
+`gd-quicknav-pill active`), incluye los fragmentos `<!-- @si pagina.html -->…<!-- @fin si -->` solo
+en esa página (el submenú de la API) y renueva la versión de caché `?v=` de todas las páginas.
+**No se edita el menú directamente en las páginas**: el script sobrescribe lo que hay entre las marcas.
+
+Por qué así y no con includes en el servidor: producción (Plesk + nginx) sirve los `.html` como
+estáticos. Las páginas siguen siendo HTML puro (mismas URLs, menú visible para Google) y no hace
+falta configurar nada en el servidor. Para una página nueva, copia una existente (con sus marcas)
+y ejecuta el script. `partials/` y `build/` están bloqueados por `.htaccess` y `robots.txt`.
 
 El tema lo fija `<html data-bs-theme="dark|light">` (sistema nativo de Bootstrap 5.3). Un
 snippet al inicio de `<body>` lo lee de `localStorage['gd-theme']` antes del primer pintado y

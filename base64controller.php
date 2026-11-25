@@ -6,83 +6,42 @@
  */
 
 define('GD_APP', true);
+require_once __DIR__ . '/assets/functions/security.php';
 require_once __DIR__ . '/assets/functions/base64_pdf.php';
 
-ini_set('display_errors', '0');
+gd_json_headers();
 
-header('Content-Type: application/json; charset=utf-8');
-header('X-Content-Type-Options: nosniff');
-header('Cache-Control: no-store');
-header('X-Robots-Tag: noindex');
-header('Referrer-Policy: same-origin');
-
-function responder(array $resultado)
-{
-    if ($resultado['ok']) {
-        unset($resultado['status']);
-        http_response_code(200);
-    } else {
-        http_response_code($resultado['status'] ?? 400);
-        $resultado = [
-            'ok'      => false,
-            'error'   => $resultado['error'],
-            'message' => gd_b64_error_message($resultado['error'], $resultado['parece'] ?? ''),
-        ];
-    }
-    echo json_encode($resultado, JSON_UNESCAPED_SLASHES);
-    exit;
-}
-
-function bytes_ini(string $valor): int
-{
-    $valor = trim($valor);
-    $num = (int) $valor;
-    switch (strtolower(substr($valor, -1))) {
-        case 'g': return $num * 1024 * 1024 * 1024;
-        case 'm': return $num * 1024 * 1024;
-        case 'k': return $num * 1024;
-        default:  return $num;
-    }
-}
+$mensaje = function (array $r) {
+    $code = $r['error'] === 'DEMASIADO_GRANDE' ? 'PDF_DEMASIADO_GRANDE' : $r['error'];
+    return gd_b64_error_message($code, $r['parece'] ?? '');
+};
 
 try {
-    if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
-        header('Allow: POST');
-        responder(gd_fail('METODO', 405));
+    $bloqueo = gd_ajax_guard();
+    if ($bloqueo !== null) {
+        if ($bloqueo['error'] === 'DEMASIADO_GRANDE') {
+            $bloqueo['error'] = 'PDF_DEMASIADO_GRANDE';
+        }
+        gd_respond($bloqueo, $mensaje);
     }
 
-    $host = $_SERVER['HTTP_HOST'] ?? '';
-    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-    if ($origin !== '' && parse_url($origin, PHP_URL_HOST) . (parse_url($origin, PHP_URL_PORT) ? ':' . parse_url($origin, PHP_URL_PORT) : '') !== $host) {
-        responder(gd_fail('ORIGEN', 403));
-    }
-    if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') !== 'XMLHttpRequest') {
-        responder(gd_fail('ORIGEN', 403));
-    }
-
-    $limitePost = bytes_ini((string) ini_get('post_max_size'));
-    if ($limitePost > 0 && (int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > $limitePost) {
-        responder(gd_fail('PDF_DEMASIADO_GRANDE', 413));
-    }
-
-    if (!gd_rate_limit($_SERVER['REMOTE_ADDR'] ?? '0.0.0.0')) {
+    if (!gd_rate_limit($_SERVER['REMOTE_ADDR'] ?? '0.0.0.0', 20, 600, 'base64')) {
         header('Retry-After: 600');
-        responder(gd_fail('LIMITE', 429));
+        gd_respond(gd_fail('LIMITE', 429), $mensaje);
     }
 
-    $accion = $_POST['action'] ?? '';
-    switch ($accion) {
+    switch ($_POST['action'] ?? '') {
         case 'decode':
             $texto = $_POST['base64'] ?? '';
-            responder(gd_b64_to_pdf(is_string($texto) ? $texto : ''));
+            gd_respond(gd_b64_to_pdf(is_string($texto) ? $texto : ''), $mensaje);
             break;
         case 'encode':
-            responder(gd_pdf_to_b64($_FILES['pdf'] ?? []));
+            gd_respond(gd_pdf_to_b64($_FILES['pdf'] ?? []), $mensaje);
             break;
         default:
-            responder(gd_fail('ACCION', 400));
+            gd_respond(gd_fail('ACCION', 400), $mensaje);
     }
 } catch (Throwable $e) {
     error_log('base64controller: ' . get_class($e) . ' en ' . $e->getFile() . ':' . $e->getLine());
-    responder(gd_fail('SERVIDOR', 500));
+    gd_respond(gd_fail('SERVIDOR', 500), $mensaje);
 }

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPGC69YD28"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YPGC69YD28');
+    </script>
+
+    <title>Decodificador y codificador JWT online | GeneradorData</title>
+    <meta name="title" content="Decodificador y codificador JWT online | GeneradorData">
+    <meta name="description"
+        content="Decodifica y verifica JWT con secreto, clave pública o JWKS, y genera tokens firmados HS256, RS256, ES256 o EdDSA. Gratis y sin guardar tus claves.">
+    <meta name="keywords"
+        content="decodificador jwt, decodificar jwt, verificar jwt, jwt decoder, codificador jwt, generar jwt, firmar jwt, validar token jwt, jwks, hs256, rs256, es256, eddsa, json web token">
+    <meta name="author" content="AdminKeys Develop">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="ES">
+    <meta name="geo.placename" content="España">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://generadordata.com/decodificador-jwt.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://generadordata.com/decodificador-jwt.html">
+    <meta property="og:title" content="Decodificador y codificador JWT online | GeneradorData">
+    <meta property="og:description" content="Decodifica y verifica JWT con secreto, clave pública o JWKS, y genera tokens firmados HS256, RS256, ES256 o EdDSA. Gratis y sin guardar tus claves.">
+    <meta property="og:image" content="https://generadordata.com/assets/img/Banner1200.png">
+    <meta property="og:site_name" content="GeneradorData">
+    <meta property="og:locale" content="es_ES">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://generadordata.com/decodificador-jwt.html">
+    <meta property="twitter:title" content="Decodificador y codificador JWT online | GeneradorData">
+    <meta property="twitter:description" content="Decodifica y verifica JWT con secreto, clave pública o JWKS, y genera tokens firmados HS256, RS256, ES256 o EdDSA. Gratis y sin guardar tus claves.">
+    <meta property="twitter:image" content="https://generadordata.com/assets/img/Banner1200.png">
+
+    <meta name="theme-color" content="#28a745">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GeneradorData">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logoGeneradorData140.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="assets/js/jwt.js?v=202611260920" defer></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=202611260920">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/theme.css?v=202611260920">
+    <link rel="stylesheet" href="assets/css/layout.css?v=202611260920">
+    <link rel="stylesheet" href="assets/css/widgets.css?v=202611260920">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "@id": "https://generadordata.com/decodificador-jwt.html#webapp",
+        "name": "Decodificador y codificador JWT",
+        "description": "Decodifica y verifica JWT con secreto, clave pública o JWKS, y genera tokens firmados HS256, RS256, ES256 o EdDSA. Gratis y sin guardar tus claves.",
+        "url": "https://generadordata.com/decodificador-jwt.html",
+        "inLanguage": "es-ES",
+        "isAccessibleForFree": true,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "Decodificar encabezado y carga útil de un JWT",
+            "Verificar la firma con secreto HMAC, clave pública (PEM o JWK) o endpoint JWKS",
+            "Generar JWT firmados con HS256/384/512, RS256/384/512, ES256/384/512 y EdDSA",
+            "Análisis de claims y caducidad",
+            "Detección de alg none y confusión de algoritmos"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "GeneradorData",
+            "url": "https://generadordata.com/"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://generadordata.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Decodificador JWT",
+                "item": "https://generadordata.com/decodificador-jwt.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Es seguro pegar un JWT en esta herramienta?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El token se decodifica en tu navegador y solo se envía al servidor cuando pulsas Verificar firma o Generar JWT. Se procesa en memoria y no se guarda ni se registra. Aun así, un JWT válido es una credencial: para pruebas usa tokens caducados o de entornos de desarrollo, nunca tokens de producción en vigor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué diferencia hay entre decodificar y verificar un JWT?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Decodificar solo convierte el encabezado y la carga útil de Base64URL a JSON para leerlos; cualquiera puede hacerlo sin ninguna clave. Verificar comprueba con el secreto o la clave pública que la firma es correcta, es decir, que el token lo emitió quien dice y que nadie lo ha modificado."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Por qué la firma de mi token aparece como no válida?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Las causas habituales son usar un secreto o una clave pública distintos de los que firmaron el token, marcar o desmarcar por error «Codificado en Base64» en un secreto HMAC, pegar el token incompleto, o verificar con un JWKS que ya no contiene la clave indicada en el kid del encabezado."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué algoritmos admite?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Verifica y firma HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512 y EdDSA (Ed25519). Los tokens PS256, PS384 y PS512 se pueden decodificar, pero no verificar ni firmar. Los tokens sin firma (alg none) se decodifican con un aviso y nunca se dan por verificados."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Un JWT está cifrado?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Un JWT firmado solo está codificado en Base64URL: cualquiera que lo tenga puede leer su contenido. La firma impide modificarlo, no leerlo. Por eso no debes guardar contraseñas ni datos sensibles en la carga útil; si necesitas confidencialidad, usa JWE (tokens cifrados)."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+
+
+<body>
+    <script>document.documentElement.setAttribute('data-bs-theme', (function () { try { return localStorage.getItem('gd-theme') || 'dark'; } catch (e) { return 'dark'; } })());</script>
+
+
+    <!-- @inicio cabecera (se genera desde partials/layout.html: no editar aquí) -->
+    <!-- ── Cabecera móvil ───────────────────────────────────── -->
+    <header class="gd-mobile-header d-lg-none">
+        <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
+            <img src="assets/img/logo.svg" alt="" width="40" height="40">
+            <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
+        </a>
+        <div class="gd-mobile-header-actions">
+            <button type="button" class="gd-icon-btn" data-theme-toggle aria-label="Cambiar tema"><svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-moon"/></svg></button>
+            <button type="button" class="gd-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#gdSidebar" aria-controls="gdSidebar" aria-label="Abrir menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-menu"/></svg></button>
+        </div>
+    </header>
+
+    <div class="gd-shell">
+
+    <!-- ── Menú lateral ─────────────────────────────────────── -->
+    <aside id="gdSidebar" class="gd-sidebar offcanvas-lg offcanvas-start" tabindex="-1" aria-label="Menú principal">
+        <div class="gd-sidebar-inner">
+            <div class="gd-sidebar-head">
+                <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
+                    <img src="assets/img/logo.svg" alt="" width="40" height="40">
+                    <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
+                </a>
+                <button type="button" class="gd-icon-btn d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#gdSidebar" aria-label="Cerrar menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-close"/></svg></button>
+            </div>
+
+            <nav class="gd-nav" aria-label="Secciones del sitio">
+                <div>
+                    <p class="gd-nav-group">Generadores</p>
+                    <ul>
+                        <li><a href="/"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-doc"/></svg><span>Documentos</span></a></li>
+                        <li><a href="/generador-iban.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bank"/></svg><span>IBAN</span></a></li>
+                        <li><a href="/generador-tarjetas.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-card"/></svg><span>Tarjetas</span></a></li>
+                        <li><a href="/generador-cups.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bolt"/></svg><span>CUPS</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">API</p>
+                    <ul>
+                        <li><a href="/api.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-api"/></svg><span>API REST</span><span class="gd-nav-badge">12</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">Utilidades</p>
+                    <ul>
+                        <li><a href="/base64-pdf.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-file-code"/></svg><span>Base64 PDF</span></a></li>
+                        <li><a href="/decodificador-jwt.html" class="active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-key"/></svg><span>JWT</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="gd-nav-group">Sitio</p>
+                    <ul>
+                        <li><a href="/about.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-info"/></svg><span>Acerca de</span></a></li>
+                        <li><a href="/contact.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-mail"/></svg><span>Contacto</span></a></li>
+                        <li><a href="/rgpd.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-shield"/></svg><span>Privacidad</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="gd-sidebar-foot">
+                <button type="button" id="themeToggle" class="gd-theme-btn" data-theme-toggle>
+                    <svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-moon"/></svg>
+                    <span class="gd-theme-label-light">Cambiar a modo claro</span>
+                    <span class="gd-theme-label-dark">Cambiar a modo oscuro</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="gd-main">
+    <!-- @fin cabecera -->
+
+    <section class="gd-hero">
+        <div class="container text-center">
+            <h1 class="gd-hero-title">Decodificador y codificador JWT</h1>
+            <p class="gd-hero-sub">Decodifica, verifica la firma y genera JSON Web Tokens con HS256, RS256, ES256 o EdDSA, con una guía de uso seguro</p>
+        </div>
+    </section>
+
+    <!-- @inicio quicknav (se genera desde partials/layout.html: no editar aquí) -->
+    <!-- ── Navegación rápida ────────────────────────────────── -->
+    <nav class="gd-quicknav" aria-label="Herramientas">
+        <div class="container gd-quicknav-inner">
+            <a href="/" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-doc"/></svg>Documentos</a>
+            <a href="/generador-iban.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bank"/></svg>IBAN</a>
+            <a href="/generador-tarjetas.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-card"/></svg>Tarjetas</a>
+            <a href="/generador-cups.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bolt"/></svg>CUPS</a>
+            <a href="/api.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-api"/></svg>API</a>
+            <a href="/base64-pdf.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-file-code"/></svg>Base64 PDF</a>
+            <a href="/decodificador-jwt.html" class="gd-quicknav-pill active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-key"/></svg>JWT</a>
+        </div>
+    </nav>
+    <!-- @fin quicknav -->
+
+    <main id="main-content">
+        <section class="gd-widget-section" id="herramienta">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-xl-11">
+
+                        <div class="gd-card" id="cardJwt">
+
+                            <div class="gd-card-header">
+                                <h2>JWT Decodificador / Codificador</h2>
+                                <p>Claves solo en memoria · nunca en la URL</p>
+                            </div>
+
+                            <div class="gd-card-body">
+
+                                <div class="gd-jwt-bar">
+                                    <div class="gd-tabs mb-0" role="tablist" aria-label="Modo" style="flex:1;max-width:420px">
+                                        <button type="button" class="gd-tab active" role="tab" aria-selected="true" data-panel="panelDecode">Decodificar</button>
+                                        <button type="button" class="gd-tab" role="tab" aria-selected="false" data-panel="panelEncode">Codificar</button>
+                                    </div>
+                                    <select class="gd-select" id="jwtExample" aria-label="Cargar un JWT de ejemplo">
+                                        <option value="" selected>Ejemplos de JWT…</option>
+                                        <option value="HS256">HS256 · secreto compartido</option>
+                                        <option value="RS256">RS256 · RSA</option>
+                                        <option value="ES256">ES256 · curva P-256</option>
+                                        <option value="EdDSA">EdDSA · Ed25519</option>
+                                    </select>
+                                </div>
+
+                                <!-- Decodificar -->
+                                <div class="gd-panel" id="panelDecode" role="tabpanel">
+                                    <div class="gd-jwt-grid">
+                                        <div class="gd-jwt-col">
+                                            <label class="gd-label" for="jwtInput">JWT:</label>
+                                            <textarea id="jwtInput" class="gd-textarea" spellcheck="false" autocomplete="off" placeholder="Pega tu JWT aquí (eyJhbGciOi…)"></textarea>
+                                            <div class="gd-field-meta"><span id="jwtCount">0 caracteres</span><span>alg: <strong id="jwtAlg">—</strong></span></div>
+                                            <div id="jwtColored" class="gd-jwt-token" aria-label="Token coloreado por partes"></div>
+                                            <div class="gd-jwt-legend"><span class="gd-jwt-h">Encabezado</span><span class="gd-jwt-p">Carga útil</span><span class="gd-jwt-s">Firma</span></div>
+
+                                            <div class="gd-jwt-verify">
+                                                <div class="gd-jwt-bar">
+                                                    <span class="gd-label">Verificar la firma</span>
+                                                    <span id="jwtSigStatus" class="gd-sig gd-sig-none">Firma sin verificar</span>
+                                                </div>
+                                                <div id="verifySecretRow">
+                                                    <label class="gd-label" for="verifySecret">Clave de firma (secreto HMAC):</label>
+                                                    <input type="password" id="verifySecret" class="gd-jwt-input" autocomplete="off" placeholder="Introduce el secreto HMAC">
+                                                    <div class="gd-checkbox-row mt-2"><label><input type="checkbox" id="verifySecretB64"> Codificado en Base64</label></div>
+                                                </div>
+                                                <div id="verifyAsymRow" hidden>
+                                                    <div class="gd-segmented" role="group" aria-label="Origen de la clave pública">
+                                                        <button type="button" id="modePublicKey" class="active" aria-pressed="true">Clave pública</button>
+                                                        <button type="button" id="modeJwks" aria-pressed="false">URI del endpoint JWKS</button>
+                                                    </div>
+                                                    <div id="verifyPublicKeyWrap">
+                                                        <textarea id="verifyPublicKey" class="gd-textarea" spellcheck="false" autocomplete="off" placeholder="-----BEGIN PUBLIC KEY-----&#10;…&#10;-----END PUBLIC KEY-----&#10;&#10;o una JWK: {&quot;kty&quot;:&quot;RSA&quot;,&quot;n&quot;:&quot;…&quot;,&quot;e&quot;:&quot;AQAB&quot;}"></textarea>
+                                                    </div>
+                                                    <div id="verifyJwksWrap" hidden>
+                                                        <input type="url" id="verifyJwks" class="gd-jwt-input" autocomplete="off" placeholder="https://tu-proveedor.com/.well-known/jwks.json">
+                                                        <div class="gd-field-meta"><span>También admite la URL de configuración OpenID (/.well-known/openid-configuration)</span><span></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="gd-actions mt-3">
+                                                    <button type="button" class="gd-btn gd-btn-primary" id="btnVerify">🔐 Verificar firma</button>
+                                                    <button type="button" class="gd-btn gd-btn-secondary" id="btnDecodeClear">🗑 Limpiar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gd-jwt-col">
+                                            <div id="jwtAlert" class="gd-alert" role="status" hidden></div>
+                                            <span class="gd-label">Encabezado decodificado:</span>
+                                            <pre id="jwtHeader" class="gd-json-out" aria-live="polite"></pre>
+                                            <span class="gd-label">Carga útil decodificada:</span>
+                                            <pre id="jwtPayload" class="gd-json-out" aria-live="polite"></pre>
+
+                                            <div id="jwtClaims" hidden>
+                                                <div class="gd-jwt-bar">
+                                                    <span class="gd-label">Claims</span>
+                                                    <span id="jwtTokenStatus" class="gd-sig gd-sig-none">—</span>
+                                                </div>
+                                                <ul id="jwtWarnings" class="gd-warnings" hidden></ul>
+                                                <div class="gd-claims-wrap">
+                                                    <table class="gd-claims">
+                                                        <thead><tr><th>Claim</th><th>Valor</th><th>Significado</th></tr></thead>
+                                                        <tbody id="jwtClaimsBody"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Codificar -->
+                                <div class="gd-panel" id="panelEncode" role="tabpanel" hidden>
+                                    <div class="gd-jwt-grid">
+                                        <div class="gd-jwt-col">
+                                            <div class="gd-select-row">
+                                                <label class="gd-label" for="encAlg">Algoritmo:</label>
+                                                <select class="gd-select" id="encAlg">
+                                                <option value="HS256" selected>HS256</option>
+                                                <option value="HS384">HS384</option>
+                                                <option value="HS512">HS512</option>
+                                                <option value="RS256">RS256</option>
+                                                <option value="RS384">RS384</option>
+                                                <option value="RS512">RS512</option>
+                                                <option value="ES256">ES256</option>
+                                                <option value="ES384">ES384</option>
+                                                <option value="ES512">ES512</option>
+                                                <option value="EdDSA">EdDSA</option>
+                                                </select>
+                                            </div>
+                                            <label class="gd-label" for="encHeader">Encabezado:</label>
+                                            <textarea id="encHeader" class="gd-textarea" spellcheck="false" style="min-height:90px">{
+  "alg": "HS256",
+  "typ": "JWT"
+}</textarea>
+                                            <div class="gd-field-meta"><span id="encHeaderMeta"></span><span>alg se ajusta al algoritmo elegido</span></div>
+
+                                            <label class="gd-label" for="encPayload">Carga útil:</label>
+                                            <textarea id="encPayload" class="gd-textarea" spellcheck="false">{
+  "sub": "usuario-42",
+  "name": "Ana Pérez",
+  "role": "admin"
+}</textarea>
+                                            <div class="gd-field-meta"><span id="encPayloadMeta"></span><span></span></div>
+                                            <div class="gd-actions" style="justify-content:flex-start">
+                                                <button type="button" class="gd-btn gd-btn-secondary gd-btn-sm" id="btnIatNow">+ iat = ahora</button>
+                                                <button type="button" class="gd-btn gd-btn-secondary gd-btn-sm" id="btnExp1h">+ exp = 1 h</button>
+                                                <button type="button" class="gd-btn gd-btn-secondary gd-btn-sm" id="btnExp24h">+ exp = 24 h</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="gd-jwt-col">
+                                            <div id="encSecretRow">
+                                                <label class="gd-label" for="encSecret">Clave de firma (secreto HMAC):</label>
+                                                <input type="password" id="encSecret" class="gd-jwt-input" autocomplete="off" placeholder="Introduce el secreto HMAC (mínimo 32 bytes para HS256)">
+                                                <div class="gd-checkbox-row mt-2"><label><input type="checkbox" id="encSecretB64"> Codificado en Base64</label></div>
+                                            </div>
+                                            <div id="encKeyRow" hidden>
+                                                <label class="gd-label" for="encPrivateKey">Clave privada (PEM):</label>
+                                                <textarea id="encPrivateKey" class="gd-textarea" spellcheck="false" autocomplete="off"></textarea>
+                                            </div>
+                                            <div class="gd-actions" style="justify-content:flex-start">
+                                                <button type="button" class="gd-btn gd-btn-secondary gd-btn-sm" id="btnEncKeyExample">Cargar clave de ejemplo</button>
+                                            </div>
+
+                                            <div class="gd-actions mt-3">
+                                                <button type="button" class="gd-btn gd-btn-primary" id="btnEncode">✨ Generar JWT</button>
+                                            </div>
+                                            <hr class="gd-divider">
+                                            <div id="encodeAlert" class="gd-alert" role="status" hidden></div>
+                                            <div id="encodeResult" hidden>
+                                                <span class="gd-label">JWT generado:</span>
+                                                <div id="encToken" class="gd-jwt-token"></div>
+                                                <ul id="encWarnings" class="gd-warnings" hidden></ul>
+                                                <div class="gd-actions">
+                                                    <button type="button" class="gd-btn gd-btn-primary" id="btnCopyJwt">📋 Copiar</button>
+                                                    <button type="button" class="gd-btn gd-btn-secondary" id="btnSendToDecoder">↩ Llevar al decodificador</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section">
+            <div class="container">
+                <h2 class="gd-info-title">Guía de JWT</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>¿Qué es un JWT?</h3>
+                        <p>Un <strong>JSON Web Token</strong> (RFC 7519) es un texto compacto que transporta datos —quién es el usuario, qué puede hacer, hasta cuándo— firmados por quien los emite. Es <strong>autocontenido</strong>: la API que lo recibe no necesita consultar una base de datos de sesiones, le basta con comprobar la firma. Por eso se usa tanto en APIs, microservicios e inicio de sesión único.</p>
+                        <br />
+                        <h3>Estructura</h3>
+                        <p>Tiene tres partes en Base64URL separadas por puntos:</p>
+                        <p class="gd-jwt-structure mt-2"><span class="gd-jwt-h">encabezado</span>.<span class="gd-jwt-p">carga útil</span>.<span class="gd-jwt-s">firma</span></p>
+                        <ul class="mt-2">
+                            <li><strong>Encabezado</strong>: el algoritmo de firma (<code>alg</code>), el tipo (<code>typ</code>) y a veces el identificador de la clave (<code>kid</code>).</li>
+                            <li><strong>Carga útil</strong>: los <em>claims</em>, es decir, los datos del token.</li>
+                            <li><strong>Firma</strong>: se calcula sobre <code>encabezado.carga</code> con un secreto o una clave privada. Si alguien cambia una sola letra, deja de coincidir.</li>
+                        </ul>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>⚠️ Codificado no es cifrado</h3>
+                        <p>Cualquiera que tenga el token puede leer su carga útil: Base64URL no oculta nada. La firma garantiza que <strong>nadie lo ha modificado</strong>, no que nadie lo haya leído. No metas contraseñas, datos bancarios ni información personal sensible en un JWT. Si necesitas confidencialidad, usa <strong>JWE</strong> (tokens cifrados, de 5 partes).</p>
+                        <br />
+                        <h3>¿Cuándo usar JWT?</h3>
+                        <ul>
+                            <li><strong>APIs y microservicios</strong>: cada servicio valida el token por su cuenta, sin estado compartido.</li>
+                            <li><strong>Inicio de sesión único (SSO)</strong> y OpenID Connect: el ID token es un JWT.</li>
+                            <li><strong>Apps móviles y SPA</strong> que llaman a APIs con un token de acceso.</li>
+                            <li><strong>Funciones serverless</strong>, donde no hay sesión en memoria.</li>
+                        </ul>
+                        <p class="mt-2">No es la mejor opción cuando necesitas <strong>revocar sesiones al instante</strong> (cerrar la sesión de un usuario ya): un JWT sigue siendo válido hasta que caduca. Ahí encajan mejor las sesiones en servidor o los tokens opacos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Claims registrados</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <div class="gd-claims-wrap">
+                            <table class="gd-doc-table">
+                                <thead><tr><th>Claim</th><th>Nombre</th><th>Para qué sirve</th></tr></thead>
+                                <tbody>
+                                <tr><td><code>iss</code></td><td><strong>Emisor (issuer)</strong></td><td>Quién creó y firmó el token, por ejemplo <code>https://auth.ejemplo.com</code>. Compruébalo siempre al verificar.</td></tr>
+                                <tr><td><code>sub</code></td><td><strong>Sujeto (subject)</strong></td><td>A quién se refiere el token: normalmente el identificador único del usuario.</td></tr>
+                                <tr><td><code>aud</code></td><td><strong>Audiencia (audience)</strong></td><td>Para qué API o aplicación es el token. Puede ser un texto o una lista; tu API debe rechazar tokens que no la incluyan.</td></tr>
+                                <tr><td><code>exp</code></td><td><strong>Caducidad (expiration)</strong></td><td>Fecha en segundos desde 1970 a partir de la cual el token ya no vale. Limita el daño si el token se filtra.</td></tr>
+                                <tr><td><code>nbf</code></td><td><strong>No antes de (not before)</strong></td><td>Fecha antes de la cual el token todavía no es válido.</td></tr>
+                                <tr><td><code>iat</code></td><td><strong>Emitido en (issued at)</strong></td><td>Cuándo se creó el token; sirve para saber su antigüedad.</td></tr>
+                                <tr><td><code>jti</code></td><td><strong>ID del token (JWT ID)</strong></td><td>Identificador único del token; permite detectar si se reutiliza o revocarlo en una lista negra.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-3">Además de estos, los proveedores añaden claims propios: <code>scope</code> (permisos), <code>azp</code> (cliente autorizado), <code>nonce</code> (protección del inicio de sesión en OpenID Connect) o cualquier dato de tu aplicación, como <code>role</code>. Los <strong>ID tokens</strong> de OpenID Connect describen al usuario para la aplicación que inicia sesión; los <strong>access tokens</strong> autorizan llamadas a una API y su audiencia es esa API.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Algoritmos de firma</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>HS256 / HS384 / HS512 · secreto compartido</h3>
+                        <p>HMAC con SHA-2. El mismo secreto firma y verifica, así que todos los que verifican también pueden emitir tokens. Úsalo solo cuando el emisor y el receptor son el mismo sistema. El secreto debe ser aleatorio y de al menos <strong>32 bytes</strong> para HS256 (48 y 64 para HS384 y HS512); uno corto se adivina por fuerza bruta en minutos.</p>
+                        <br />
+                        <h3>RS256 / RS384 / RS512 · RSA</h3>
+                        <p>Se firma con una clave privada y se verifica con la pública, que se puede publicar en un JWKS. Es el más compatible. Usa claves de al menos <strong>2048 bits</strong>. Los tokens <strong>PS256/384/512</strong> (RSA-PSS) se pueden decodificar aquí, pero no verificar ni firmar.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>ES256 / ES384 / ES512 · curvas elípticas</h3>
+                        <p>ECDSA sobre las curvas P-256, P-384 y P-521. Ofrece la misma seguridad que RSA con claves y firmas mucho más pequeñas, por lo que los tokens son más cortos. Cada algoritmo exige su curva: ES256 solo funciona con P-256.</p>
+                        <br />
+                        <h3>EdDSA · Ed25519</h3>
+                        <p>La opción más moderna: firmas rápidas, deterministas y difíciles de implementar mal. Comprueba que todas tus librerías y proveedores lo admiten antes de adoptarlo.</p>
+                        <br />
+                        <h3>¿Cuál elegir?</h3>
+                        <p>Si varias aplicaciones verifican tokens que emite un único servidor, usa uno asimétrico (<strong>RS256</strong> por compatibilidad o <strong>ES256</strong>/<strong>EdDSA</strong> por tamaño y rendimiento). Reserva HS256 para un único servicio que firma y verifica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Cómo verificar un JWT correctamente</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>Los pasos, en este orden</h3>
+                        <ol>
+                            <li><strong>Fija la lista de algoritmos aceptados</strong> en tu código (por ejemplo, solo RS256). Nunca uses el <code>alg</code> que llega en el token para decidir cómo verificarlo.</li>
+                            <li><strong>Comprueba la firma</strong> con la clave correspondiente: el secreto para HS*, la clave pública o el JWKS del emisor para el resto. Si hay <code>kid</code>, úsalo para elegir la clave del JWKS.</li>
+                            <li><strong>Comprueba las fechas</strong>: <code>exp</code> en el futuro y <code>nbf</code> en el pasado, con un margen de unos 60 segundos por diferencias de reloj.</li>
+                            <li><strong>Comprueba <code>iss</code> y <code>aud</code></strong>: que el emisor es el esperado y que el token es para tu API.</li>
+                            <li>Solo entonces, <strong>usa los claims</strong> (permisos, usuario…).</li>
+                        </ol>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>PHP (firebase/php-jwt)</h3>
+                        <pre>use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+JWT::$leeway = 60; // margen de reloj en segundos
+$claims = JWT::decode($token, new Key($clavePublica, 'RS256'));
+if ($claims-&gt;iss !== 'https://auth.ejemplo.com') {
+    throw new Exception('Emisor no válido');
+}</pre>
+                        <br />
+                        <h3>Node.js (jose)</h3>
+                        <pre>import { jwtVerify, createRemoteJWKSet } from 'jose';
+
+const JWKS = createRemoteJWKSet(
+  new URL('https://auth.ejemplo.com/.well-known/jwks.json'));
+const { payload } = await jwtVerify(token, JWKS, {
+  issuer: 'https://auth.ejemplo.com',
+  audience: 'api.ejemplo.com',
+  algorithms: ['RS256'],
+});</pre>
+                        <br />
+                        <h3>Generar claves de prueba</h3>
+                        <pre>openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out rsa.pem
+openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out ec.pem
+openssl genpkey -algorithm ED25519 -out ed.pem
+openssl pkey -in rsa.pem -pubout -out rsa.pub   # clave pública</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Seguridad: errores habituales</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>🚫 alg «none»</h3>
+                        <p>Un token con <code>"alg": "none"</code> no tiene firma: cualquiera puede escribir lo que quiera en él. Las librerías antiguas lo aceptaban si no se fijaba el algoritmo. Esta herramienta lo decodifica con un aviso y <strong>nunca</strong> lo da por verificado.</p>
+                        <br />
+                        <h3>🔀 Confusión de algoritmos</h3>
+                        <p>Si un servidor verifica con «la clave que tenga» y usa el <code>alg</code> del token, un atacante puede firmar un token <strong>HS256</strong> usando como secreto la <strong>clave pública RSA</strong>, que es pública, y el servidor lo aceptará. La defensa es fijar los algoritmos permitidos y no mezclar secretos con claves públicas. Aquí un token HS* solo se verifica con un secreto y uno RS/ES/EdDSA solo con una clave pública.</p>
+                        <br />
+                        <h3>⏱️ Caducidad corta</h3>
+                        <p>Un JWT no se puede revocar fácilmente: si se filtra, vale hasta <code>exp</code>. Usa caducidades cortas (de 5 a 60 minutos para access tokens) y tokens de actualización para renovarlos.</p>
+                    </div>
+                    <div class="gd-info-card">
+                        <h3>🔑 Secretos y claves</h3>
+                        <p>Genera los secretos HMAC con un generador aleatorio (por ejemplo, <code>openssl rand -base64 32</code>), nunca a mano. Guárdalos en variables de entorno o en un gestor de secretos, no en el código. Rota las claves y publica las nuevas en el JWKS antes de retirar las antiguas.</p>
+                        <br />
+                        <h3>🔒 Privacidad de esta herramienta</h3>
+                        <p>El token se decodifica en tu navegador. Solo viaja al servidor —por HTTPS— cuando pulsas <strong>Verificar firma</strong> o <strong>Generar JWT</strong>; se procesa en memoria y no se guarda ni se registra. Los campos de claves se vacían al salir de la página. Las direcciones JWKS se descargan con protecciones: solo <code>https</code>, nunca redes privadas, sin redirecciones y con límite de tiempo y tamaño.</p>
+                        <br />
+                        <h3>¿Por qué no hay botón «Compartir»?</h3>
+                        <p>Otras herramientas meten el token en la URL para compartirlo. Una URL queda en el historial del navegador, en los registros de los servidores y en las herramientas de analítica: un token válido compartido así es una credencial filtrada. Si necesitas enseñar un token, comparte uno caducado o de pruebas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gd-info-section" style="padding-top:0">
+            <div class="container">
+                <h2 class="gd-info-title">Preguntas frecuentes sobre JWT</h2>
+                <div class="gd-info-grid">
+                    <div class="gd-info-card">
+                        <h3>¿Es seguro pegar un JWT en esta herramienta?</h3>
+                        <p>El token se decodifica en tu navegador y solo se envía al servidor cuando pulsas Verificar firma o Generar JWT. Se procesa en memoria y no se guarda ni se registra. Aun así, un JWT válido es una credencial: para pruebas usa tokens caducados o de entornos de desarrollo, nunca tokens de producción en vigor.</p>
+                        <br />
+                        <h3>¿Qué diferencia hay entre decodificar y verificar un JWT?</h3>
+                        <p>Decodificar solo convierte el encabezado y la carga útil de Base64URL a JSON para leerlos; cualquiera puede hacerlo sin ninguna clave. Verificar comprueba con el secreto o la clave pública que la firma es correcta, es decir, que el token lo emitió quien dice y que nadie lo ha modificado.</p>
+                        <br />
+                        <h3>¿Por qué la firma de mi token aparece como no válida?</h3>
+                        <p>Las causas habituales son usar un secreto o una clave pública distintos de los que firmaron el token, marcar o desmarcar por error «Codificado en Base64» en un secreto HMAC, pegar el token incompleto, o verificar con un JWKS que ya no contiene la clave indicada en el kid del encabezado.</p>
+                        <br />
+                        <h3>¿Qué algoritmos admite?</h3>
+                        <p>Verifica y firma HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512 y EdDSA (Ed25519). Los tokens PS256, PS384 y PS512 se pueden decodificar, pero no verificar ni firmar. Los tokens sin firma (alg none) se decodifican con un aviso y nunca se dan por verificados.</p>
+                        <br />
+                        <h3>¿Un JWT está cifrado?</h3>
+                        <p>No. Un JWT firmado solo está codificado en Base64URL: cualquiera que lo tenga puede leer su contenido. La firma impide modificarlo, no leerlo. Por eso no debes guardar contraseñas ni datos sensibles en la carga útil; si necesitas confidencialidad, usa JWE (tokens cifrados).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="alertCopiItem"
+        style="display:none; position:fixed; top:20px; right:20px; z-index:9999; background:#059669; color:#fff; padding:12px 20px; border-radius:8px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.2);">
+        ✓ ¡Copiado al portapapeles!
+    </div>
+
+    <!-- @inicio pie (se genera desde partials/layout.html: no editar aquí) -->
+    <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">GeneradorDATA</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                            <a class="text-decoration-none"
+                                href="mailto:info@generadordata.com">info@generadordata.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Útiles</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="/about.html">Acerca de</a></li>
+                        <li><a class="text-decoration-none" href="/rgpd.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Herramientas</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="/#generadores">Generador DNI</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIF</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador NIE</a></li>
+                        <li><a class="text-decoration-none" href="/#generadores">Generador CIF</a></li>
+                        <li><a class="text-decoration-none" href="/generador-iban.html">Generador IBAN</a></li>
+                        <li><a class="text-decoration-none" href="/generador-tarjetas.html">Generador de tarjetas</a></li>
+                        <li><a class="text-decoration-none" href="/generador-cups.html">Generador CUPS</a></li>
+                        <li><a class="text-decoration-none" href="/api.html">API REST</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-start footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <p class="text-start text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    </div><!-- /gd-main -->
+    </div><!-- /gd-shell -->
+    <!-- @fin pie -->
+
+    <script src="assets/js/theme.js?v=202611260920" defer></script>
+    <script src="assets/js/counter.js?v=202611260920" defer></script>
+    <script src="assets/js/bootstrap.bundle.min.js?v=202611260920"></script>
+
+</body>
+
+</html>
