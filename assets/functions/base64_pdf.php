@@ -2,7 +2,7 @@
 /**
  * base64_pdf.php
  * Conversión Base64 ↔ PDF con validación estricta. Solo define funciones:
- * se carga desde base64controller.php y no produce salida.
+ * se carga desde base64controller.php (junto con security.php) y no produce salida.
  * Ningún dato del usuario se escribe en disco ni se devuelve en los mensajes.
  */
 
@@ -11,11 +11,6 @@ defined('GD_APP') || exit;
 const GD_PDF_MAX_BYTES = 10 * 1024 * 1024;
 const GD_B64_MAX_CHARS = 14 * 1024 * 1024;
 const GD_PDF_SCAN_BYTES = 1024;
-
-function gd_fail(string $code, int $status = 422): array
-{
-    return ['ok' => false, 'error' => $code, 'status' => $status];
-}
 
 /**
  * Limpia el texto pegado y lo deja como Base64 estándar con relleno.
@@ -258,39 +253,4 @@ function gd_b64_error_message(string $code, string $parece = ''): string
         $texto .= ' Parece ' . $parece . '.';
     }
     return $texto;
-}
-
-/**
- * Límite de peticiones por IP (ventana deslizante sencilla) en el directorio temporal.
- * Devuelve false si la IP ha superado el límite.
- */
-function gd_rate_limit(string $ip, int $max = 20, int $window = 600): bool
-{
-    $dir = sys_get_temp_dir() . '/gd_ratelimit';
-    if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
-        return true;
-    }
-
-    $fh = @fopen($dir . '/' . hash('sha256', $ip), 'c+');
-    if ($fh === false) {
-        return true;
-    }
-
-    flock($fh, LOCK_EX);
-    $ahora = time();
-    $marcas = array_filter(
-        array_map('intval', explode(',', (string) stream_get_contents($fh))),
-        function ($t) use ($ahora, $window) { return $t > $ahora - $window; }
-    );
-    $permitido = count($marcas) < $max;
-    if ($permitido) {
-        $marcas[] = $ahora;
-    }
-    ftruncate($fh, 0);
-    rewind($fh);
-    fwrite($fh, implode(',', $marcas));
-    flock($fh, LOCK_UN);
-    fclose($fh);
-
-    return $permitido;
 }

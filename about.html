@@ -45,17 +45,18 @@
     <link rel="apple-touch-icon" href="assets/img/logoGeneradorData140.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=20261124">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=202611260920">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/theme.css?v=20261124">
-    <link rel="stylesheet" href="assets/css/layout.css?v=20261124">
-    <link rel="stylesheet" href="assets/css/widgets.css?v=20261124">
+    <link rel="stylesheet" href="assets/css/theme.css?v=202611260920">
+    <link rel="stylesheet" href="assets/css/layout.css?v=202611260920">
+    <link rel="stylesheet" href="assets/css/widgets.css?v=202611260920">
 </head>
 
 <body>
     <script>document.documentElement.setAttribute('data-bs-theme', (function () { try { return localStorage.getItem('gd-theme') || 'dark'; } catch (e) { return 'dark'; } })());</script>
 
+    <!-- @inicio cabecera (se genera desde partials/layout.html: no editar aquí) -->
     <!-- ── Cabecera móvil ───────────────────────────────────── -->
     <header class="gd-mobile-header d-lg-none">
         <a href="/" class="gd-brand" aria-label="GeneradorData, inicio">
@@ -63,8 +64,8 @@
             <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
         </a>
         <div class="gd-mobile-header-actions">
-            <button type="button" class="gd-icon-btn" data-theme-toggle aria-label="Cambiar tema"><svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg></button>
-            <button type="button" class="gd-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#gdSidebar" aria-controls="gdSidebar" aria-label="Abrir menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-menu"/></svg></button>
+            <button type="button" class="gd-icon-btn" data-theme-toggle aria-label="Cambiar tema"><svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-moon"/></svg></button>
+            <button type="button" class="gd-icon-btn" data-bs-toggle="offcanvas" data-bs-target="#gdSidebar" aria-controls="gdSidebar" aria-label="Abrir menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-menu"/></svg></button>
         </div>
     </header>
 
@@ -78,44 +79,45 @@
                     <img src="assets/img/logo.svg" alt="" width="40" height="40">
                     <span class="gd-brand-text"><span>GENERADOR</span><span>DATA</span></span>
                 </a>
-                <button type="button" class="gd-icon-btn d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#gdSidebar" aria-label="Cerrar menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-close"/></svg></button>
+                <button type="button" class="gd-icon-btn d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#gdSidebar" aria-label="Cerrar menú"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-close"/></svg></button>
             </div>
 
             <nav class="gd-nav" aria-label="Secciones del sitio">
                 <div>
                     <p class="gd-nav-group">Generadores</p>
                     <ul>
-                        <li><a href="/"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-doc"/></svg><span>Documentos</span></a></li>
-                        <li><a href="/generador-iban.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bank"/></svg><span>IBAN</span></a></li>
-                        <li><a href="/generador-tarjetas.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-card"/></svg><span>Tarjetas</span></a></li>
-                        <li><a href="/generador-cups.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bolt"/></svg><span>CUPS</span></a></li>
+                        <li><a href="/"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-doc"/></svg><span>Documentos</span></a></li>
+                        <li><a href="/generador-iban.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bank"/></svg><span>IBAN</span></a></li>
+                        <li><a href="/generador-tarjetas.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-card"/></svg><span>Tarjetas</span></a></li>
+                        <li><a href="/generador-cups.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bolt"/></svg><span>CUPS</span></a></li>
                     </ul>
                 </div>
                 <div>
                     <p class="gd-nav-group">API</p>
                     <ul>
-                        <li><a href="/api.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-api"/></svg><span>API REST</span><span class="gd-nav-badge">12</span></a></li>
+                        <li><a href="/api.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-api"/></svg><span>API REST</span><span class="gd-nav-badge">12</span></a></li>
                     </ul>
                 </div>
                 <div>
                     <p class="gd-nav-group">Utilidades</p>
                     <ul>
-                        <li><a href="/base64-pdf.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-file-code"/></svg><span>Base64 PDF</span></a></li>
+                        <li><a href="/base64-pdf.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-file-code"/></svg><span>Base64 PDF</span></a></li>
+                        <li><a href="/decodificador-jwt.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-key"/></svg><span>JWT</span></a></li>
                     </ul>
                 </div>
                 <div>
                     <p class="gd-nav-group">Sitio</p>
                     <ul>
-                        <li><a href="/about.html" class="active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-info"/></svg><span>Acerca de</span></a></li>
-                        <li><a href="/contact.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-mail"/></svg><span>Contacto</span></a></li>
-                        <li><a href="/rgpd.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield"/></svg><span>Privacidad</span></a></li>
+                        <li><a href="/about.html" class="active" aria-current="page"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-info"/></svg><span>Acerca de</span></a></li>
+                        <li><a href="/contact.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-mail"/></svg><span>Contacto</span></a></li>
+                        <li><a href="/rgpd.html"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-shield"/></svg><span>Privacidad</span></a></li>
                     </ul>
                 </div>
             </nav>
 
             <div class="gd-sidebar-foot">
                 <button type="button" id="themeToggle" class="gd-theme-btn" data-theme-toggle>
-                    <svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg>
+                    <svg class="gd-icon gd-icon-sun" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-sun"/></svg><svg class="gd-icon gd-icon-moon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-moon"/></svg>
                     <span class="gd-theme-label-light">Cambiar a modo claro</span>
                     <span class="gd-theme-label-dark">Cambiar a modo oscuro</span>
                 </button>
@@ -124,6 +126,7 @@
     </aside>
 
     <div class="gd-main">
+    <!-- @fin cabecera -->
 
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="gd-hero">
@@ -133,17 +136,20 @@
         </div>
     </section>
 
+    <!-- @inicio quicknav (se genera desde partials/layout.html: no editar aquí) -->
     <!-- ── Navegación rápida ────────────────────────────────── -->
     <nav class="gd-quicknav" aria-label="Herramientas">
         <div class="container gd-quicknav-inner">
-            <a href="/" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-doc"/></svg>Documentos</a>
-            <a href="/generador-iban.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bank"/></svg>IBAN</a>
-            <a href="/generador-tarjetas.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-card"/></svg>Tarjetas</a>
-            <a href="/generador-cups.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-bolt"/></svg>CUPS</a>
-            <a href="/api.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-api"/></svg>API</a>
-            <a href="/base64-pdf.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg#i-file-code"/></svg>Base64 PDF</a>
+            <a href="/" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-doc"/></svg>Documentos</a>
+            <a href="/generador-iban.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bank"/></svg>IBAN</a>
+            <a href="/generador-tarjetas.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-card"/></svg>Tarjetas</a>
+            <a href="/generador-cups.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-bolt"/></svg>CUPS</a>
+            <a href="/api.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-api"/></svg>API</a>
+            <a href="/base64-pdf.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-file-code"/></svg>Base64 PDF</a>
+            <a href="/decodificador-jwt.html" class="gd-quicknav-pill"><svg class="gd-icon" aria-hidden="true"><use href="assets/img/icons.svg?v=202611260920#i-key"/></svg>JWT</a>
         </div>
     </nav>
+    <!-- @fin quicknav -->
 
     <main id="main-content">
         <section class="gd-info-section">
@@ -199,7 +205,7 @@
         </section>
     </main>
 
-    <!-- ── Footer ───────────────────────────────────────────── -->
+    <!-- @inicio pie (se genera desde partials/layout.html: no editar aquí) -->
     <footer class="bg-dark" id="tempaltemo_footer" role="contentinfo">
         <div class="container">
             <div class="row">
@@ -251,7 +257,7 @@
         </div>
         <div class="w-100 bg-black py-3">
             <div class="container">
-                <p class="text-start text-light mb-0">Copyright &copy; 2023 GenerateDATA. Todos los derechos reservados.
+                <p class="text-start text-light mb-0">Copyright &copy; 2023 GeneradorDATA. Todos los derechos reservados.
                 </p>
             </div>
         </div>
@@ -259,10 +265,11 @@
 
     </div><!-- /gd-main -->
     </div><!-- /gd-shell -->
+    <!-- @fin pie -->
 
-    <script src="assets/js/theme.js?v=20261124" defer></script>
-    <script src="assets/js/counter.js?v=20261124" defer></script>
-    <script src="assets/js/bootstrap.bundle.min.js?v=20261124"></script>
+    <script src="assets/js/theme.js?v=202611260920" defer></script>
+    <script src="assets/js/counter.js?v=202611260920" defer></script>
+    <script src="assets/js/bootstrap.bundle.min.js?v=202611260920"></script>
 
 </body>
 

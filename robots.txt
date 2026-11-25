@@ -9,7 +9,10 @@ Disallow: /api_proxy.php
 Disallow: /counter.php
 Disallow: /assets/config.php
 Disallow: /base64controller.php
+Disallow: /jwtcontroller.php
 Disallow: /assets/functions/
+Disallow: /partials/
+Disallow: /build/
 
 # Sitemap
 Sitemap: https://generadordata.com/sitemap.xml

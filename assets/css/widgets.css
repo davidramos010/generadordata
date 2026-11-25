@@ -544,3 +544,187 @@
 a.gd-btn { text-decoration: none; }
 a.gd-btn-primary:hover { color: #09090b; }
 .gd-actions { flex-wrap: wrap; }
+
+/* ── Decodificador / codificador JWT ─────────────────────── */
+.gd-jwt-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 992px) {
+    .gd-jwt-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.gd-jwt-col { min-width: 0; }
+
+.gd-jwt-token {
+    min-height: 60px;
+    margin: 0 0 6px;
+    padding: 12px 14px;
+    border: 1px solid var(--gd-panel-border);
+    border-radius: 6px;
+    background: var(--gd-panel-deep);
+    font-family: var(--gd-font-mono);
+    font-size: .8rem;
+    line-height: 1.6;
+    color: var(--gd-panel-muted);
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+.gd-jwt-token:empty::before { content: 'El token aparecerá aquí, coloreado por partes'; color: var(--gd-panel-faint); }
+.gd-jwt-h { color: #f472b6; }
+.gd-jwt-p { color: #c084fc; }
+.gd-jwt-s { color: #22d3ee; }
+
+.gd-jwt-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-bottom: 16px;
+    font-family: var(--gd-font-mono);
+    font-size: .72rem;
+    color: var(--gd-panel-muted);
+}
+.gd-jwt-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.gd-json-out {
+    min-height: 80px;
+    max-height: 320px;
+    margin: 0 0 16px;
+    overflow: auto;
+    padding: 12px 14px;
+    border: 1px solid var(--gd-panel-border);
+    border-radius: 6px;
+    background: var(--gd-panel-deep);
+    font-family: var(--gd-font-mono);
+    font-size: .8rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+#jwtHeader { color: #f9a8d4; }
+#jwtPayload { color: #d8b4fe; }
+
+.gd-jwt-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.gd-jwt-bar .gd-label { margin: 0; }
+.gd-jwt-bar .gd-select { min-width: 0; }
+
+.gd-sig {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid;
+    font-family: var(--gd-font-mono);
+    font-size: .75rem;
+    font-weight: 600;
+}
+.gd-sig-ok   { color: #34d399; border-color: rgba(52, 211, 153, .4); background: rgba(52, 211, 153, .1); }
+.gd-sig-bad  { color: #f87171; border-color: rgba(248, 113, 113, .4); background: rgba(248, 113, 113, .1); }
+.gd-sig-warn { color: #fbbf24; border-color: rgba(251, 191, 36, .4); background: rgba(251, 191, 36, .1); }
+.gd-sig-none { color: var(--gd-panel-muted); border-color: var(--gd-panel-border); background: var(--gd-panel-2); }
+
+.gd-jwt-verify {
+    margin-top: 4px;
+    padding: 16px;
+    border: 1px solid var(--gd-panel-border);
+    border-radius: 8px;
+    background: var(--gd-panel-2);
+}
+.gd-jwt-verify .gd-textarea { min-height: 120px; }
+.gd-jwt-input {
+    width: 100%;
+    background: var(--gd-panel-deep);
+    border: 1px solid var(--gd-panel-border);
+    border-radius: 6px;
+    padding: 9px 12px;
+    color: var(--gd-panel-text);
+    font-family: var(--gd-font-mono);
+    font-size: .82rem;
+    outline: none;
+}
+.gd-jwt-input:focus { border-color: var(--gd-accent-solid); }
+.gd-segmented {
+    display: inline-flex;
+    margin-bottom: 10px;
+    border: 1px solid var(--gd-panel-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.gd-segmented button {
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    color: var(--gd-panel-muted);
+    font-family: var(--gd-font-mono);
+    font-size: .75rem;
+    cursor: pointer;
+}
+.gd-segmented button.active { background: rgba(16, 185, 129, .15); color: var(--gd-accent); }
+
+.gd-claims-wrap { overflow-x: auto; margin-bottom: 12px; }
+.gd-claims {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .78rem;
+    color: var(--gd-panel-muted);
+}
+.gd-claims th {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--gd-panel-border);
+    font-family: var(--gd-font-mono);
+    font-size: .7rem;
+    font-weight: 500;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+.gd-claims td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--gd-panel-border);
+    vertical-align: top;
+}
+.gd-claims code { color: var(--gd-accent); font-family: var(--gd-font-mono); font-size: .8rem; }
+.gd-claims small { display: block; margin-top: 2px; font-size: .7rem; color: var(--gd-panel-faint); }
+.gd-claim-value { font-family: var(--gd-font-mono); color: var(--gd-panel-text); word-break: break-all; }
+
+.gd-warnings {
+    margin: 0 0 12px;
+    padding: 10px 14px 10px 30px;
+    border: 1px solid rgba(251, 191, 36, .4);
+    border-radius: 6px;
+    background: rgba(251, 191, 36, .08);
+    color: #fcd34d;
+    font-family: var(--gd-font-mono);
+    font-size: .76rem;
+    line-height: 1.5;
+}
+
+.gd-json-ok, .gd-json-bad { font-family: var(--gd-font-mono); font-size: .72rem; }
+.gd-json-ok  { color: var(--gd-accent); }
+.gd-json-bad { color: #f87171; }
+
+.gd-btn-sm { padding: 5px 12px; font-size: .75rem; }
+
+/* Documentación de la página JWT */
+.gd-doc-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.gd-doc-table th, .gd-doc-table td { padding: 9px 10px; border-bottom: 1px solid var(--gd-border); text-align: left; vertical-align: top; }
+.gd-doc-table th { color: var(--gd-text); font-weight: 600; }
+.gd-doc-table td { color: var(--gd-muted); }
+.gd-doc-table td:first-child { white-space: nowrap; }
+.gd-jwt-structure { font-family: var(--gd-font-mono); font-size: .95rem; word-break: break-all; }
